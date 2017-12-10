@@ -90,8 +90,8 @@ public class OrderDelivery {
         return afName;
     }
 
-//    public void setAfName(String afName) {
-//        this.afName = afName;
-//    }
+    public void setAfName(String afName) {
+        this.afName = afName;
+    }
 
 }
