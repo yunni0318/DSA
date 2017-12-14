@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Class;
+package entity;
 
 /**
  *
  * @author YUNNI
  */
 public class Affiliate {
+
     private String afName;
     private String afAddress;
     private String afCity;

@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Class;
+package entity;
 
 /**
  *
  * @author YUNNI
  */
 public class OrderDelivery {
+
     private int odID;
     private String odTime;
     private String odDate;
@@ -18,8 +19,9 @@ public class OrderDelivery {
     private String dName;
     private String afName;
     private double distance;
+    private String status;
 
-    public OrderDelivery(int odID, String odTime, String odDate, String cusName, double subTotal, String dName, String afName, double distance) {
+    public OrderDelivery(int odID, String odTime, String odDate, String cusName, double subTotal, String dName, String afName, double distance, String status) {
         this.odID = odID;
         this.odTime = odTime;
         this.odDate = odDate;
@@ -28,6 +30,7 @@ public class OrderDelivery {
         this.dName = dName;
         this.afName = afName;
         this.distance = distance;
+        this.status = status;
     }
 
     public double getDistance() {
@@ -92,6 +95,14 @@ public class OrderDelivery {
 
     public void setAfName(String afName) {
         this.afName = afName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }
