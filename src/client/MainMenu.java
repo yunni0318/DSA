@@ -30,7 +30,7 @@ public class MainMenu {
     }
 
     public static void initCustomer() {
-        Customer cus = new Customer("Ckk", "", "", "", "53000", "");
+        Customer cus = new Customer("Ckk", "", "", "", "", "53000", "");
         cusList.add(cus);
     }
 
