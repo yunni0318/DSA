@@ -75,10 +75,7 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lblItem1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="80" y="50" width="260" height="30"/>
@@ -118,7 +115,7 @@
         <Component class="javax.swing.JButton" name="jbtAdd1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Tea Evon\Documents\NetBeansProjects\Agile\src\image\add.png"/>
+              <Image iconType="3" name="/image/add.png"/>
             </Property>
           </Properties>
           <Events>
@@ -133,7 +130,7 @@
         <Component class="javax.swing.JButton" name="jbtAdd2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Tea Evon\Documents\NetBeansProjects\Agile\src\image\add.png"/>
+              <Image iconType="3" name="/image/add.png"/>
             </Property>
           </Properties>
           <Events>
@@ -163,7 +160,7 @@
         <Component class="javax.swing.JButton" name="jbtAdd4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Tea Evon\Documents\NetBeansProjects\Agile\src\image\add.png"/>
+              <Image iconType="3" name="/image/add.png"/>
             </Property>
           </Properties>
           <Events>
@@ -298,7 +295,7 @@
         <Component class="javax.swing.JButton" name="jbtDe1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Tea Evon\Documents\NetBeansProjects\Agile\src\image\delete.png"/>
+              <Image iconType="3" name="/image/delete.png"/>
             </Property>
           </Properties>
           <Events>
@@ -313,7 +310,7 @@
         <Component class="javax.swing.JButton" name="jbtDe2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Tea Evon\Documents\NetBeansProjects\Agile\src\image\delete.png"/>
+              <Image iconType="3" name="/image/delete.png"/>
             </Property>
           </Properties>
           <Events>
@@ -328,7 +325,7 @@
         <Component class="javax.swing.JButton" name="jbtDe3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Tea Evon\Documents\NetBeansProjects\Agile\src\image\delete.png"/>
+              <Image iconType="3" name="/image/delete.png"/>
             </Property>
           </Properties>
           <Events>
@@ -343,7 +340,7 @@
         <Component class="javax.swing.JButton" name="jbtDe4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Tea Evon\Documents\NetBeansProjects\Agile\src\image\delete.png"/>
+              <Image iconType="3" name="/image/delete.png"/>
             </Property>
           </Properties>
           <Events>

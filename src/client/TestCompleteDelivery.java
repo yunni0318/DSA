@@ -16,11 +16,11 @@ public class TestCompleteDelivery {
 
     public TestCompleteDelivery() {
         ArrayList<OrderDelivery> odList = new ArrayList<>();
-        OrderDelivery od = new OrderDelivery(1, "20:00", "13/12/2017", "Dilraba", 0, "Tony", "MCD", 0, "Pending");
+        OrderDelivery od = new OrderDelivery(1, "20:00", "13/12/2017", "Dilraba", "", 0, "Tony", "MCD", 0, "Pending");
         odList.add(od);
-        od = new OrderDelivery(2, "20:00", "13/12/2017", "Yunni", 0, "Alex", "MCD", 0, "Pending");
+        od = new OrderDelivery(2, "20:00", "13/12/2017", "Yunni", "", 0, "Alex", "MCD", 0, "Pending");
         odList.add(od);
-        od = new OrderDelivery(3, "20:00", "13/12/2017", "Yunni", 0, "Alex", "MCD", 0, "Pending");
+        od = new OrderDelivery(3, "20:00", "13/12/2017", "Yunni", "", 0, "Alex", "MCD", 0, "Pending");
         odList.add(od);
         for (int i = 0; i < odList.size(); i++) {
             if (odList.get(i).getOdID() == 3) {

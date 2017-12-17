@@ -5,80 +5,87 @@
  */
 package client;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import entity.OrderDelivery;
 import adt.ListInterface;
 import adt.OrderLinkedList;
+import adt.OrderItemLinkedList;
+import entity.OrderItem;
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author Tea Evon
  */
 public class FConfirm extends javax.swing.JFrame {
-    ListInterface<Character> myOrder = new OrderLinkedList<>();
-    ArrayList<OrderDelivery> orderList = new ArrayList();
+    OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
+    OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
+    //ArrayList<OrderDelivery> orderList = new ArrayList();
     /**
      * Creates new form ConOrder
      */
     public FConfirm() {
         initComponents();
         clearTable();
-        show_Order();
+        //int orderID = Integer.valueOf(lblOrderID.getText());
+        show_OrderItem(0);
+        //show_OrderItem(orderID);
+//        show_Order(0);Integer.parseInt(lblOrderID.getText()));
     }
     
-    public FConfirm(ArrayList<OrderDelivery> orderList) {
+    public FConfirm(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList, int id) {
         initComponents();
         clearTable();
-        lblOrderID.setText(String.valueOf(generateOrderID()));
-        this.orderList = orderList;
-        
-        show_Order();
+        lblOrderID.setText(String.valueOf(id));//String.valueOf(generateOrderID()));
+        this.odList = odList;
+        this.oiList = oiList;
+        show_OrderItem(id);
+        //show_OrderItem(0);//Integer.parseInt(lblOrderID.getText()));
     }
-    public int generateOrderID()
-    {
-        int orderID=1001;
-        return orderID;
-    }
+//    public int generateOrderID()
+//    {
+//        int orderID=1001;
+//        int count = orderList.getNumberOfEntries();
+//        orderID = orderID + count;
+//        return orderID;
+//    }
     
-    public void show_Order()
-    {
-        DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
-        Object[] row = new Object[5];
-        for(int i=0;i<orderList.size();i++){
-//            row[0] = orderList.get(i).getItemName();
-//            row[1] = orderList.get(i).getQuantity();
-//            row[2] = orderList.get(i).getPrice();
-//            row[3] = orderList.get(i).getRemark();
-            model.addRow(row);
-        }
-    }
+//    public void show_Order(int orderID)
+//    {
+//        OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
+//        DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
+//        Object[] row = new Object[5];
+//        oiList.getOrderItem(orderID);
+//        for(int i=0;i<odList.getNumberOfEntries();i++){
+////            row[0] = orderList.get(i).getItemName();
+////            row[1] = orderList.get(i).getQuantity();
+////            row[2] = orderList.get(i).getPrice();
+////            row[3] = orderList.get(i).getRemark();
+//            model.addRow(row);
+//        }
+//    }
     
-    public ArrayList<OrderDelivery> get_Order()
+    public void show_OrderItem(int orderID)
     {
-        OrderDelivery order;
-        String item;
-        String re = "";
-        int qua;
-        double price;
+        GregorianCalendar cal = new GregorianCalendar();
+        int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
+        int currentMinute = cal.get(GregorianCalendar.MINUTE);
+        String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
         
-        ArrayList<OrderDelivery> orderList = new ArrayList();
         int selectedRow = tbOrderConfirm.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
         int rowCount = model.getRowCount();
-        //Object[] row = new Object[4];
-        for(int i=0;i<rowCount;i++)
-        {
-            item = model.getValueAt(selectedRow, 0).toString();
-            qua = (Integer)model.getValueAt(selectedRow, 1);
-            price = (double)model.getValueAt(selectedRow, 2);
-            re = model.getValueAt(selectedRow, 3).toString();
-            
-            order = new OrderDelivery(2, "20:00", "13/12/2017", "Yunni", 0, "Alex", "MCD", 20, "Pending");//Integer.parseInt(lblOrderID.getText()),item, qua, price, re);
-            orderList.add(order);
+        Object[] row = new Object[3];
+        
+        for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
+            if (oiList.getEntry(i).getOdID()==orderID){   
+                row[0] = oiList.getEntry(i).getItName();
+                row[1] = oiList.getEntry(i).getOiQuantity();
+                row[2] = oiList.getEntry(i).getOiPrice();     
+                model.addRow(row);
+            }
         }
-        return orderList;    
     }
     
     public void clearTable()
@@ -100,12 +107,11 @@ public class FConfirm extends javax.swing.JFrame {
         return this.jlResName.getText();
     }
     
-    public int getOrderID()
-    {
-        int id=0;
-        
-        return id;
-    }
+//    public int getOrderID()
+//    {
+//        int id=0;
+//        return id;
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -125,7 +131,7 @@ public class FConfirm extends javax.swing.JFrame {
         jbMenu = new javax.swing.JButton();
         jbConfirm = new javax.swing.JButton();
         lblOrderID = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(470, 443));
@@ -145,9 +151,9 @@ public class FConfirm extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jlTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jlTitle)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         jlResName.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
@@ -156,20 +162,20 @@ public class FConfirm extends javax.swing.JFrame {
         tbOrderConfirm.setAutoCreateRowSorter(true);
         tbOrderConfirm.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Item Name", "Quantity", "Price", "Remark"
+                "Item Name", "Quantity", "Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -205,7 +211,8 @@ public class FConfirm extends javax.swing.JFrame {
         lblOrderID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblOrderID.setText("jLabel1");
 
-        jLabel1.setText("Total     : RM 31.00");
+        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTotal.setText("Total     : RM 31.00");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -219,21 +226,23 @@ public class FConfirm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(jbMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jbConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jlResName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
+                .addComponent(jlResName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblOrderID)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbMenu)
@@ -251,7 +260,7 @@ public class FConfirm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -262,14 +271,8 @@ public class FConfirm extends javax.swing.JFrame {
     private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
         // TODO add your handling code here:
         String res = jlResName.getText();
-        FMenuItem menuFrame = new FMenuItem();
+       // FMenuItem menuFrame = new FMenuItem();
         FRestaurant resFrame = new FRestaurant();
-        //menuFrame.setVisible(true);
-//        orderList.clear();
-//        clearTable();
-//        menuFrame.setRes(res);
-//        menuFrame.getMenu(res);
-//        menuFrame.setVisible(true);
         resFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jbMenuActionPerformed
@@ -278,7 +281,9 @@ public class FConfirm extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this,"Your order is  submited. "//Now you will process to Payment."
                 , "Success", JOptionPane.INFORMATION_MESSAGE);
-        //FPayment payFrame;
+        CustomerInforF cusFrame = new CustomerInforF(odList);
+        cusFrame.setVisible(true);
+        this.setVisible(false);
         //payFrame = new FPayment(get_Order());
     }//GEN-LAST:event_jbConfirmActionPerformed
 
@@ -325,7 +330,6 @@ public class FConfirm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -334,6 +338,7 @@ public class FConfirm extends javax.swing.JFrame {
     private javax.swing.JLabel jlResName;
     private javax.swing.JLabel jlTitle;
     private javax.swing.JLabel lblOrderID;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tbOrderConfirm;
     // End of variables declaration//GEN-END:variables
 }

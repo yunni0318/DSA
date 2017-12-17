@@ -5,11 +5,6 @@
  */
 package client;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,30 +23,30 @@ public class FRestaurant extends javax.swing.JFrame {
         initComponents();
     }
 
-    public String getResName(int i)
+    public String getResName(String name)
     {
-        String resName = "";
-        try{
-            
-            String host = "jdbc:derby://localhost:1527/collegedb";
-            String username = "nbuser";
-            String password = "nbuser";
-            Connection con = DriverManager.getConnection(host, username, password);
-            PreparedStatement pstmt = con.prepareStatement("Select * from restaurant where resID=?");
- 
-            pstmt.setInt(1,i);
-            ResultSet rs = pstmt.executeQuery();
-            if(rs.next())
-            {
-                resName = rs.getString(2);
-            }
-            
-        }
-        catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-            //Logger.getLongger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String resName = name;
+//        try{
+//            
+//            String host = "jdbc:derby://localhost:1527/collegedb";
+//            String username = "nbuser";
+//            String password = "nbuser";
+//            Connection con = DriverManager.getConnection(host, username, password);
+//            PreparedStatement pstmt = con.prepareStatement("Select * from restaurant where resID=?");
+// 
+//            pstmt.setInt(1,i);
+//            ResultSet rs = pstmt.executeQuery();
+//            if(rs.next())
+//            {
+//                resName = rs.getString(2);
+//            }
+//            
+//        }
+//        catch(SQLException ex)
+//        {
+//            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+//            //Logger.getLongger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         return resName;
     }
     
@@ -70,7 +65,7 @@ public class FRestaurant extends javax.swing.JFrame {
         cbArea = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jpBukitBintang = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblRes1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -127,11 +122,11 @@ public class FRestaurant extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.CardLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/585b-c.jpg"))); // NOI18N
-        jLabel1.setText("Homemade Chinese Restaurant");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/585b-c.jpg"))); // NOI18N
+        lblRes1.setText("Homemade Chinese Restaurant");
+        lblRes1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lblRes1MouseClicked(evt);
             }
         });
 
@@ -178,7 +173,7 @@ public class FRestaurant extends javax.swing.JFrame {
         jpBukitBintangLayout.setHorizontalGroup(
             jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBukitBintangLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jpBukitBintangLayout.createSequentialGroup()
@@ -198,7 +193,7 @@ public class FRestaurant extends javax.swing.JFrame {
             jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBukitBintangLayout.createSequentialGroup()
                 .addGroup(jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlResName1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,10 +320,10 @@ public class FRestaurant extends javax.swing.JFrame {
             jPanel1.repaint();
             jPanel1.revalidate();
             
-            jlResName1.setText(getResName(Integer.parseInt(jLabel1.getText())));
-            jlResName2.setText(getResName(Integer.parseInt(jLabel2.getText())));
-            jlResName3.setText(getResName(Integer.parseInt(jLabel3.getText())));
-            jlResName4.setText(getResName(Integer.parseInt(jLabel4.getText())));
+            jlResName1.setText(lblRes1.getText());//getResName(jLabel1.getText()));
+            jlResName2.setText(jLabel2.getText());//getResName(jLabel2.getText()));
+            jlResName3.setText(jLabel3.getText());//getResName(jLabel3.getText()));
+            jlResName4.setText(jLabel4.getText());//getResName(jLabel4.getText()));
             
         }
         
@@ -343,27 +338,27 @@ public class FRestaurant extends javax.swing.JFrame {
             jPanel1.revalidate();
             //getRes();
             
-            jlResName5.setText(getResName(Integer.parseInt(jLabel5.getText())));
-            jlResName6.setText(getResName(Integer.parseInt(jLabel6.getText())));
-            jlResName7.setText(getResName(Integer.parseInt(jLabel7.getText())));
-            jlResName8.setText(getResName(Integer.parseInt(jLabel8.getText()))); 
+            jlResName5.setText(jLabel5.getText());//getResName(jLabel5.getText()));
+            jlResName6.setText(jLabel6.getText());//getResName(jLabel6.getText()));
+            jlResName7.setText(jLabel7.getText());//getResName(jLabel7.getText()));
+            jlResName8.setText(jLabel8.getText());//getResName(jLabel8.getText())); 
         }
         
 
     }//GEN-LAST:event_jbSearchActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lblRes1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRes1MouseClicked
         // TODO add your handling code here:   
 //        if(jlResName1.getText()==null){
 //            JOptionPane.showMessageDialog(null, "You should click the", "Error", JOptionPane.INFORMATION_MESSAGE);
 //        }
 //        else{
-            menu.setRes(jLabel1.getText());
-            menu.getMenu(jLabel1.getText());
+            menu.setRes(jlResName1.getText());
+            menu.getMenu(jlResName1.getText());
             menu.setVisible(true);
             this.setVisible(false);
 //        }
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lblRes1MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
@@ -462,7 +457,6 @@ public class FRestaurant extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbArea;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -484,5 +478,6 @@ public class FRestaurant extends javax.swing.JFrame {
     private javax.swing.JPanel jpBukitBintang;
     private javax.swing.JPanel jpSetapak;
     private javax.swing.JPanel jpTop;
+    private javax.swing.JLabel lblRes1;
     // End of variables declaration//GEN-END:variables
 }

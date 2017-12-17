@@ -24,6 +24,13 @@ public class OrderItem {
         this.oiPrice = oiPrice;
     }
 
+    public OrderItem(int odID, String itName, int oiQuantity, double oiPrice) {
+        this.odID = odID;
+        this.itName = itName;
+        this.oiQuantity = oiQuantity;
+        this.oiPrice = oiPrice;
+    }
+
     public int getOdID() {
         return odID;
     }
