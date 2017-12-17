@@ -28,12 +28,12 @@ public class MainMenu {
     public static OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
 
     public static void initAffiliate() {
-        Affiliate af = new Affiliate("MCD", "", "", "", "51000", "");
+        Affiliate af = new Affiliate("MCD", "", "", "", "", "51000");
         afList.add(af);
     }
 
     public static void initCustomer() {
-        Customer cus = new Customer("Ckk", "", "", "", "", "53000", "");
+        Customer cus = new Customer("Ckk", "", "", "", "", "53000");
         cusList.add(cus);
     }
 

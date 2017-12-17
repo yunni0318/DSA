@@ -21,61 +21,33 @@ import java.util.GregorianCalendar;
 public class FConfirm extends javax.swing.JFrame {
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
+    int id;
     //ArrayList<OrderDelivery> orderList = new ArrayList();
     /**
      * Creates new form ConOrder
      */
     public FConfirm() {
         initComponents();
-        clearTable();
-        //int orderID = Integer.valueOf(lblOrderID.getText());
-        show_OrderItem(0);
-        //show_OrderItem(orderID);
-//        show_Order(0);Integer.parseInt(lblOrderID.getText()));
     }
     
     public FConfirm(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList, int id) {
         initComponents();
+        //jPanel2.setLayout(null);
+        
         clearTable();
         lblOrderID.setText(String.valueOf(id));//String.valueOf(generateOrderID()));
         this.odList = odList;
         this.oiList = oiList;
+        this.id = id;
         show_OrderItem(id);
         //show_OrderItem(0);//Integer.parseInt(lblOrderID.getText()));
     }
-//    public int generateOrderID()
-//    {
-//        int orderID=1001;
-//        int count = orderList.getNumberOfEntries();
-//        orderID = orderID + count;
-//        return orderID;
-//    }
-    
-//    public void show_Order(int orderID)
-//    {
-//        OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
-//        DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
-//        Object[] row = new Object[5];
-//        oiList.getOrderItem(orderID);
-//        for(int i=0;i<odList.getNumberOfEntries();i++){
-////            row[0] = orderList.get(i).getItemName();
-////            row[1] = orderList.get(i).getQuantity();
-////            row[2] = orderList.get(i).getPrice();
-////            row[3] = orderList.get(i).getRemark();
-//            model.addRow(row);
-//        }
-//    }
-    
+
     public void show_OrderItem(int orderID)
     {
-        GregorianCalendar cal = new GregorianCalendar();
-        int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
-        int currentMinute = cal.get(GregorianCalendar.MINUTE);
-        String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
-        
-        int selectedRow = tbOrderConfirm.getSelectedRow();
+        //int selectedRow = tbOrderConfirm.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
-        int rowCount = model.getRowCount();
+        //int rowCount = model.getRowCount();
         Object[] row = new Object[3];
         
         for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
@@ -86,6 +58,18 @@ public class FConfirm extends javax.swing.JFrame {
                 model.addRow(row);
             }
         }
+        
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getOdID()==orderID){   
+                odList.getEntry(i).setDeliveryFee(5.00);
+                odList.getEntry(i).setTotal(odList.getEntry(i).getSubTotal()+5.00);
+                //double sub = odList.getEntry(i).getSubTotal();
+                lblSubTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getSubTotal()));
+                lblDeliveryFee.setText("RM "+ String.valueOf(odList.getEntry(i).getDeliveryFee()));
+                lblTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getTotal()));
+            }
+        }
+        
     }
     
     public void clearTable()
@@ -106,12 +90,6 @@ public class FConfirm extends javax.swing.JFrame {
     {
         return this.jlResName.getText();
     }
-    
-//    public int getOrderID()
-//    {
-//        int id=0;
-//        return id;
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -131,6 +109,11 @@ public class FConfirm extends javax.swing.JFrame {
         jbMenu = new javax.swing.JButton();
         jbConfirm = new javax.swing.JButton();
         lblOrderID = new javax.swing.JLabel();
+        lblSubTotal = new javax.swing.JLabel();
+        lblDeliveryFee = new javax.swing.JLabel();
+        lblTotal2 = new javax.swing.JLabel();
+        lblTotal3 = new javax.swing.JLabel();
+        lblTotal4 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,6 +125,7 @@ public class FConfirm extends javax.swing.JFrame {
         jlTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlTitle.setText("Order Confirmation");
         jlTitle.setToolTipText("");
+        jlTitle.setPreferredSize(new java.awt.Dimension(470, 43));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,9 +136,11 @@ public class FConfirm extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jlTitle)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addComponent(jlTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(470, 400));
 
         jlResName.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jlResName.setText("jLabel1");
@@ -211,27 +197,50 @@ public class FConfirm extends javax.swing.JFrame {
         lblOrderID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblOrderID.setText("jLabel1");
 
+        lblSubTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSubTotal.setText("0.00");
+
+        lblDeliveryFee.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDeliveryFee.setText("0.00");
+
+        lblTotal2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTotal2.setText("Delivery Fee");
+
+        lblTotal3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTotal3.setText("Sub Total");
+
+        lblTotal4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTotal4.setText("Total Amount");
+
         lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTotal.setText("Total     : RM 31.00");
+        lblTotal.setText("0.00");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jlResName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(lblOrderID)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jbMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(20, 20, 20))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTotal2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotal4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotal3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblSubTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDeliveryFee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,14 +249,27 @@ public class FConfirm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblOrderID)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDeliveryFee, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTotal3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotal4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbMenu)
                     .addComponent(jbConfirm))
-                .addGap(50, 50, 50))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,14 +277,14 @@ public class FConfirm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
         );
 
         pack();
@@ -271,7 +293,6 @@ public class FConfirm extends javax.swing.JFrame {
     private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
         // TODO add your handling code here:
         String res = jlResName.getText();
-       // FMenuItem menuFrame = new FMenuItem();
         FRestaurant resFrame = new FRestaurant();
         resFrame.setVisible(true);
         this.setVisible(false);
@@ -281,7 +302,7 @@ public class FConfirm extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this,"Your order is  submited. "//Now you will process to Payment."
                 , "Success", JOptionPane.INFORMATION_MESSAGE);
-        CustomerInforF cusFrame = new CustomerInforF(odList);
+        CustomerInforF cusFrame = new CustomerInforF(odList, id);
         cusFrame.setVisible(true);
         this.setVisible(false);
         //payFrame = new FPayment(get_Order());
@@ -337,8 +358,13 @@ public class FConfirm extends javax.swing.JFrame {
     private javax.swing.JButton jbMenu;
     private javax.swing.JLabel jlResName;
     private javax.swing.JLabel jlTitle;
+    private javax.swing.JLabel lblDeliveryFee;
     private javax.swing.JLabel lblOrderID;
+    private javax.swing.JLabel lblSubTotal;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lblTotal2;
+    private javax.swing.JLabel lblTotal3;
+    private javax.swing.JLabel lblTotal4;
     private javax.swing.JTable tbOrderConfirm;
     // End of variables declaration//GEN-END:variables
 }

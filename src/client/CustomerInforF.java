@@ -5,9 +5,12 @@
  */
 package client;
 
+import adt.CustomerLinkedQueue;
 import adt.OrderLinkedList;
 import com.sun.glass.events.KeyEvent;
+import entity.Customer;
 import entity.OrderDelivery;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +19,10 @@ import javax.swing.JOptionPane;
  */
 public class CustomerInforF extends javax.swing.JFrame {
 
+    OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
+    private CustomerLinkedQueue<Customer> cusList = new CustomerLinkedQueue<>();
+    int orderID;
+    
     /**
      * Creates new form customerRegistrationF
      */
@@ -23,8 +30,13 @@ public class CustomerInforF extends javax.swing.JFrame {
         initComponents();
     }
     
-    public CustomerInforF(OrderLinkedList<OrderDelivery> odList) {
+    public CustomerInforF(OrderLinkedList<OrderDelivery> odList, int orderID) {
+//        jpCus.setLayout(null);
+        this.odList = odList;
+        this.orderID = orderID;
+        
         initComponents();
+        lblTotal.setText(String.valueOf(getTotal(orderID)));
     }
 
     /**
@@ -36,9 +48,10 @@ public class CustomerInforF extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JPanel = new javax.swing.JPanel();
-        lblID = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
+        btGroupPay = new javax.swing.ButtonGroup();
+        jpCus = new javax.swing.JPanel();
+        lblName = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
@@ -46,50 +59,47 @@ public class CustomerInforF extends javax.swing.JFrame {
         txtState = new javax.swing.JTextField();
         lblState = new javax.swing.JLabel();
         lblPostcode = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        lblState1 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        cbPostcode = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         lblPhone = new javax.swing.JLabel();
         jbtConfirm = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        lblPayMethod = new javax.swing.JLabel();
+        lblTotalA = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblCardNo = new javax.swing.JLabel();
+        txtCardNo = new javax.swing.JTextField();
+        txtSecurityCode = new javax.swing.JTextField();
+        lblSecurityCode = new javax.swing.JLabel();
+        lblOwner = new javax.swing.JLabel();
+        txtOwner = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblID.setText("Name :");
-
-        txtId.setEnabled(false);
-
-        txtAddress.setEnabled(false);
+        lblName.setText("Name :");
 
         lblAddress.setText("Address :");
 
         lblCity.setText("City :");
 
-        txtCity.setEnabled(false);
-
-        txtState.setEnabled(false);
-
         lblState.setText("State :");
 
         lblPostcode.setText("Postcode :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "53000", "53100", "53300" }));
-
-        lblState1.setText("Password :");
-
-        jPasswordField1.setText("123456");
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyTyped(evt);
-            }
-        });
+        cbPostcode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "53000", "53100", "53300" }));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Customer Information");
 
-        txtPhone.setEnabled(false);
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneActionPerformed(evt);
+            }
+        });
         txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPhoneKeyPressed(evt);
@@ -101,86 +111,184 @@ public class CustomerInforF extends javax.swing.JFrame {
 
         lblPhone.setText("Phone Number :");
 
-        jbtConfirm.setText("Confirm");
+        jbtConfirm.setText("Make Payment");
+        jbtConfirm.setToolTipText("");
+        jbtConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtConfirmActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
-        JPanel.setLayout(JPanelLayout);
-        JPanelLayout.setHorizontalGroup(
-            JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelLayout.createSequentialGroup()
+        btGroupPay.add(jRadioButton1);
+        jRadioButton1.setText("Master Card");
+        jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        btGroupPay.add(jRadioButton2);
+        jRadioButton2.setText("Visa");
+        jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        lblPayMethod.setText("Payment Method :");
+
+        lblTotalA.setText("Total Payment :");
+
+        lblTotal.setText("0.00");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Make Payment");
+
+        lblCardNo.setText("Card Number :");
+
+        txtCardNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCardNoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCardNoKeyTyped(evt);
+            }
+        });
+
+        txtSecurityCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSecurityCodeKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSecurityCodeKeyTyped(evt);
+            }
+        });
+
+        lblSecurityCode.setText("Security Code :");
+
+        lblOwner.setText("Owner Name :");
+
+        txtOwner.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtOwnerKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpCusLayout = new javax.swing.GroupLayout(jpCus);
+        jpCus.setLayout(jpCusLayout);
+        jpCusLayout.setHorizontalGroup(
+            jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpCusLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbtConfirm)
-                        .addGap(13, 13, 13))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblState1)
-                            .addComponent(lblPostcode)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
+                        .addComponent(lblName)
+                        .addGap(61, 61, 61)
+                        .addComponent(txtName))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbtConfirm))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
+                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAddress)
-                            .addComponent(lblState)
                             .addComponent(lblCity))
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpCusLayout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addComponent(txtAddress))
-                            .addGroup(JPanelLayout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(jPasswordField1))
-                            .addGroup(JPanelLayout.createSequentialGroup()
+                            .addGroup(jpCusLayout.createSequentialGroup()
                                 .addGap(43, 43, 43)
-                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtState, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(JPanelLayout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 261, Short.MAX_VALUE))))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPhone)
-                            .addComponent(lblID))
+                                .addComponent(txtCity))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
+                        .addComponent(lblPhone)
                         .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtId)
-                            .addComponent(txtPhone)))))
+                        .addComponent(txtPhone))
+                    .addGroup(jpCusLayout.createSequentialGroup()
+                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPostcode)
+                            .addComponent(lblState))
+                        .addGap(45, 45, 45)
+                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtState, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jpCusLayout.createSequentialGroup()
+                                .addComponent(cbPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jpCusLayout.createSequentialGroup()
+                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblTotalA)
+                                .addGroup(jpCusLayout.createSequentialGroup()
+                                    .addComponent(lblPayMethod)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jpCusLayout.createSequentialGroup()
+                                    .addGap(96, 96, 96)
+                                    .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
+                                        .addComponent(lblCardNo)
+                                        .addGap(22, 22, 22)
+                                        .addComponent(txtCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
+                                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblSecurityCode)
+                                            .addComponent(lblOwner))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtOwner)
+                                            .addComponent(txtSecurityCode))))))
+                        .addContainerGap())))
         );
-        JPanelLayout.setVerticalGroup(
-            JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelLayout.createSequentialGroup()
+        jpCusLayout.setVerticalGroup(
+            jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpCusLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblID))
-                .addGap(18, 18, 18)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPhone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAddress)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblState)
                     .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPostcode))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotalA)
+                    .addComponent(lblTotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblState1)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPayMethod)
+                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCardNo)
+                    .addComponent(txtCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOwner))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSecurityCode)
+                    .addComponent(txtSecurityCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addComponent(jbtConfirm)
                 .addContainerGap())
         );
@@ -189,11 +297,11 @@ public class CustomerInforF extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpCus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpCus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -201,28 +309,114 @@ public class CustomerInforF extends javax.swing.JFrame {
 
     private void txtPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyPressed
         // TODO add your handling code here:
-        if (txtPhone.getText().length() >= 11) {
-            txtPhone.setText(txtPhone.getText().substring(0, 10));
-        }
     }//GEN-LAST:event_txtPhoneKeyPressed
 
     private void txtPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
+        if (txtPhone.getText().length() >= 11) {
+            txtPhone.setText(txtPhone.getText().substring(0, 10));
+        }
         if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)) {
             JOptionPane.showMessageDialog(null, "Invalid input. Only accept number, such as 0123456789", "Warning", JOptionPane.INFORMATION_MESSAGE);
             evt.consume();
         }
     }//GEN-LAST:event_txtPhoneKeyTyped
 
-    private void jPasswordField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyTyped
+    private double getTotal(int orderID)//OrderLinkedList<OrderDelivery> odList, 
+    {
+        double ttl = 0.00;
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getOdID() == orderID) 
+            {
+                ttl =odList.getEntry(i).getTotal();
+            }
+        }
+        return ttl;
+    }
+    
+//    private void getCustomerInfor(int orderID)//OrderLinkedList<OrderDelivery> odList, 
+//    {
+//        Customer cus = new Customer(txtName.getText(),txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()));
+//        cusList.enqueue(cus);
+//        //double ttl = 0.00;
+//        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+//            if (odList.getEntry(i).getOdID() == orderID) 
+//            {
+//                odList.getEntry(i).getTotal();
+//            }
+//        }
+//     
+//    }
+    
+    private void jbtConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtConfirmActionPerformed
         // TODO add your handling code here:
-        if (jPasswordField1.getText().length() < 6) {
-            txtPhone.setText(txtPhone.getText().substring(0, 10));
-            JOptionPane.showMessageDialog(null, "Invalid input. Password should more than 6 character.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        //getCustomerInfor( orderID);//odList,
+        String name = txtName.getText();
+        String phone = txtPhone.getText();
+        
+        GregorianCalendar cal = new GregorianCalendar();
+        int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
+        int currentMinute = cal.get(GregorianCalendar.MINUTE);
+        String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
+        
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getOdID()==orderID) {
+                odList.getEntry(i).setCusName(name);
+                odList.getEntry(i).setCusPhone(phone);
+                odList.getEntry(i).setOdTime(odTime);
+            }
+        }
+        
+    }//GEN-LAST:event_jbtConfirmActionPerformed
+
+    private void txtCardNoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCardNoKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtCardNoKeyPressed
+
+    private void txtCardNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCardNoKeyTyped
+        // TODO add your handling code here:
+        if (txtPhone.getText().length() >= 16) {
+            txtPhone.setText(txtPhone.getText().substring(0, 15));
+        }
+        
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)) {
+            JOptionPane.showMessageDialog(null, "Invalid input. Only accept number.", "Warning", JOptionPane.INFORMATION_MESSAGE);
             evt.consume();
         }
-    }//GEN-LAST:event_jPasswordField1KeyTyped
+    }//GEN-LAST:event_txtCardNoKeyTyped
+
+    private void txtSecurityCodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityCodeKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtSecurityCodeKeyPressed
+
+    private void txtSecurityCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityCodeKeyTyped
+        // TODO add your handling code here:
+        if (txtPhone.getText().length() >= 3) {
+            txtPhone.setText(txtPhone.getText().substring(0, 2));
+        }
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)) {
+            JOptionPane.showMessageDialog(null, "Invalid input. Only accept number.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSecurityCodeKeyTyped
+
+    private void txtOwnerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOwnerKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!(Character.isLetter(c))) {
+            JOptionPane.showMessageDialog(null, "Invalid input. Only accept alphabetic.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtOwnerKeyTyped
+
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,22 +457,33 @@ public class CustomerInforF extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JPanel;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.ButtonGroup btGroupPay;
+    private javax.swing.JComboBox<String> cbPostcode;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JButton jbtConfirm;
+    private javax.swing.JPanel jpCus;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblCardNo;
     private javax.swing.JLabel lblCity;
-    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblOwner;
+    private javax.swing.JLabel lblPayMethod;
     private javax.swing.JLabel lblPhone;
     private javax.swing.JLabel lblPostcode;
+    private javax.swing.JLabel lblSecurityCode;
     private javax.swing.JLabel lblState;
-    private javax.swing.JLabel lblState1;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lblTotalA;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtCardNo;
     private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtOwner;
     private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtSecurityCode;
     private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,16 +17,14 @@ public class Customer {
     private String cusCity;
     private String cusState;
     private String cusPostcode;
-    private String cusPassword;
-
-    public Customer(String cusName, String cusPhone, String cusAdd, String cusCity, String cusState, String cusPostcode, String cusPassword) {
+    
+    public Customer(String cusName, String cusPhone, String cusAdd, String cusCity, String cusState, String cusPostcode) {
         this.cusName = cusName;
         this.cusPhone = cusPhone;
         this.cusAddress = cusAdd;
         this.cusCity = cusCity;
         this.cusState = cusState;
         this.cusPostcode = cusPostcode;
-        this.cusPassword = cusPassword;
     }
 
     public String getCusPhone() {
@@ -85,11 +83,4 @@ public class Customer {
         this.cusPostcode = cusPostcode;
     }
 
-    public String getCusPassword() {
-        return cusPassword;
-    }
-
-    public void setCusPassword(String cusPassword) {
-        this.cusPassword = cusPassword;
-    }
 }

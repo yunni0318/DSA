@@ -26,27 +26,6 @@ public class FRestaurant extends javax.swing.JFrame {
     public String getResName(String name)
     {
         String resName = name;
-//        try{
-//            
-//            String host = "jdbc:derby://localhost:1527/collegedb";
-//            String username = "nbuser";
-//            String password = "nbuser";
-//            Connection con = DriverManager.getConnection(host, username, password);
-//            PreparedStatement pstmt = con.prepareStatement("Select * from restaurant where resID=?");
-// 
-//            pstmt.setInt(1,i);
-//            ResultSet rs = pstmt.executeQuery();
-//            if(rs.next())
-//            {
-//                resName = rs.getString(2);
-//            }
-//            
-//        }
-//        catch(SQLException ex)
-//        {
-//            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-//            //Logger.getLongger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         return resName;
     }
     

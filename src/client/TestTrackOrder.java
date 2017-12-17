@@ -23,7 +23,7 @@ public class TestTrackOrder {
         ArrayList<Customer> cusList = new ArrayList<>();
         Affiliate af = new Affiliate("KFC", "", "", "", "51000", "");
         afList.add(af);
-        Customer cus = new Customer("Dilraba", "", "", "", "", "53000", "");
+        Customer cus = new Customer("Dilraba", "", "", "", "", "53000");
         cusList.add(cus);
         String fromPostcode = "";
         String toPostcode = "";
