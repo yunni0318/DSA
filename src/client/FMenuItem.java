@@ -456,7 +456,7 @@ public class FMenuItem extends javax.swing.JFrame {
 //        int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
 //        int currentMinute = cal.get(GregorianCalendar.MINUTE);
 //        String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
-        OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, "", jlResName.getText(), 0, "");
+        OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
         odList.add(newEntry);
         FConfirm orderCon = new FConfirm(odList, oiList, id);
         orderCon.setRes(jlResName.getText());
