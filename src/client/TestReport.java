@@ -19,15 +19,15 @@ public class TestReport {
     public TestReport() {
         ArrayList<OrderDelivery> odList = new ArrayList<>();
         DeliverymanLinkedQueue<Deliveryman> dList = new DeliverymanLinkedQueue<>();
-        OrderDelivery od = new OrderDelivery(1, "20:00", "13/12/2017", "Ckk", 0, "Tony", "MCD", 10, "Pending");
+        OrderDelivery od = new OrderDelivery(1, "20:00", "13/12/2017", "Ckk", "", 0, "Tony", "MCD", 10, "Pending");
         odList.add(od);
-        od = new OrderDelivery(2, "20:00", "13/12/2017", "Yunni", 0, "Alex", "MCD", 20, "Pending");
+        od = new OrderDelivery(2, "20:00", "13/12/2017", "Yunni", "", 0, "Alex", "MCD", 20, "Pending");
         odList.add(od);
-        od = new OrderDelivery(3, "20:00", "13/12/2017", "SBS", 0, "Alex", "MCD", 30, "Pending");
+        od = new OrderDelivery(3, "20:00", "13/12/2017", "SBS", "", 0, "Alex", "MCD", 30, "Pending");
         odList.add(od);
-        od = new OrderDelivery(4, "20:00", "13/12/2017", "Cheng", 0, "Tony", "MCD", 40, "Pending");
+        od = new OrderDelivery(4, "20:00", "13/12/2017", "Cheng", "", 0, "Tony", "MCD", 40, "Pending");
         odList.add(od);
-        od = new OrderDelivery(5, "20:00", "13/12/2017", "Evon", 0, "Alex", "MCD", 50, "Pending");
+        od = new OrderDelivery(5, "20:00", "13/12/2017", "Evon", "", 0, "Alex", "MCD", 50, "Pending");
         odList.add(od);
         Deliveryman d = new Deliveryman("Tony", "", "", "", "", 0, "");
         dList.enqueue(d);

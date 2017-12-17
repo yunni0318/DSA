@@ -18,12 +18,12 @@ import java.util.GregorianCalendar;
 public class TestTrackOrder {
 
     public TestTrackOrder() {
-        OrderDelivery od = new OrderDelivery(1, "20:00", "13/12/2017", "Dilraba", 0, "", "KFC", 0, "");
+        OrderDelivery od = new OrderDelivery(1, "20:00", "13/12/2017", "Dilraba", "", 0, "", "KFC", 0, "");
         ArrayList<Affiliate> afList = new ArrayList<>();
         ArrayList<Customer> cusList = new ArrayList<>();
         Affiliate af = new Affiliate("KFC", "", "", "", "51000", "");
         afList.add(af);
-        Customer cus = new Customer("Dilraba", "", "", "", "53000", "");
+        Customer cus = new Customer("Dilraba", "", "", "", "", "53000", "");
         cusList.add(cus);
         String fromPostcode = "";
         String toPostcode = "";

@@ -12,19 +12,37 @@ package entity;
 public class Customer {
     
     private String cusName;
+    private String cusPhone;
     private String cusAddress;
     private String cusCity;
     private String cusState;
     private String cusPostcode;
     private String cusPassword;
 
-    public Customer(String cusName, String cusAdd, String cusCity, String cusState, String cusPostcode, String cusPassword) {
+    public Customer(String cusName, String cusPhone, String cusAdd, String cusCity, String cusState, String cusPostcode, String cusPassword) {
         this.cusName = cusName;
+        this.cusPhone = cusPhone;
         this.cusAddress = cusAdd;
         this.cusCity = cusCity;
         this.cusState = cusState;
         this.cusPostcode = cusPostcode;
         this.cusPassword = cusPassword;
+    }
+
+    public String getCusPhone() {
+        return cusPhone;
+    }
+
+    public void setCusPhone(String cusPhone) {
+        this.cusPhone = cusPhone;
+    }
+
+    public String getCusAddress() {
+        return cusAddress;
+    }
+
+    public void setCusAddress(String cusAddress) {
+        this.cusAddress = cusAddress;
     }
 
     public String getCusName() {

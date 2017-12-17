@@ -1,20 +1,19 @@
 package adt;
 
-import static client.MainMenu.*;
-import entity.Deliveryman;
+import static client.MainMenu.oiList;
 import entity.OrderDelivery;
-import java.util.GregorianCalendar;
+import entity.OrderItem;
 
 /**
  * LList.java A class that implements the ADT list by using a chain of nodes,
  * with the node implemented as an inner class.
  */
-public class OrderLinkedList<T> implements ListInterface<T> {
+public class OrderItemLinkedList<T> implements ListInterface<T> {
 
     private Node firstNode; // reference to first node
     private int numberOfEntries;  	// number of entries in list
 
-    public OrderLinkedList() {
+    public OrderItemLinkedList() {
         clear();
     }
 
@@ -173,106 +172,18 @@ public class OrderLinkedList<T> implements ListInterface<T> {
         }
         return outputStr;
     }
-
-    public int trackOrder(int orderId) {
-        OrderDelivery od = null;
-        String fromPostcode = "";
-        String toPostcode = "";
-        double distance = 0;
-        for (int i = 1; i <= odList.numberOfEntries; i++) {
-            if (odList.getEntry(i).getOdID() == orderId) {
-                od = odList.getEntry(i);
-            }
-        }
-
-        for (int i = 0; i < afList.size(); i++) {
-            if (afList.get(i).getAfName().equals(od.getAfName())) {
-                fromPostcode = afList.get(i).getAfPostcode();
-            }
-        }
-        for (int i = 0; i < cusList.size(); i++) {
-            if (cusList.get(i).getCusName().equals(od.getCusName())) {
-                toPostcode = cusList.get(i).getCusPostcode();
-            }
-        }
-        if (fromPostcode.equals("51000") && toPostcode.equals("53000")) {
-            distance = 60;
-        } else {
-            //other postcode combination
-        }
-        od.setDistance(distance);
-        double distancePerMinute = 0.6;
-        int totalMinute = (int) (distance / distancePerMinute);
-
-        GregorianCalendar cal = new GregorianCalendar();
-        int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
-        int currentMinute = cal.get(GregorianCalendar.MINUTE);
-        int orderHour = Integer.parseInt(od.getOdTime().substring(0, 2));
-        int orderMinute = Integer.parseInt(od.getOdTime().substring(3, 5));
-        System.out.println(orderHour + ":" + orderMinute + "  " + currentHour + ":" + currentMinute);
-        if (currentMinute < orderMinute) {
-            currentMinute += 60;
-            currentHour--;
-        }
-
-        int elapsedMinute = currentMinute - orderMinute + (currentHour - orderHour) * 60;
-        int remainingMinute = totalMinute - elapsedMinute;
-        System.out.println(totalMinute + " " + elapsedMinute + " " + remainingMinute);
-        return remainingMinute;
-    }
-
-    public void completeDelivery(int orderId) {
-        for (int i = 1; i <= odList.numberOfEntries; i++) {
-            if (odList.getEntry(i).getOdID() == orderId) {
-                odList.getEntry(i).setStatus("Completed");
-            }
-        }
-        for (int i = 1; i <= odList.numberOfEntries; i++) {
-            System.out.println(odList.getEntry(i).getOdID() + " " + odList.getEntry(i).getdName() + " " + odList.getEntry(i).getStatus());
-        }
-    }
-
-    public OrderLinkedList getPendingDelivery(String deliverymanName) {
-        OrderLinkedList<OrderDelivery> tempOdList = new OrderLinkedList<>();
-        for (int i = 1; i <= odList.numberOfEntries; i++) {
-            if (odList.getEntry(i).getdName().equals(deliverymanName) && odList.getEntry(i).getStatus().equals("Pending")) {
-                tempOdList.add(odList.getEntry(i));
-            }
-        }
-        return tempOdList;
-    }
     
-//    public OrderLinkedList getODID(int odID) {
-//        OrderLinkedList<OrderDelivery> tempOdList = new OrderLinkedList<>();
-//        for (int i = 1; i <= odList.numberOfEntries; i++) {
-//            if (odList.getEntry(i).getOdID()==odID));{//&& odList.getEntry(i).getStatus().equals("Pending")) {
-//                tempOdList.add(odList.getEntry(i));
+//    public OrderItemLinkedList getOrderItem(int odID) {
+//        OrderItemLinkedList<OrderItem> tempOiList = new OrderItemLinkedList<>();
+//        for (int i = 1; i <= oiList.numberOfEntries; i++) {
+//            if (oiList.getEntry(i).getOdID()==odID)
+//            {   //&& odList.getEntry(i).getStatus().equals("Pending")) {
+//                tempOiList.add(oiList.getEntry(i));
 //            }
 //        }
-//        return tempOdList;
+//        return tempOiList;
 //    }
-
-    public OrderLinkedList getSummaryReport() {
-        int totalDistance;
-        int totalDelivery;
-        OrderLinkedList list = new OrderLinkedList();
-        for (int i = 0; i < dList.getSize(); i++) {
-            Deliveryman deliveryman = dList.dequeue();
-            dList.enqueue(deliveryman);
-            totalDistance = 0;
-            totalDelivery = 0;
-            for (int j = 1; j <= odList.numberOfEntries; j++) {
-                if (odList.getEntry(j).getdName().equals(deliveryman.getdName())) {
-                    totalDelivery++;
-                    totalDistance += odList.getEntry(j).getDistance();
-                }
-            }
-            list.add(deliveryman.getdName() + " " + totalDelivery + " " + totalDistance);
-            System.out.println(deliveryman.getdName() + " " + totalDelivery + " " + totalDistance);
-        }
-        return list;
-    }
-
+    
     private class Node {
 
         private T data;

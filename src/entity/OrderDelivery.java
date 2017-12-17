@@ -15,22 +15,32 @@ public class OrderDelivery {
     private String odTime;
     private String odDate;
     private String cusName;
+    private String cusPhone;
     private double subTotal;
     private String dName;
     private String afName;
     private double distance;
     private String status;
 
-    public OrderDelivery(int odID, String odTime, String odDate, String cusName, double subTotal, String dName, String afName, double distance, String status) {
+    public OrderDelivery(int odID, String odTime, String odDate, String cusName, String cusPhone, double subTotal, String dName, String afName, double distance, String status) {
         this.odID = odID;
         this.odTime = odTime;
         this.odDate = odDate;
         this.cusName = cusName;
+        this.cusPhone = cusPhone;
         this.subTotal = subTotal;
         this.dName = dName;
         this.afName = afName;
         this.distance = distance;
         this.status = status;
+    }
+
+    public String getCusPhone() {
+        return cusPhone;
+    }
+
+    public void setCusPhone(String cusPhone) {
+        this.cusPhone = cusPhone;
     }
 
     public double getDistance() {
