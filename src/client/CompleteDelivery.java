@@ -24,13 +24,13 @@ public class CompleteDelivery extends javax.swing.JFrame {
         initOrderDelivery();
         OrderLinkedList<OrderDelivery> odList = MainMenu.odList.getPendingDelivery("Alex");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object[] row = new Object[4];
+        Object[] col = new Object[4];
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            row[0] = odList.getEntry(i).getOdID();
-            row[1] = odList.getEntry(i).getOdTime();
-            row[2] = odList.getEntry(i).getCusName();
-            row[3] = odList.getEntry(i).getAfName();
-            model.addRow(row);
+            col[0] = odList.getEntry(i).getOdID();
+            col[1] = odList.getEntry(i).getOdTime();
+            col[2] = odList.getEntry(i).getCusName();
+            col[3] = odList.getEntry(i).getAfName();
+            model.addRow(col);
         }
     }
 
