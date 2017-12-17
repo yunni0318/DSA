@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
  * 
  */
 
-public class LListAddDeliveryMan<T> implements AddDeliveyManInterface<T>{
+public class LListAddDeliveryMan<T> implements ListInterface<T>{
     
   private Node firstNode;
   private int numberOfEntries;

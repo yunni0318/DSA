@@ -8,7 +8,6 @@ package client;
 import com.sun.glass.events.KeyEvent;
 import javax.swing.*;
 import entity.Deliveryman;
-import adt.AddDeliveyManInterface;
 import adt.LListAddDeliveryMan;
 import java.util.Iterator;
 
@@ -19,16 +18,27 @@ import java.util.Iterator;
 public class AddDeliveryMan extends javax.swing.JFrame {
 
     private LListAddDeliveryMan<Deliveryman> deliverymanList = new LListAddDeliveryMan<>();
+    private int Position;
 
     public <T> void displayList(LListAddDeliveryMan<Deliveryman> dList) {
-        for (int i = 0; i < dList.getNumberOfEntries(); i++) {
+        for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
             if (dList.getEntry(i).getdName().equals(txtName.getText())) {
                 
                 txtContact.setText(dList.getEntry(i).getdPhone());
-            }
-            else
-            {
-                
+                txtAddress.setText(dList.getEntry(i).getdAddress());
+                cbReason.setSelectedItem(dList.getEntry(i).getdReason());
+                String act = dList.getEntry(i).getdActive();
+                if(act == "Active")
+                {
+                    rbYes.setSelected(true);
+                    rbNo.setSelected(false);
+                }
+                else
+                {
+                    rbYes.setSelected(false);
+                    rbNo.setSelected(true);
+                }
+                Position = i;
             }
         }
     }
@@ -355,6 +365,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter name before search.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
             displayList(deliverymanList);
+            jButton2.setEnabled(false);
             jButton6.setEnabled(txtStatus.getText().equals("Delivery"));
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -388,6 +399,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }//GEN-LAST:event_rbYesActionPerformed
 
     public void clearData() {
+        jButton2.setEnabled(true);
         txtName.setText("");
         txtContact.setText("");
         txtAddress.setText("");
@@ -421,7 +433,15 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }
 
     public void updateData() {
-
+        String Dstatus;
+        
+        if (rbNo.isSelected()) {
+            Dstatus = "In Active";
+        } else {
+            Dstatus = "Active";
+        }
+        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), 2, "");
+        deliverymanList.replace(Position,dm);
     }
 
     public static void main(String args[]) {
