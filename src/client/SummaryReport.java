@@ -6,9 +6,11 @@
 package client;
 
 import adt.OrderLinkedList;
+import static client.MainMenu.dList;
 import static client.MainMenu.initDeliveryman;
 import static client.MainMenu.initOrderDelivery;
-import entity.OrderDelivery;
+import static client.MainMenu.odList;
+import entity.Deliveryman;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,14 +26,11 @@ public class SummaryReport extends javax.swing.JFrame {
         initComponents();
         initOrderDelivery();
         initDeliveryman();
-        OrderLinkedList<String> odList=MainMenu.odList.getSummaryReport();
+        OrderLinkedList<Object[]> tempList = getSummaryReport();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object[] row = new Object[3];
-        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            String[] s=odList.getEntry(i).split(" ");
-            row[0] = s[0];
-            row[1] = s[1];
-            row[2] = s[2];
+        Object[] row;
+        for (int i = 1; i <= tempList.getNumberOfEntries(); i++) {
+            row = tempList.getEntry(i);
             model.addRow(row);
         }
     }
@@ -98,7 +97,29 @@ public class SummaryReport extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
+    public OrderLinkedList getSummaryReport() {
+        int totalDistance;
+        int totalDelivery;
+        OrderLinkedList tempList = new OrderLinkedList();
+        for (int i = 0; i < dList.getSize(); i++) {
+            Deliveryman deliveryman = dList.dequeue();
+            dList.enqueue(deliveryman);
+            totalDistance = 0;
+            totalDelivery = 0;
+            for (int j = 1; j <= odList.getNumberOfEntries(); j++) {
+                if (odList.getEntry(j).getdName().equals(deliveryman.getdName())) {
+                    totalDelivery++;
+                    totalDistance += odList.getEntry(j).getDistance();
+                }
+            }
+            Object[] ob = new Object[]{deliveryman.getdName(), totalDelivery, totalDistance};
+            tempList.add(ob);
+            System.out.println(deliveryman.getdName() + " " + totalDelivery + " " + totalDistance);
+        }
+        return tempList;
+    }
+
     public void clearTable() {
         DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
         int rowCount = dm.getRowCount();

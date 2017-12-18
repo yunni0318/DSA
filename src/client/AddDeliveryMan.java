@@ -22,19 +22,15 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     public <T> void displayList(LListAddDeliveryMan<Deliveryman> dList) {
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
             if (dList.getEntry(i).getdName().equals(txtName.getText())) {
-                
+
                 txtContact.setText(dList.getEntry(i).getdPhone());
                 txtAddress.setText(dList.getEntry(i).getdAddress());
                 cbReason.setSelectedItem(dList.getEntry(i).getdReason());
                 String act = dList.getEntry(i).getdActive();
-                if(act == "Active")
-                {
+                txtStatus.setText(dList.getEntry(i).getdStatus());
+                if (act == "Active") {
                     rbYes.setSelected(true);
-                    rbNo.setSelected(false);
-                }
-                else
-                {
-                    rbYes.setSelected(false);
+                } else {
                     rbNo.setSelected(true);
                 }
                 Position = i;
@@ -45,8 +41,8 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     public AddDeliveryMan() {
         deliverymanList = new LListAddDeliveryMan<>();
         initComponents();
-
-        rbNo.setSelected(false);
+        buttonGroup1.add(rbYes);
+        buttonGroup1.add(rbNo);
         cbReason.setEnabled(false);
     }
 
@@ -54,6 +50,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         BtnSearchName = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
@@ -319,6 +316,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        PendingDeliveries pd=new PendingDeliveries(txtName.getText());
 //        pd.setVisible(true);
+    
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void txtStatusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStatusKeyTyped
@@ -384,14 +382,12 @@ public class AddDeliveryMan extends javax.swing.JFrame {
 
     private void rbNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNoActionPerformed
         if (rbNo.isSelected()) {
-            rbYes.setSelected(false);
             cbReason.setEnabled(true);
         }
     }//GEN-LAST:event_rbNoActionPerformed
 
     private void rbYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbYesActionPerformed
         if (rbYes.isSelected()) {
-            rbNo.setSelected(false);
             cbReason.setEnabled(false);
             cbReason.setSelectedIndex(0);
         }
@@ -427,20 +423,20 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         } else {
             Dstatus = "Active";
         }
-        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), 2, "");
+        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), 2, "Delivery");
         deliverymanList.add(dm);
     }
 
     public void updateData() {
         String Dstatus;
-        
+
         if (rbNo.isSelected()) {
             Dstatus = "In Active";
         } else {
             Dstatus = "Active";
         }
-        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), 2, "");
-        deliverymanList.replace(Position,dm);
+        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), 2, txtStatus.getText());
+        deliverymanList.replace(Position, dm);
     }
 
     public static void main(String args[]) {
@@ -481,6 +477,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BtnSearchName;
     private javax.swing.JButton BtnUpdate;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cbReason;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

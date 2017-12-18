@@ -12,22 +12,21 @@ import entity.OrderDelivery;
 import entity.OrderItem;
 import java.util.GregorianCalendar;
 
-
 /**
  *
  * @author Tea Evon
  */
-public class FMenuItem extends javax.swing.JFrame {    
+public class FMenuItem extends javax.swing.JFrame {
 
     FConfirm orderConfirmF = new FConfirm();
-    
+
     /**
      * Creates new form JFMenuItem
      */
     public FMenuItem() {
-        initComponents();   
+        initComponents();
     }
-    
+
     OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     //ArrayList<OrderDelivery> orderL = new ArrayList();
@@ -41,27 +40,19 @@ public class FMenuItem extends javax.swing.JFrame {
     int qua4 = 0;
     int id = generateOrderID();
     String idStr = String.valueOf(generateOrderID());
-    
+
 //    public OrderLinkedList<OrderDelivery> OrderList()
 //    {
 //        OrderLinkedList<OrderDelivery> orderL = new OrderLinkedList<>();
 //        return orderL;
 //    }
-    
-    public void setRes(String res)
-    {
+    public void setRes(String res) {
         this.jlResName.setText(res);
     }
-    public String getRes()
-    {
-        return this.jlResName.getText();
-    }
 
-    public void getMenu(String res)
-    {       
+    public void getMenu(String res) {
         String resN = jlResName.getText();
-        if(resN=="Homemade Chinese Restaurant")
-        {
+        if (resN == "Homemade Chinese Restaurant") {
             lblItem1.setText("Spicy Dry Noodle");
             jlPrise1.setText("10.00");
             jLabel2.setText("Fried Rice with Chinese Sausage");
@@ -69,10 +60,8 @@ public class FMenuItem extends javax.swing.JFrame {
             jLabel3.setText("Special Dumping Soup (4 pcs)");
             jlPrise3.setText(" 8.00");
             jLabel4.setText("Lo Han Guo Herba Tea");
-            jlPrise4.setText(" 4.00");   
-        }
-        else if(resN=="Delicious Sushi Restaurant")
-        {
+            jlPrise4.setText(" 4.00");
+        } else if (resN == "Delicious Sushi Restaurant") {
             lblItem1.setText("Sushi Set (salmon, maguro, ebi,anago)");
             jlPrise1.setText("22.00");
             jLabel2.setText("Ramen Soup");
@@ -81,10 +70,7 @@ public class FMenuItem extends javax.swing.JFrame {
             jlPrise3.setText("20.00");
             jLabel4.setText("Tropicana Twister Orange Juice");
             jlPrise4.setText(" 6.00");
-        }
-        
-        else if(resN=="Kenny Roaster Restaurant")
-        {
+        } else if (resN == "Kenny Roaster Restaurant") {
             lblItem1.setText("Honey Roaster Chicken");
             jlPrise1.setText("20.00");
             jLabel2.setText("Spicy Roaster Chicken");
@@ -93,10 +79,7 @@ public class FMenuItem extends javax.swing.JFrame {
             jlPrise3.setText(" 4.00");
             jLabel4.setText("Pepsi");
             jlPrise4.setText(" 5.00");
-        }
-        
-        else if(resN=="Bukit Bintang Nasi Lemak ")
-        {
+        } else if (resN == "Bukit Bintang Nasi Lemak ") {
             lblItem1.setText("Nasi Lemak with Egg");
             jlPrise1.setText("10.00");
             jLabel2.setText("Nasi Lemak with Fried Chicken");
@@ -105,22 +88,16 @@ public class FMenuItem extends javax.swing.JFrame {
             jlPrise3.setText("15.00");
             jLabel4.setText("Bentong Cincau");
             jlPrise4.setText(" 5.00");
-        }
-        
-        else if(resN=="All Noodle Restaurant")
-        {
-         lblItem1.setText("Special Dry Noodle");
+        } else if (resN == "All Noodle Restaurant") {
+            lblItem1.setText("Special Dry Noodle");
             jlPrise1.setText(" 8.00");
             jLabel2.setText("Special Noodle Soup");
             jlPrise2.setText(" 9.00");
             jLabel3.setText("Spicy Noodle Soup");
             jlPrise3.setText("10.00");
             jLabel4.setText("Honey Lemon Tea");
-            jlPrise4.setText(" 4.00");   
-        }
-        
-        else if(resN=="Rice Tong Restaurant")
-        {
+            jlPrise4.setText(" 4.00");
+        } else if (resN == "Rice Tong Restaurant") {
             lblItem1.setText("Salted Fish Pork Rice");
             jlPrise1.setText("12.00");
             jLabel2.setText("Shrimp Fried Rice");
@@ -129,10 +106,7 @@ public class FMenuItem extends javax.swing.JFrame {
             jlPrise3.setText(" 8.00");
             jLabel4.setText("Chinese Tea");
             jlPrise4.setText(" 3.00");
-        }
-        
-        else if(resN=="Special Spaghetti Restaurant")
-        {
+        } else if (resN == "Special Spaghetti Restaurant") {
             lblItem1.setText("Special Spaghetti");
             jlPrise1.setText("11.00");
             jLabel2.setText("Baked Cheese Spaghetti");
@@ -141,10 +115,7 @@ public class FMenuItem extends javax.swing.JFrame {
             jlPrise3.setText("13.00");
             jLabel4.setText("Lemon Tea");
             jlPrise4.setText(" 5.00");
-        }
-        
-        else if(resN=="Homemade Western Food")
-        {
+        } else if (resN == "Homemade Western Food") {
             lblItem1.setText("Homemade Pork Chop");
             jlPrise1.setText("15.00");
             jLabel2.setText("Black Peper Chicken Chop");
@@ -154,17 +125,15 @@ public class FMenuItem extends javax.swing.JFrame {
             jLabel4.setText("Red Tea");
             jlPrise4.setText(" 4.00");
         }
-       
+
 //        }
 //        catch(SQLException ex)
 //        {
 //            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
 //            //Logger.getLongger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-
     }
-        
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -359,31 +328,30 @@ public class FMenuItem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public int generateOrderID()
-    {
-        int orderID=1001;
+    public int generateOrderID() {
+        int orderID = 1001;
         int count = odList.getNumberOfEntries();
         orderID = orderID + count;
         return orderID;
     }
-    
+
     private void jbGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGoBackActionPerformed
         // TODO add your handling code here:
         FRestaurant resFrame = new FRestaurant();
         resFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jbGoBackActionPerformed
-    
-    
+
+
     private void jbtAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd1ActionPerformed
         // TODO add your handling code here:
-        
+
         String item = lblItem1.getText();
-        qua1 ++;
+        qua1++;
         lblQua1.setText(String.valueOf(qua1));
 
         double price = Double.parseDouble(jlPrise1.getText());
-        price = price * qua1; 
+        price = price * qua1;
         order1 = new OrderItem(id, item, qua1, price);//2, "20:00", "13/12/2017", "Yunni", 0, "Alex", "MCD", 20, "Pending");//item,qua1,price,re);
 //        oiList.add(order1);
     }//GEN-LAST:event_jbtAdd1ActionPerformed
@@ -403,7 +371,7 @@ public class FMenuItem extends javax.swing.JFrame {
     private void jbtAdd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd3ActionPerformed
         // TODO add your handling code here:
         String item = jLabel3.getText();
-        
+
         qua3++;
         lblQua3.setText(String.valueOf(qua3));
 
@@ -420,58 +388,56 @@ public class FMenuItem extends javax.swing.JFrame {
         lblQua4.setText(String.valueOf(qua4));
 
         double price = Double.parseDouble(jlPrise4.getText());
-        price = price * qua4;        
+        price = price * qua4;
         order4 = new OrderItem(id, item, qua4, price);//item,qua4,price,re);
 //        orderL.add(order);
     }//GEN-LAST:event_jbtAdd4ActionPerformed
 
     private void jbOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOrderActionPerformed
         // TODO add your handling code here:
-        double subTotal=0;
+        double subTotal = 0;
         //FConfirm orderCon = new FConfirm();
-        if(order1!=null){
+        if (order1 != null) {
             oiList.add(order1);
             subTotal += order1.getOiPrice();
         }
-        if(order2!=null){
+        if (order2 != null) {
             oiList.add(order2);
             subTotal += order2.getOiPrice();
         }
 //            odList.add(order2);
-        if(order3!=null){
+        if (order3 != null) {
             oiList.add(order3);
             subTotal += order3.getOiPrice();
         }
-        if(order4!=null){
+        if (order4 != null) {
             oiList.add(order4);
             subTotal += order4.getOiPrice();
         }
-        
+
         GregorianCalendar cal = new GregorianCalendar();
         int date = cal.get(GregorianCalendar.DATE);
         String odDate = String.valueOf(date);
 //        int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
 //        int currentMinute = cal.get(GregorianCalendar.MINUTE);
 //        String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
-        OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
+        OrderDelivery newEntry = new OrderDelivery(id, "", odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
         odList.add(newEntry);
         FConfirm orderCon = new FConfirm(odList, oiList, id);
         orderCon.setRes(jlResName.getText());
         orderCon.setVisible(true);
         //orderConfirm(orderL);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jbOrderActionPerformed
 
     private void jbtDe1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtDe1ActionPerformed
         // TODO add your handling code here:
-        if(qua1<=0)
-        {
-            JOptionPane.showMessageDialog(this,"No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
+        if (qua1 <= 0) {
+            JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        } else {
             String item = lblItem1.getText();
-            qua1 --;
+            qua1--;
             lblQua1.setText(String.valueOf(qua1));
 
             double price = Double.parseDouble(jlPrise1.getText());
@@ -483,12 +449,9 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbtDe2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtDe2ActionPerformed
         // TODO add your handling code here:
-        if(qua2<=0)
-        {
-            JOptionPane.showMessageDialog(this,"No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else
-        {
+        if (qua2 <= 0) {
+            JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        } else {
             String item = jLabel2.getText();
             qua2--;
             lblQua2.setText(String.valueOf(qua2));
@@ -502,11 +465,9 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbtDe3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtDe3ActionPerformed
         // TODO add your handling code here:
-        if(qua3<=0)
-        {
-            JOptionPane.showMessageDialog(this,"No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
+        if (qua3 <= 0) {
+            JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        } else {
             String item = jLabel3.getText();
             qua3--;
             lblQua3.setText(String.valueOf(qua3));
@@ -520,11 +481,9 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbtDe4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtDe4ActionPerformed
         // TODO add your handling code here:
-        if(qua4<=0)
-        {
-            JOptionPane.showMessageDialog(this,"No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
+        if (qua4 <= 0) {
+            JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        } else {
             String item = jLabel4.getText();
             qua4--;
             lblQua4.setText(String.valueOf(qua4));

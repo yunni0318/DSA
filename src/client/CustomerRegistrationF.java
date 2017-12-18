@@ -206,7 +206,7 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
 
     private void jPasswordField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyTyped
         // TODO add your handling code here:
-        if (jPasswordField1.getText().length() < 6) {
+        if (String.valueOf(jPasswordField1.getPassword()).length() < 6) {
             txtPhone.setText(txtPhone.getText().substring(0, 10));
             JOptionPane.showMessageDialog(null, "Invalid input. Password should more than 6 character.", "Warning", JOptionPane.INFORMATION_MESSAGE);
             evt.consume();

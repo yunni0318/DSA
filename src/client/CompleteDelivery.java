@@ -7,6 +7,7 @@ package client;
 
 import adt.OrderLinkedList;
 import static client.MainMenu.initOrderDelivery;
+import static client.MainMenu.odList;
 import entity.OrderDelivery;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,16 +23,7 @@ public class CompleteDelivery extends javax.swing.JFrame {
     public CompleteDelivery() {
         initComponents();
         initOrderDelivery();
-        OrderLinkedList<OrderDelivery> odList = MainMenu.odList.getPendingDelivery("Alex");
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object[] col = new Object[4];
-        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            col[0] = odList.getEntry(i).getOdID();
-            col[1] = odList.getEntry(i).getOdTime();
-            col[2] = odList.getEntry(i).getCusName();
-            col[3] = odList.getEntry(i).getAfName();
-            model.addRow(col);
-        }
+        populateTable();
     }
 
     /**
@@ -106,20 +98,45 @@ public class CompleteDelivery extends javax.swing.JFrame {
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
         int orderId = (int) jTable1.getValueAt(selectedRow, 0);
-        MainMenu.odList.completeDelivery(orderId);
+        completeDelivery(orderId);
         clearTable();
-        OrderLinkedList<OrderDelivery> odList = MainMenu.odList.getPendingDelivery("Alex");
+        populateTable();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void completeDelivery(int orderId) {
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getOdID() == orderId) {
+                odList.getEntry(i).setStatus("Completed");
+            }
+        }
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            System.out.println(odList.getEntry(i).getOdID() + " " + odList.getEntry(i).getdName() + " " + odList.getEntry(i).getStatus());
+        }
+    }
+
+    public OrderLinkedList getPendingDelivery(String deliverymanName) {
+        OrderLinkedList<OrderDelivery> tempList = new OrderLinkedList<>();
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getdName().equals(deliverymanName) && odList.getEntry(i).getStatus().equals("Pending")) {
+                tempList.add(odList.getEntry(i));
+            }
+        }
+        return tempList;
+    }
+
+    public void populateTable() {
+        OrderLinkedList<OrderDelivery> tempList = getPendingDelivery("Alex");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[4];
-        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            row[0] = odList.getEntry(i).getOdID();
-            row[1] = odList.getEntry(i).getOdTime();
-            row[2] = odList.getEntry(i).getCusName();
-            row[3] = odList.getEntry(i).getAfName();
+        for (int i = 1; i <= tempList.getNumberOfEntries(); i++) {
+            row[0] = tempList.getEntry(i).getOdID();
+            row[1] = tempList.getEntry(i).getOdTime();
+            row[2] = tempList.getEntry(i).getCusName();
+            row[3] = tempList.getEntry(i).getAfName();
             model.addRow(row);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
+    }
+
     public void clearTable() {
         DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
         int rowCount = dm.getRowCount();

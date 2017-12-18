@@ -14,8 +14,7 @@ import javax.swing.JOptionPane;
 public class FRestaurant extends javax.swing.JFrame {
 
     FMenuItem menu = new FMenuItem();
-    
-    
+
     /**
      * Creates new form NewJFrame
      */
@@ -23,12 +22,6 @@ public class FRestaurant extends javax.swing.JFrame {
         initComponents();
     }
 
-    public String getResName(String name)
-    {
-        String resName = name;
-        return resName;
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -289,8 +282,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSearchActionPerformed
         // TODO add your handling code here:
-        if(cbArea.getSelectedItem()=="Bukit Bintang")
-        {
+        if (cbArea.getSelectedItem() == "Bukit Bintang") {
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
@@ -298,16 +290,13 @@ public class FRestaurant extends javax.swing.JFrame {
             jPanel1.add(jpBukitBintang);
             jPanel1.repaint();
             jPanel1.revalidate();
-            
+
             jlResName1.setText(lblRes1.getText());//getResName(jLabel1.getText()));
             jlResName2.setText(jLabel2.getText());//getResName(jLabel2.getText()));
             jlResName3.setText(jLabel3.getText());//getResName(jLabel3.getText()));
             jlResName4.setText(jLabel4.getText());//getResName(jLabel4.getText()));
-            
-        }
-        
-        else if(cbArea.getSelectedItem()=="Setapak")
-        {
+
+        } else if (cbArea.getSelectedItem() == "Setapak") {
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
@@ -316,13 +305,13 @@ public class FRestaurant extends javax.swing.JFrame {
             jPanel1.repaint();
             jPanel1.revalidate();
             //getRes();
-            
+
             jlResName5.setText(jLabel5.getText());//getResName(jLabel5.getText()));
             jlResName6.setText(jLabel6.getText());//getResName(jLabel6.getText()));
             jlResName7.setText(jLabel7.getText());//getResName(jLabel7.getText()));
             jlResName8.setText(jLabel8.getText());//getResName(jLabel8.getText())); 
         }
-        
+
 
     }//GEN-LAST:event_jbSearchActionPerformed
 
@@ -332,10 +321,10 @@ public class FRestaurant extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "You should click the", "Error", JOptionPane.INFORMATION_MESSAGE);
 //        }
 //        else{
-            menu.setRes(jlResName1.getText());
-            menu.getMenu(jlResName1.getText());
-            menu.setVisible(true);
-            this.setVisible(false);
+        menu.setRes(jlResName1.getText());
+        menu.getMenu(jlResName1.getText());
+        menu.setVisible(true);
+        this.setVisible(false);
 //        }
     }//GEN-LAST:event_lblRes1MouseClicked
 
@@ -423,13 +412,13 @@ public class FRestaurant extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FRestaurant().setVisible(true);
-                
+
             }
         });
     }

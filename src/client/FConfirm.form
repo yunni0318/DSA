@@ -147,7 +147,7 @@
                       <Component id="lblTotal" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jbMenu" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jbConfirm" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
