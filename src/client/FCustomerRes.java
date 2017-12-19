@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Tea Evon
  */
-public class CustomerInforF extends javax.swing.JFrame {
+public class FCustomerRes extends javax.swing.JFrame {
 
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     private CustomerLinkedQueue<Customer> cusList = new CustomerLinkedQueue<>();
@@ -26,11 +26,11 @@ public class CustomerInforF extends javax.swing.JFrame {
     /**
      * Creates new form customerRegistrationF
      */
-    public CustomerInforF() {
+    public FCustomerRes() {
         initComponents();
     }
     
-    public CustomerInforF(OrderLinkedList<OrderDelivery> odList, int orderID) {
+    public FCustomerRes(OrderLinkedList<OrderDelivery> odList, int orderID) {
 //        jpCus.setLayout(null);
         this.odList = odList;
         this.orderID = orderID;
@@ -176,66 +176,59 @@ public class CustomerInforF extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
-                        .addComponent(lblName)
-                        .addGap(61, 61, 61)
-                        .addComponent(txtName))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jbtConfirm))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
-                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAddress)
-                            .addComponent(lblCity))
-                        .addGap(7, 7, 7)
-                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpCusLayout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(txtAddress))
-                            .addGroup(jpCusLayout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(txtCity))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
-                        .addComponent(lblPhone)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPhone))
                     .addGroup(jpCusLayout.createSequentialGroup()
                         .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPostcode)
                             .addComponent(lblState))
-                        .addGap(45, 45, 45)
                         .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtState, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jpCusLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
                                 .addComponent(cbPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jpCusLayout.createSequentialGroup()
                         .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblTotalA)
-                                .addGroup(jpCusLayout.createSequentialGroup()
-                                    .addComponent(lblPayMethod)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                            .addComponent(lblTotalA)
+                            .addGroup(jpCusLayout.createSequentialGroup()
+                                .addComponent(lblPayMethod)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpCusLayout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
+                                    .addComponent(lblCardNo)
+                                    .addGap(22, 22, 22)
+                                    .addComponent(txtCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
+                                    .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblSecurityCode)
+                                        .addComponent(lblOwner))
                                     .addGap(18, 18, 18)
-                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(29, 29, 29)
-                                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jpCusLayout.createSequentialGroup()
-                                    .addGap(96, 96, 96)
-                                    .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
-                                        .addComponent(lblCardNo)
-                                        .addGap(22, 22, 22)
-                                        .addComponent(txtCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
-                                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblSecurityCode)
-                                            .addComponent(lblOwner))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtOwner)
-                                            .addComponent(txtSecurityCode))))))
-                        .addContainerGap())))
+                                    .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtOwner)
+                                        .addComponent(txtSecurityCode)))))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
+                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAddress)
+                            .addComponent(lblCity)
+                            .addComponent(lblPhone)
+                            .addComponent(lblName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                            .addComponent(txtPhone)
+                            .addComponent(txtCity)
+                            .addComponent(txtAddress)))))
         );
         jpCusLayout.setVerticalGroup(
             jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +273,7 @@ public class CustomerInforF extends javax.swing.JFrame {
                 .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCardNo)
                     .addComponent(txtCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblOwner))
@@ -314,12 +307,13 @@ public class CustomerInforF extends javax.swing.JFrame {
     private void txtPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (txtPhone.getText().length() >= 11) {
-            txtPhone.setText(txtPhone.getText().substring(0, 10));
-        }
         if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)) {
             JOptionPane.showMessageDialog(null, "Invalid input. Only accept number, such as 0123456789", "Warning", JOptionPane.INFORMATION_MESSAGE);
             evt.consume();
+        }
+        if (txtPhone.getText().length() >= 11) {
+            String str = txtPhone.getText().substring(0, 10);
+            txtPhone.setText(str);
         }
     }//GEN-LAST:event_txtPhoneKeyTyped
 
@@ -334,20 +328,6 @@ public class CustomerInforF extends javax.swing.JFrame {
         }
         return ttl;
     }
-    
-//    private void getCustomerInfor(int orderID)//OrderLinkedList<OrderDelivery> odList, 
-//    {
-//        Customer cus = new Customer(txtName.getText(),txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()));
-//        cusList.enqueue(cus);
-//        //double ttl = 0.00;
-//        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-//            if (odList.getEntry(i).getOdID() == orderID) 
-//            {
-//                odList.getEntry(i).getTotal();
-//            }
-//        }
-//     
-//    }
     
     private void jbtConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtConfirmActionPerformed
         // TODO add your handling code here:
@@ -377,14 +357,13 @@ public class CustomerInforF extends javax.swing.JFrame {
 
     private void txtCardNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCardNoKeyTyped
         // TODO add your handling code here:
-        if (txtPhone.getText().length() >= 16) {
-            txtPhone.setText(txtPhone.getText().substring(0, 15));
-        }
-        
         char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)) {
             JOptionPane.showMessageDialog(null, "Invalid input. Only accept number.", "Warning", JOptionPane.INFORMATION_MESSAGE);
             evt.consume();
+        }
+        if (txtCardNo.getText().length() >= 16) {
+            txtCardNo.setText(txtCardNo.getText().substring(0, 15));
         }
     }//GEN-LAST:event_txtCardNoKeyTyped
 
@@ -395,13 +374,13 @@ public class CustomerInforF extends javax.swing.JFrame {
 
     private void txtSecurityCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityCodeKeyTyped
         // TODO add your handling code here:
-        if (txtPhone.getText().length() >= 3) {
-            txtPhone.setText(txtPhone.getText().substring(0, 2));
-        }
         char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)) {
             JOptionPane.showMessageDialog(null, "Invalid input. Only accept number.", "Warning", JOptionPane.INFORMATION_MESSAGE);
             evt.consume();
+        }
+        if (txtSecurityCode.getText().length() >= 3) {
+            txtSecurityCode.setText(txtSecurityCode.getText().substring(0, 2));
         }
     }//GEN-LAST:event_txtSecurityCodeKeyTyped
 
@@ -435,14 +414,18 @@ public class CustomerInforF extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerInforF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FCustomerRes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerInforF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FCustomerRes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerInforF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FCustomerRes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerInforF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FCustomerRes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -451,7 +434,7 @@ public class CustomerInforF extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerInforF().setVisible(true);
+                new FCustomerRes().setVisible(true);
             }
         });
     }

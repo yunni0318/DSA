@@ -30,7 +30,7 @@ public class FMenuItem extends javax.swing.JFrame {
     
     OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
-    //ArrayList<OrderDelivery> orderL = new ArrayList();
+    
     OrderItem order1;
     OrderItem order2;
     OrderItem order3;
@@ -41,12 +41,6 @@ public class FMenuItem extends javax.swing.JFrame {
     int qua4 = 0;
     int id = generateOrderID();
     String idStr = String.valueOf(generateOrderID());
-    
-//    public OrderLinkedList<OrderDelivery> OrderList()
-//    {
-//        OrderLinkedList<OrderDelivery> orderL = new OrderLinkedList<>();
-//        return orderL;
-//    }
     
     public void setRes(String res)
     {
@@ -154,13 +148,6 @@ public class FMenuItem extends javax.swing.JFrame {
             jLabel4.setText("Red Tea");
             jlPrise4.setText(" 4.00");
         }
-       
-//        }
-//        catch(SQLException ex)
-//        {
-//            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-//            //Logger.getLongger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//        }
 
     }
         
@@ -384,8 +371,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
         double price = Double.parseDouble(jlPrise1.getText());
         price = price * qua1; 
-        order1 = new OrderItem(id, item, qua1, price);//2, "20:00", "13/12/2017", "Yunni", 0, "Alex", "MCD", 20, "Pending");//item,qua1,price,re);
-//        oiList.add(order1);
+        order1 = new OrderItem(id, item, qua1, price);
     }//GEN-LAST:event_jbtAdd1ActionPerformed
 
     private void jbtAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd2ActionPerformed
@@ -396,8 +382,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
         double price = Double.parseDouble(jlPrise2.getText());
         price = price * qua2;
-        order2 = new OrderItem(id, item, qua2, price);//item,qua2,price,re);
-//        oiList.add(order2);
+        order2 = new OrderItem(id, item, qua2, price);
     }//GEN-LAST:event_jbtAdd2ActionPerformed
 
     private void jbtAdd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd3ActionPerformed
@@ -409,8 +394,8 @@ public class FMenuItem extends javax.swing.JFrame {
 
         double price = Double.parseDouble(jlPrise3.getText());
         price = price * qua3;
-        order3 = new OrderItem(id, item, qua3, price);//item,qua3,price,re);
-//        orderL.add(order);
+        order3 = new OrderItem(id, item, qua3, price);
+
     }//GEN-LAST:event_jbtAdd3ActionPerformed
 
     private void jbtAdd4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd4ActionPerformed
@@ -421,14 +406,14 @@ public class FMenuItem extends javax.swing.JFrame {
 
         double price = Double.parseDouble(jlPrise4.getText());
         price = price * qua4;        
-        order4 = new OrderItem(id, item, qua4, price);//item,qua4,price,re);
-//        orderL.add(order);
+        order4 = new OrderItem(id, item, qua4, price);
+
     }//GEN-LAST:event_jbtAdd4ActionPerformed
 
     private void jbOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOrderActionPerformed
         // TODO add your handling code here:
         double subTotal=0;
-        //FConfirm orderCon = new FConfirm();
+        
         if(order1!=null){
             oiList.add(order1);
             subTotal += order1.getOiPrice();
@@ -437,7 +422,6 @@ public class FMenuItem extends javax.swing.JFrame {
             oiList.add(order2);
             subTotal += order2.getOiPrice();
         }
-//            odList.add(order2);
         if(order3!=null){
             oiList.add(order3);
             subTotal += order3.getOiPrice();
@@ -450,15 +434,13 @@ public class FMenuItem extends javax.swing.JFrame {
         GregorianCalendar cal = new GregorianCalendar();
         int date = cal.get(GregorianCalendar.DATE);
         String odDate = String.valueOf(date);
-//        int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
-//        int currentMinute = cal.get(GregorianCalendar.MINUTE);
-//        String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
+
         OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
         odList.add(newEntry);
         FConfirm orderCon = new FConfirm(odList, oiList, id);
         orderCon.setRes(jlResName.getText());
         orderCon.setVisible(true);
-        //orderConfirm(orderL);
+        
         this.setVisible(false);
         
     }//GEN-LAST:event_jbOrderActionPerformed
@@ -476,8 +458,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
             double price = Double.parseDouble(jlPrise1.getText());
             price = price * qua1;
-            order1 = new OrderItem(id, item, qua1, price);//item,qua1,price,re);
-//            orderL.add(order);
+            order1 = new OrderItem(id, item, qua1, price);     
         }
     }//GEN-LAST:event_jbtDe1ActionPerformed
 
@@ -495,8 +476,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
             double price = Double.parseDouble(jlPrise2.getText());
             price = price * qua2;
-            order2 = new OrderItem(id, item, qua2, price);//item,qua2,price,re);
-//            orderL.add(order);
+            order2 = new OrderItem(id, item, qua2, price);
         }
     }//GEN-LAST:event_jbtDe2ActionPerformed
 
@@ -513,8 +493,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
             double price = Double.parseDouble(jlPrise3.getText());
             price = price * qua3;
-            order3 = new OrderItem(id, item, qua3, price);//item,qua3,price,re);
-//            orderL.add(order);
+            order3 = new OrderItem(id, item, qua3, price);
         }
     }//GEN-LAST:event_jbtDe3ActionPerformed
 
@@ -531,8 +510,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
             double price = Double.parseDouble(jlPrise4.getText());
             price = price * qua4;
-            order4 = new OrderItem(id, item, qua4, price);//item,qua4,price,re);
-//            orderL.add(order);
+            order4 = new OrderItem(id, item, qua4, price);
         }
     }//GEN-LAST:event_jbtDe4ActionPerformed
 
