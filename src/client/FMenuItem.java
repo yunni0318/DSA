@@ -408,15 +408,18 @@ public class FMenuItem extends javax.swing.JFrame {
         int date = cal.get(GregorianCalendar.DATE);
         String odDate = String.valueOf(date);
 
+//        OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
+//        odList.add(newEntry);
+//        int min = dList.getEntry(1).getdNoOfTask();
+//        for (int i = 1; i < dList.getNumberOfEntries(); i++) {
+//            Deliveryman deliveryman = dList.getEntry(i);
+//            if (deliveryman.getdNoOfTask() < min) {
+//                min = deliveryman.getdNoOfTask();
+//            }
+//        }
+
         OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
         odList.add(newEntry);
-        int min = dList.getEntry(1).getdNoOfTask();
-        for (int i = 1; i < dList.getNumberOfEntries(); i++) {
-            Deliveryman deliveryman = dList.getEntry(i);
-            if (deliveryman.getdNoOfTask() < min) {
-                min = deliveryman.getdNoOfTask();
-            }
-        }
         
         FConfirm orderCon = new FConfirm(odList, oiList, id);
         orderCon.setRes(jlResName.getText());

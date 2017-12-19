@@ -28,6 +28,7 @@ public class FCustomerInfor extends javax.swing.JFrame {
      */
     public FCustomerInfor() {
         initComponents();
+        
     }
     
     public FCustomerInfor(OrderLinkedList<OrderDelivery> odList, int orderID) {
@@ -37,6 +38,7 @@ public class FCustomerInfor extends javax.swing.JFrame {
         
         initComponents();
         lblTotal.setText(String.valueOf(getTotal(orderID)));
+//        jpBtn.setVisible(false);
     }
 
     /**
@@ -175,9 +177,6 @@ public class FCustomerInfor extends javax.swing.JFrame {
             .addGroup(jpCusLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbtConfirm))
                     .addGroup(jpCusLayout.createSequentialGroup()
                         .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPostcode)
@@ -188,34 +187,38 @@ public class FCustomerInfor extends javax.swing.JFrame {
                                 .addComponent(cbPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                                 .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jpCusLayout.createSequentialGroup()
                         .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
-                            .addComponent(lblTotalA)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jpCusLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addComponent(lblPayMethod)
                                 .addGap(18, 18, 18)
                                 .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpCusLayout.createSequentialGroup()
-                                .addGap(96, 96, 96)
+                                .addComponent(lblTotalA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
-                                    .addComponent(lblCardNo)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(txtCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
-                                    .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblSecurityCode)
-                                        .addComponent(lblOwner))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtOwner)
-                                        .addComponent(txtSecurityCode)))))
+                            .addGroup(jpCusLayout.createSequentialGroup()
+                                .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
+                                        .addComponent(lblCardNo)
+                                        .addGap(22, 22, 22)
+                                        .addComponent(txtCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpCusLayout.createSequentialGroup()
+                                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblSecurityCode)
+                                            .addComponent(lblOwner))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtOwner)
+                                            .addComponent(txtSecurityCode))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtConfirm)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCusLayout.createSequentialGroup()
                         .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,17 +276,16 @@ public class FCustomerInfor extends javax.swing.JFrame {
                 .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCardNo)
                     .addComponent(txtCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblOwner))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpCusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSecurityCode)
-                    .addComponent(txtSecurityCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jbtConfirm)
-                .addContainerGap())
+                    .addComponent(txtSecurityCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtConfirm))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -347,6 +349,13 @@ public class FCustomerInfor extends javax.swing.JFrame {
                 odList.getEntry(i).setOdTime(odTime);
             }
         }
+        
+        JOptionPane.showMessageDialog(null, "Thank You =) Your order and payment have been successfully completed. Please Come Again!!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
+        FRestaurant home = new FRestaurant();
+        home.setVisible(true);
+        this.setVisible(false);
+//        jpBtn.setVisible(true);
+//        jpCus.setVisible(false);
         
     }//GEN-LAST:event_jbtConfirmActionPerformed
 
