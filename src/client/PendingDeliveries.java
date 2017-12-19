@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import entity.OrderDelivery;
-
+import adt.OrderLinkedList;
 
 /**
  *
@@ -20,9 +20,13 @@ public class PendingDeliveries extends javax.swing.JFrame {
     /**
      * Creates new form PendingDeliveries
      */
+    private OrderLinkedList<OrderDelivery> PendingList = new OrderLinkedList<>();
+
     public PendingDeliveries() {
         initComponents();
         Time();
+        Test();
+        displayList(PendingList);
     }
 
     public PendingDeliveries(String name) {
@@ -41,6 +45,10 @@ public class PendingDeliveries extends javax.swing.JFrame {
         lblDate.setText(Date);
     }
 
+    public void Test() {
+        OrderDelivery od = new OrderDelivery(1, "20:00", "17/12/2017", "Dilraba", "01234567", 0, 0, 0, "sbs", "KFC", 10, "Pending");
+        PendingList.add(od);
+    }
 
     public void clearTable() {
         DefaultTableModel dm = (DefaultTableModel) tbPending.getModel();
@@ -51,6 +59,34 @@ public class PendingDeliveries extends javax.swing.JFrame {
         }
     }
 
+    public <T> void displayList(OrderLinkedList<OrderDelivery> odList) {
+
+        Object[] col = new Object[5];
+        DefaultTableModel model = (DefaultTableModel) tbPending.getModel();
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getStatus().equals("Pending")) {
+                col[0] = odList.getEntry(i).getCusName();
+                col[1] = odList.getEntry(i).getAfName();
+                col[2] = odList.getEntry(i).getdName();
+                col[3] = odList.getEntry(i).getOdTime();
+                model.addRow(col);
+            }
+        }
+    }
+
+    public <T> void FilterList(OrderLinkedList<OrderDelivery> odList) {
+        Object[] col = new Object[5];
+        DefaultTableModel model = (DefaultTableModel) tbPending.getModel();
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getStatus().equals("Pending") && odList.getEntry(i).getdName().equals(cbDeliveryMan.getSelectedItem())) {
+                col[0] = odList.getEntry(i).getCusName();
+                col[1] = odList.getEntry(i).getAfName();
+                col[2] = odList.getEntry(i).getdName();
+                col[3] = odList.getEntry(i).getOdTime();
+                model.addRow(col);
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,8 +109,10 @@ public class PendingDeliveries extends javax.swing.JFrame {
         lblTime = new javax.swing.JLabel();
         lblD = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pending Delivery");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -87,11 +125,11 @@ public class PendingDeliveries extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CustomerName", "RestaurantName", "DeliveryMan", "State", "Time"
+                "CustomerName", "RestaurantName", "DeliveryMan", "Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
+                false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -145,42 +183,57 @@ public class PendingDeliveries extends javax.swing.JFrame {
 
         lblDate.setText("jLabel1");
 
+        btnMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenu.setText("Back Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(160, 160, 160)
+                .addGap(110, 110, 110)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(300, 300, 300)
-                        .addComponent(lblD)
-                        .addGap(30, 30, 30)
-                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTitle))
-                .addContainerGap(169, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitle)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMenu))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(lbl)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(268, 268, 268)
+                            .addComponent(lblD)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(37, 37, 37)
                 .addComponent(lblTitle)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl)
-                    .addComponent(lblTime)
-                    .addComponent(lblD)
-                    .addComponent(lblDate))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl)
+                            .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblD)
+                            .addComponent(lblDate))
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         lblD.getAccessibleContext().setAccessibleName("");
@@ -190,11 +243,13 @@ public class PendingDeliveries extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -204,11 +259,17 @@ public class PendingDeliveries extends javax.swing.JFrame {
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         clearTable();
         if (cbDeliveryMan.getSelectedIndex() == 0) {
-           
+            displayList(PendingList);
         } else {
-          
+            FilterList(PendingList);
         }
     }//GEN-LAST:event_btnFilterActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        HR Pending = new HR();
+        Pending.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,6 +314,7 @@ public class PendingDeliveries extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFilter;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JComboBox<String> cbDeliveryMan;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -29,9 +29,9 @@ public class TestReport {
         odList.add(od);
         od = new OrderDelivery(5, "20:00", "13/12/2017", "Evon", "", 0, 0, 0, "Alex", "MCD", 50, "Pending");
         odList.add(od);
-        Deliveryman d = new Deliveryman("Tony", "", "", "", "", 0, "");
+        Deliveryman d = new Deliveryman("Tony", "", "", "", "", "", "", 0, "");
         dList.enqueue(d);
-        d = new Deliveryman("Alex", "", "", "", "", 0, "");
+        d = new Deliveryman("Alex", "", "", "", "", "", "", 0, "");
         dList.enqueue(d);
         int totalDistance;
         int totalDelivery;

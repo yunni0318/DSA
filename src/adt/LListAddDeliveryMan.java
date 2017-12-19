@@ -21,12 +21,14 @@ public class LListAddDeliveryMan<T> implements ListInterface<T>{
     public LListAddDeliveryMan() {
         clear();
     }
-
+    
+    @Override
     public final void clear() {
         firstNode = null;
         numberOfEntries = 0;
     }
-
+    
+    @Override
     public boolean add(T newEntry) {
         Node newNode = new Node(newEntry);
 
@@ -44,6 +46,7 @@ public class LListAddDeliveryMan<T> implements ListInterface<T>{
         return true;
     }
     
+    @Override
     public boolean add(int newPosition, T newEntry) {
         boolean isSuccessful = true;
 
@@ -69,7 +72,8 @@ public class LListAddDeliveryMan<T> implements ListInterface<T>{
 
         return isSuccessful;
     }
-
+    
+    @Override
     public boolean replace(int givenPosition, T newEntry) {
         boolean isSuccessful = true;
 
@@ -85,7 +89,8 @@ public class LListAddDeliveryMan<T> implements ListInterface<T>{
 
         return isSuccessful;
     }
-
+    
+    @Override
     public boolean contains(T anEntry) {
         boolean found = false;
         Node currentNode = firstNode;
@@ -101,6 +106,7 @@ public class LListAddDeliveryMan<T> implements ListInterface<T>{
         return found;
     }
 
+    @Override
     public T remove(int givenPosition) {
         T result = null;
 
@@ -123,6 +129,7 @@ public class LListAddDeliveryMan<T> implements ListInterface<T>{
         return result;
     }
 
+    @Override
     public T getEntry(int givenPosition) {
         T result = null;
 
@@ -136,10 +143,12 @@ public class LListAddDeliveryMan<T> implements ListInterface<T>{
         return result;
     }
 
+    @Override
     public int getNumberOfEntries() {
         return numberOfEntries;
     }
 
+    @Override
     public boolean isEmpty() {
         boolean result;
 

@@ -38,9 +38,9 @@ public class MainMenu {
     }
 
     public static void initDeliveryman() {
-        Deliveryman d = new Deliveryman("Tony", "", "", "", "", 0, "");
+        Deliveryman d = new Deliveryman("Tony", "", "", "", "", "", "", 0, "");
         dList.enqueue(d);
-        d = new Deliveryman("Alex", "", "", "", "", 0, "");
+        d = new Deliveryman("Alex", "", "", "", "", "", "", 0, "");
         dList.enqueue(d);
     }
 

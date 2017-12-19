@@ -9,7 +9,6 @@ import com.sun.glass.events.KeyEvent;
 import javax.swing.*;
 import entity.Deliveryman;
 import adt.LListAddDeliveryMan;
-
 /**
  *
  * @author YUNNI
@@ -17,7 +16,7 @@ import adt.LListAddDeliveryMan;
 public class AddDeliveryMan extends javax.swing.JFrame {
 
     private LListAddDeliveryMan<Deliveryman> deliverymanList = new LListAddDeliveryMan<>();
-    private int Position;
+    private int position;
 
     public <T> void displayList(LListAddDeliveryMan<Deliveryman> dList) {
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
@@ -25,9 +24,11 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                 
                 txtContact.setText(dList.getEntry(i).getdPhone());
                 txtAddress.setText(dList.getEntry(i).getdAddress());
+                txtUserName.setText(dList.getEntry(i).getDuserName());
+                txtPassword.setText(dList.getEntry(i).getdPassword());
                 cbReason.setSelectedItem(dList.getEntry(i).getdReason());
                 String act = dList.getEntry(i).getdActive();
-                if(act == "Active")
+                if("Active".equals(act))
                 {
                     rbYes.setSelected(true);
                     rbNo.setSelected(false);
@@ -37,7 +38,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                     rbYes.setSelected(false);
                     rbNo.setSelected(true);
                 }
-                Position = i;
+                position = i;
             }
         }
     }
@@ -76,6 +77,13 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         txtContact = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        lblContactNo2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Delivery Man");
@@ -202,7 +210,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                     .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton6)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         lblContactNo.setText("Contact No. :");
@@ -218,6 +226,60 @@ public class AddDeliveryMan extends javax.swing.JFrame {
 
         lblAddress.setText("Address :");
 
+        jPanel3.setBackground(java.awt.Color.white);
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel5.setFont(new java.awt.Font("Lucida Fax", 0, 15)); // NOI18N
+        jLabel5.setText("Login Info.");
+
+        lblContactNo2.setText("User Name:");
+
+        jLabel1.setText("Password:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblContactNo2)
+                    .addComponent(jLabel1))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUserName)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblContactNo2)
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        btnMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenu.setText("Back Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BtnSearchNameLayout = new javax.swing.GroupLayout(BtnSearchName);
         BtnSearchName.setLayout(BtnSearchNameLayout);
         BtnSearchNameLayout.setHorizontalGroup(
@@ -230,6 +292,14 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(BtnSearchNameLayout.createSequentialGroup()
                         .addGroup(BtnSearchNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(BtnSearchNameLayout.createSequentialGroup()
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BtnUpdate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton4))
                             .addGroup(BtnSearchNameLayout.createSequentialGroup()
                                 .addGroup(BtnSearchNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblName, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -247,18 +317,18 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                                     .addComponent(rbYes)
                                     .addGroup(BtnSearchNameLayout.createSequentialGroup()
                                         .addGap(86, 86, 86)
-                                        .addComponent(rbNo))))
+                                        .addComponent(rbNo)))))
+                        .addGroup(BtnSearchNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(BtnSearchNameLayout.createSequentialGroup()
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                                .addGroup(BtnSearchNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(162, 162, 162))
+                            .addGroup(BtnSearchNameLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BtnUpdate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(173, 173, 173))))
+                                .addComponent(btnMenu)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         BtnSearchNameLayout.setVerticalGroup(
             BtnSearchNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,10 +340,11 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(BtnSearchNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BtnSearchNameLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
                         .addGroup(BtnSearchNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblName))
@@ -293,9 +364,14 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(BtnSearchNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblReason)
-                            .addComponent(cbReason, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(314, Short.MAX_VALUE))
+                            .addComponent(cbReason, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BtnSearchNameLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(187, 187, 187))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -397,6 +473,12 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_rbYesActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        HR Pending = new HR();
+        Pending.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
+
     public void clearData() {
         jButton2.setEnabled(true);
         txtName.setText("");
@@ -405,6 +487,8 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         cbReason.setSelectedIndex(0);
         rbYes.setSelected(true);
         rbNo.setSelected(false);
+        txtUserName.setText("");
+        txtPassword.setText("");
     }
 
     public int Validation() {
@@ -427,7 +511,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         } else {
             Dstatus = "Active";
         }
-        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), 2, "");
+        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(),txtUserName.getText(),txtPassword.getText(), 2, "");
         deliverymanList.add(dm);
     }
 
@@ -439,8 +523,8 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         } else {
             Dstatus = "Active";
         }
-        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), 2, "");
-        deliverymanList.replace(Position,dm);
+        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(),txtUserName.getText(),txtPassword.getText(), 2, "");
+        deliverymanList.replace(position, dm);
     }
 
     public static void main(String args[]) {
@@ -481,16 +565,21 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BtnSearchName;
     private javax.swing.JButton BtnUpdate;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JComboBox cbReason;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblContactNo;
     private javax.swing.JLabel lblContactNo1;
+    private javax.swing.JLabel lblContactNo2;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblReason;
     private javax.swing.JLabel lblStatus;
@@ -500,7 +589,9 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtContact;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
 }
