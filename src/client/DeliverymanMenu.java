@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package client;
-
 import java.awt.BorderLayout;
-
 /**
  *
  * @author YUNNI
@@ -108,13 +106,13 @@ public class DeliverymanMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btndeliverymanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeliverymanActionPerformed
-        ClockIn clockIn = new ClockIn();
+        ClockIn clockIn=new ClockIn();
         clockIn.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btndeliverymanActionPerformed
 
     private void btnpendingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpendingActionPerformed
-        CompleteDelivery completeDelivery = new CompleteDelivery();
+        CompleteDelivery completeDelivery=new CompleteDelivery();
         completeDelivery.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnpendingActionPerformed

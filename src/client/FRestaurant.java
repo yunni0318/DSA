@@ -106,7 +106,7 @@ public class FRestaurant extends javax.swing.JFrame {
         jlArea.setText(" Area :");
 
         cbArea.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
-        cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bukit Bintang", "Setapak", " " }));
+        cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Melati", "Wangsa Maju", " " }));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo_test-3.png"))); // NOI18N
 
@@ -119,6 +119,11 @@ public class FRestaurant extends javax.swing.JFrame {
         btnRegisterAff.setBackground(new java.awt.Color(255, 255, 255));
         btnRegisterAff.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
         btnRegisterAff.setText("Apply Now");
+        btnRegisterAff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterAffActionPerformed(evt);
+            }
+        });
 
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
@@ -156,6 +161,11 @@ public class FRestaurant extends javax.swing.JFrame {
         );
 
         jButton1.setText("Track Order");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpTopLayout = new javax.swing.GroupLayout(jpTop);
         jpTop.setLayout(jpTopLayout);
@@ -171,7 +181,7 @@ public class FRestaurant extends javax.swing.JFrame {
                         .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
                         .addComponent(jbSearch)
-                        .addGap(69, 69, 69)
+                        .addGap(70, 70, 70)
                         .addComponent(jButton1))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -393,7 +403,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSearchActionPerformed
         // TODO add your handling code here:
-        if (cbArea.getSelectedItem() == "Bukit Bintang") {
+        if (cbArea.getSelectedItem() == "Melati") {
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
@@ -407,7 +417,7 @@ public class FRestaurant extends javax.swing.JFrame {
             jlResName3.setText(jLabel3.getText());//getResName(jLabel3.getText()));
             jlResName4.setText(jLabel4.getText());//getResName(jLabel4.getText()));
 
-        } else if (cbArea.getSelectedItem() == "Setapak") {
+        } else if (cbArea.getSelectedItem() == "Wangsa Maju") {
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
@@ -498,6 +508,17 @@ public class FRestaurant extends javax.swing.JFrame {
         LoginPage Login = new LoginPage();
         Login.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        TrackOrder trackOrder=new TrackOrder();
+        trackOrder.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnRegisterAffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterAffActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegisterAffActionPerformed
 
     /**
      * @param args the command line arguments

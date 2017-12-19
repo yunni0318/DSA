@@ -24,13 +24,13 @@ public class PendingDeliveries extends javax.swing.JFrame {
     public PendingDeliveries() {
         initComponents();
         Time();
-        initOrderDelivery();
         displayList();
     }
 
     public PendingDeliveries(String name) {
         initComponents();
         cbDeliveryMan.setSelectedItem(name);
+        FilterList();
     }
 
     public void Time() {
@@ -55,7 +55,7 @@ public class PendingDeliveries extends javax.swing.JFrame {
 
     public <T> void displayList() {
 
-        Object[] col = new Object[5];
+        Object[] col = new Object[4];
         DefaultTableModel model = (DefaultTableModel) tbPending.getModel();
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getStatus().equals("Pending")) {
@@ -69,7 +69,7 @@ public class PendingDeliveries extends javax.swing.JFrame {
     }
 
     public <T> void FilterList() {
-        Object[] col = new Object[5];
+        Object[] col = new Object[4];
         DefaultTableModel model = (DefaultTableModel) tbPending.getModel();
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getStatus().equals("Pending") && odList.getEntry(i).getdName().equals(cbDeliveryMan.getSelectedItem())) {

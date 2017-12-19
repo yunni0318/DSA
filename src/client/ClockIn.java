@@ -133,8 +133,8 @@ public class ClockIn extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        HRMenu summary = new HRMenu();
-        summary.setVisible(true);
+        DeliverymanMenu menu = new DeliverymanMenu();
+        menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
