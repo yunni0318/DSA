@@ -9,12 +9,12 @@ import java.awt.BorderLayout;
  *
  * @author YUNNI
  */
-public class HR extends javax.swing.JFrame {
+public class DeliverymanMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form HR
      */
-    public HR() {
+    public DeliverymanMenu() {
         initComponents();
     }
 
@@ -30,8 +30,6 @@ public class HR extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btndeliveryman = new javax.swing.JButton();
         btnpending = new javax.swing.JButton();
-        btndaily = new javax.swing.JButton();
-        btnreport = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,7 +38,7 @@ public class HR extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         btndeliveryman.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btndeliveryman.setText("Maintain Delivery Man");
+        btndeliveryman.setText("Clock in/Clock off");
         btndeliveryman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndeliverymanActionPerformed(evt);
@@ -48,26 +46,10 @@ public class HR extends javax.swing.JFrame {
         });
 
         btnpending.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnpending.setText("View Pending List");
+        btnpending.setText("Complete Delivery");
         btnpending.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnpendingActionPerformed(evt);
-            }
-        });
-
-        btndaily.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btndaily.setText("Daily Report");
-        btndaily.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndailyActionPerformed(evt);
-            }
-        });
-
-        btnreport.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnreport.setText("Deliveryman Summary Report");
-        btnreport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnreportActionPerformed(evt);
             }
         });
 
@@ -87,22 +69,14 @@ public class HR extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(btndeliveryman))
+                        .addGap(257, 257, 257)
+                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
+                        .addGap(216, 216, 216)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnpending)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(btndaily))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(btnreport))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(195, Short.MAX_VALUE))
+                            .addComponent(btndeliveryman))))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,11 +87,7 @@ public class HR extends javax.swing.JFrame {
                 .addComponent(btndeliveryman)
                 .addGap(18, 18, 18)
                 .addComponent(btnpending)
-                .addGap(18, 18, 18)
-                .addComponent(btndaily)
-                .addGap(18, 18, 18)
-                .addComponent(btnreport)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,28 +106,16 @@ public class HR extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btndeliverymanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeliverymanActionPerformed
-        AddDeliveryMan Delivery = new AddDeliveryMan();
-        Delivery.setVisible(true);
+        ClockIn clockIn=new ClockIn();
+        clockIn.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btndeliverymanActionPerformed
 
     private void btnpendingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpendingActionPerformed
-        PendingDeliveries Pending = new PendingDeliveries();
-        Pending.setVisible(true);
+        CompleteDelivery completeDelivery=new CompleteDelivery();
+        completeDelivery.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnpendingActionPerformed
-
-    private void btndailyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndailyActionPerformed
-        DailyReport Daily = new DailyReport();
-        Daily.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btndailyActionPerformed
-
-    private void btnreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportActionPerformed
-        SummaryReport Summary = new SummaryReport();
-        Summary.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnreportActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         FRestaurant Pending = new FRestaurant();
@@ -182,30 +140,29 @@ public class HR extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeliverymanMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeliverymanMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeliverymanMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeliverymanMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HR().setVisible(true);
+                new DeliverymanMenu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHome;
-    private javax.swing.JButton btndaily;
     private javax.swing.JButton btndeliveryman;
     private javax.swing.JButton btnpending;
-    private javax.swing.JButton btnreport;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

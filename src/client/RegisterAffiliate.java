@@ -5,6 +5,7 @@
  */
 package client;
 import adt.LListAddAffiliate;
+import static client.MainMenu.afList;
 import entity.Affiliate;
 import javax.swing.JOptionPane;
 
@@ -14,24 +15,10 @@ import javax.swing.JOptionPane;
  */
 public class RegisterAffiliate extends javax.swing.JFrame {
 
-    private LListAddAffiliate<Affiliate> affiliateList = new LListAddAffiliate<>();
-    private int Position;
-
-    public <T> void displayList(LListAddAffiliate<Affiliate> aList) {
-        for (int i = 1; i <= aList.getNumberOfEntries(); i++) {
-            if (aList.getEntry(i).getAfName().equals(jTextField1.getText())) {
+    private int position;
                 
-                jPasswordField1.setText(aList.getEntry(i).getAfPassword());
-                jTextField2.setText(aList.getEntry(i).getAfAddress());
-               jTextField3.setText(aList.getEntry(i).getAfCity());
-                jTextField4.setText(aList.getEntry(i).getAfState());
-                jTextField5.setText(aList.getEntry(i).getAfPostcode());                       
-                Position = i;
-           }
-        }
-    }
+    
     public RegisterAffiliate() {
-        affiliateList = new LListAddAffiliate<>();
         initComponents();
     }
 
@@ -56,9 +43,9 @@ public class RegisterAffiliate extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        affPostcode = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +84,13 @@ public class RegisterAffiliate extends javax.swing.JFrame {
             }
         });
 
+        affPostcode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "53000", "53100", "53300" }));
+        affPostcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                affPostcodeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,12 +111,12 @@ public class RegisterAffiliate extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                             .addComponent(jPasswordField1)
                             .addComponent(jTextField2)
                             .addComponent(jTextField3)
                             .addComponent(jTextField4)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)))
+                            .addComponent(affPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jButton1)
@@ -158,7 +152,7 @@ public class RegisterAffiliate extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(affPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -180,13 +174,13 @@ public class RegisterAffiliate extends javax.swing.JFrame {
         if (i == -1) {
         } else if (i == 0) {
             insertData();
-            JOptionPane.showMessageDialog(null, "Insert Successful.", "Information", JOptionPane.DEFAULT_OPTION);
+            JOptionPane.showMessageDialog(null, "Registered Successfully.", "Information", JOptionPane.DEFAULT_OPTION);
             clearText();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     public void insertData() {
-        Affiliate af = new Affiliate(jTextField1.getText(), jPasswordField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText());
-        affiliateList.add(af);
+        Affiliate af = new Affiliate(jTextField1.getText(), jPasswordField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),String.valueOf(affPostcode.getSelectedItem()));
+        afList.add(af);
     }
    public int Validation() {
         int re = 0;
@@ -202,11 +196,7 @@ public class RegisterAffiliate extends javax.swing.JFrame {
         }
           else if(jTextField4.getText().isEmpty()){
             re= -1;
-        }
-          else if(jTextField5.getText().isEmpty()){
-            re= -1;
-        }
-
+        }       
         return re;
     }
    
@@ -217,12 +207,17 @@ public class RegisterAffiliate extends javax.swing.JFrame {
         jTextField2.setText("");
         jTextField3.setText("");
         jTextField4.setText("");
-        jTextField5.setText("");
+        
+        
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        displayList(affiliateList);
+        clearText();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void affPostcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_affPostcodeActionPerformed
+        
+    }//GEN-LAST:event_affPostcodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,6 +246,8 @@ public class RegisterAffiliate extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -261,6 +258,7 @@ public class RegisterAffiliate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> affPostcode;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -275,6 +273,5 @@ public class RegisterAffiliate extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
