@@ -157,7 +157,6 @@ public class HRMenu extends javax.swing.JFrame {
         FRestaurant Pending = new FRestaurant();
         Pending.setVisible(true);
         this.dispose();
-        //can't put new
     }//GEN-LAST:event_btnHomeActionPerformed
 
     /**
