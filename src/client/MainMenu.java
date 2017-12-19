@@ -5,7 +5,7 @@
  */
 package client;
 
-import adt.DeliverymanLinkedQueue;
+import adt.DeliverymanLinkedList;
 import adt.OrderItemLinkedList;
 import adt.OrderLinkedList;
 import adt.ScheduleLinkedList;
@@ -25,7 +25,7 @@ public class MainMenu {
 
     public static ArrayList<Affiliate> afList = new ArrayList<>();
     public static ArrayList<Customer> cusList = new ArrayList<>();
-    public static DeliverymanLinkedQueue<Deliveryman> dList = new DeliverymanLinkedQueue<>();
+    public static DeliverymanLinkedList<Deliveryman> dList = new DeliverymanLinkedList<>();
     public static OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     public static OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
     public static ScheduleLinkedList<Schedule> sList=new ScheduleLinkedList<>();
@@ -42,9 +42,9 @@ public class MainMenu {
 
     public static void initDeliveryman() {
         Deliveryman d = new Deliveryman("Tony", "", "", "", "", "", "", 0, "");
-        dList.enqueue(d);
+        dList.add(d);
         d = new Deliveryman("Alex", "", "", "", "", "", "", 0, "");
-        dList.enqueue(d);
+        dList.add(d);
     }
 
     public static void initOrderDelivery() {

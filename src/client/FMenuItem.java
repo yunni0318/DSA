@@ -7,6 +7,8 @@ package client;
 
 import adt.OrderItemLinkedList;
 import adt.OrderLinkedList;
+import static client.MainMenu.dList;
+import entity.Deliveryman;
 import javax.swing.JOptionPane;
 import entity.OrderDelivery;
 import entity.OrderItem;
@@ -423,6 +425,14 @@ public class FMenuItem extends javax.swing.JFrame {
 //        String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
         OrderDelivery newEntry = new OrderDelivery(id, "", odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
         odList.add(newEntry);
+        int min = dList.getEntry(1).getdNoOfTask();
+        for (int i = 1; i < dList.getNumberOfEntries(); i++) {
+            Deliveryman deliveryman = dList.getEntry(i);
+            if (deliveryman.getdNoOfTask() < min) {
+                min = deliveryman.getdNoOfTask();
+            }
+        }
+        
         FConfirm orderCon = new FConfirm(odList, oiList, id);
         orderCon.setRes(jlResName.getText());
         orderCon.setVisible(true);

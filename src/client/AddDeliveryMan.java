@@ -9,28 +9,28 @@ import com.sun.glass.events.KeyEvent;
 import javax.swing.*;
 import entity.Deliveryman;
 import adt.LListAddDeliveryMan;
+
 /**
  *
  * @author YUNNI
  */
 public class AddDeliveryMan extends javax.swing.JFrame {
-
+    
     private LListAddDeliveryMan<Deliveryman> deliverymanList = new LListAddDeliveryMan<>();
     private int position;
-
+    
     public <T> void displayList(LListAddDeliveryMan<Deliveryman> dList) {
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
             if (dList.getEntry(i).getdName().equals(txtName.getText())) {
-
+                
                 txtContact.setText(dList.getEntry(i).getdPhone());
                 txtAddress.setText(dList.getEntry(i).getdAddress());
                 txtUserName.setText(dList.getEntry(i).getDuserName());
                 txtPassword.setText(dList.getEntry(i).getdPassword());
                 cbReason.setSelectedItem(dList.getEntry(i).getdReason());
                 String act = dList.getEntry(i).getdActive();
-                if("Active".equals(act))
-
                 txtStatus.setText(dList.getEntry(i).getdStatus());
+                jButton6.setEnabled(txtStatus.getText().equals("Delivery"));
                 if (act == "Active") {
                     rbYes.setSelected(true);
                 } else {
@@ -40,7 +40,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
             }
         }
     }
-
+    
     public AddDeliveryMan() {
         deliverymanList = new LListAddDeliveryMan<>();
         initComponents();
@@ -48,7 +48,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         buttonGroup1.add(rbNo);
         cbReason.setEnabled(false);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -394,7 +394,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        PendingDeliveries pd=new PendingDeliveries(txtName.getText());
 //        pd.setVisible(true);
-    
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void txtStatusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStatusKeyTyped
@@ -424,10 +424,10 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContactKeyPressed
 
     private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
-
+        
         if (txtContact.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Don't play play", "Warning", JOptionPane.INFORMATION_MESSAGE);
-
+            
         } else {
             updateData();
             clearData();
@@ -435,20 +435,19 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        
         if (txtName.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter name before search.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
             displayList(deliverymanList);
             jButton2.setEnabled(false);
-            jButton6.setEnabled(txtStatus.getText().equals("Delivery"));
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        
         int i = Validation();
-
+        
         if (i == -1) {
         } else if (i == 0) {
             insertData();
@@ -476,7 +475,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         Pending.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
-
+    
     public void clearData() {
         jButton2.setEnabled(true);
         txtName.setText("");
@@ -488,7 +487,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         txtUserName.setText("");
         txtPassword.setText("");
     }
-
+    
     public int Validation() {
         int re = 0;
         if (txtName.getText().isEmpty()) {
@@ -498,10 +497,10 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         } else if (txtAddress.getText().isEmpty()) {
             re = -1;
         }
-
+        
         return re;
     }
-
+    
     public void insertData() {
         String Dstatus;
         if (rbNo.isSelected()) {
@@ -509,24 +508,23 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         } else {
             Dstatus = "Active";
         }
-
-        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(),txtUserName.getText(),txtPassword.getText(), 2, "Delivery");
-
+        
+        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), txtUserName.getText(), txtPassword.getText(), 0, "Available");
         deliverymanList.add(dm);
     }
-
+    
     public void updateData() {
         String Dstatus;
-
+        
         if (rbNo.isSelected()) {
             Dstatus = "In Active";
         } else {
             Dstatus = "Active";
         }
-        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(),txtUserName.getText(),txtPassword.getText(), 2, "Delivery");
+        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), txtUserName.getText(), txtPassword.getText(), 0, txtStatus.getText());
         deliverymanList.replace(position, dm);
     }
-
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -558,7 +556,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
             public void run() {
                 new AddDeliveryMan().setVisible(true);
             }
-
+            
         });
     }
 

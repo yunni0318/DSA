@@ -26,16 +26,16 @@ public class SummaryReport extends javax.swing.JFrame {
         initComponents();
         initOrderDelivery();
         initDeliveryman();
-//        OrderLinkedList<String> odList = MainMenu.odList.getSummaryReport();
+        OrderLinkedList<String> odList = getSummaryReport();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[3];
-//        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-//            String[] s = odList.getEntry(i).split(" ");
-//            row[0] = s[0];
-//            row[1] = s[1];
-//            row[2] = s[2];
-//            model.addRow(row);
-//        }
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            String[] s = odList.getEntry(i).split(" ");
+            row[0] = s[0];
+            row[1] = s[1];
+            row[2] = s[2];
+            model.addRow(row);
+        }
     }
 
     /**
@@ -139,6 +139,27 @@ public class SummaryReport extends javax.swing.JFrame {
         }
     }
 
+    public OrderLinkedList getSummaryReport() {
+        int totalDistance;
+        int totalDelivery;
+        OrderLinkedList tempList = new OrderLinkedList();
+        for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
+            Deliveryman deliveryman = dList.getEntry(i);
+            totalDistance = 0;
+            totalDelivery = 0;
+            for (int j = 1; j <= odList.getNumberOfEntries(); j++) {
+                if (odList.getEntry(j).getdName().equals(deliveryman.getdName())) {
+                    totalDelivery++;
+                    totalDistance += odList.getEntry(j).getDistance();
+                }
+            }
+            Object[] ob = new Object[]{deliveryman.getdName(), totalDelivery, totalDistance};
+            tempList.add(ob);
+            System.out.println(deliveryman.getdName() + " " + totalDelivery + " " + totalDistance);
+        }
+        return tempList;
+    }
+    
     /**
      * @param args the command line arguments
      */
