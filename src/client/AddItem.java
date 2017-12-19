@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package client;
+import static client.MainMenu.iList;
 import adt.LListAdditem;
 import entity.Item;
 import javax.swing.JOptionPane;
@@ -15,8 +16,7 @@ import javax.swing.JOptionPane;
 public class AddItem extends javax.swing.JFrame {
 
  
-    private LListAdditem<Item> itemList = new LListAdditem<>();
-    private int Position;
+    private int position;
 
     public <T> void displayList(LListAdditem<Item> iList) {
         for (int i = 1; i <= iList.getNumberOfEntries(); i++) {
@@ -24,16 +24,16 @@ public class AddItem extends javax.swing.JFrame {
                 priceTextField2.setText(Double.toString(iList.getEntry(i).getItPrice()));
                 afNameTextField3.setText(iList.getEntry(i).getAfName());
                      
-                Position = i;
+                position = i;
             }
         }
-    }
+    }    
      public void insertData() {
         Item itf = new Item(foodTextField1.getText(), Double.parseDouble(priceTextField2.getText()),afNameTextField3.getText());
-        itemList.add(itf);
+        iList.add(itf);
     }
     public AddItem() {
-        itemList = new LListAdditem<>();
+       
         initComponents();
         
     }
@@ -111,16 +111,13 @@ public class AddItem extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(afNameTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(priceTextField2)
-                            .addComponent(foodTextField1))))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(afNameTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                        .addComponent(priceTextField2)
+                        .addComponent(foodTextField1)))
                 .addGap(60, 60, 60)
                 .addComponent(jButton1)
                 .addGap(29, 29, 29))
@@ -187,7 +184,7 @@ public class AddItem extends javax.swing.JFrame {
          if (foodTextField1.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter food name before search.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            displayList(itemList);
+            displayList(iList);
                        
         }
     }//GEN-LAST:event_searchButtonActionPerformed
@@ -208,8 +205,10 @@ public class AddItem extends javax.swing.JFrame {
        if (foodTextField1.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter the food name", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-        //int deleteItem=foodTextField1.getText();
-        //remove(1);
+        
+        iList.remove(position);
+        JOptionPane.showMessageDialog(null, "Sucessfully deleted the Food.", "Information", JOptionPane.DEFAULT_OPTION);
+        clearText();
         }
         
     }//GEN-LAST:event_deleteButtonActionPerformed
@@ -221,7 +220,7 @@ public class AddItem extends javax.swing.JFrame {
  public void updateData() {
              
         Item im = new Item(foodTextField1.getText(), Double.parseDouble(priceTextField2.getText()),afNameTextField3.getText());
-        itemList.replace(Position,im);
+        iList.replace(position,im);
     }
     /**
      * @param args the command line arguments
@@ -248,6 +247,8 @@ public class AddItem extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AddItem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

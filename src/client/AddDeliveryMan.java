@@ -469,7 +469,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }//GEN-LAST:event_rbYesActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        HR Pending = new HR();
+        HRMenu Pending = new HRMenu();
         Pending.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
