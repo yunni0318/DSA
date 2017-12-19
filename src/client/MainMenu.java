@@ -6,6 +6,7 @@
 package client;
 import adt.LListAdditem;
 import adt.DeliverymanLinkedList;
+import adt.LListAddAffiliate;
 import adt.OrderItemLinkedList;
 import adt.OrderLinkedList;
 import adt.ScheduleLinkedList;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
  */
 public class MainMenu {
 
-    public static ArrayList<Affiliate> afList = new ArrayList<>();
+    public static LListAddAffiliate<Affiliate> afList = new LListAddAffiliate<>();
     public static ArrayList<Customer> cusList = new ArrayList<>();
     public static LListAdditem<Item> iList= new LListAdditem<>();
     public static DeliverymanLinkedList<Deliveryman> dList = new DeliverymanLinkedList<>();

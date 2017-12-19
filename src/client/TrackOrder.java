@@ -231,9 +231,9 @@ public class TrackOrder extends javax.swing.JFrame {
             return;
         }
 
-        for (int i = 0; i < afList.size(); i++) {
-            if (afList.get(i).getAfName().equals(od.getAfName())) {
-                fromPostcode = afList.get(i).getAfPostcode();
+        for (int i = 0; i < afList.getNumberOfEntries(); i++) {
+            if (afList.getEntry(i).getAfName().equals(od.getAfName())) {
+                fromPostcode = afList.getEntry(i).getAfPostcode();
             }
         }
         for (int i = 0; i < cusList.size(); i++) {

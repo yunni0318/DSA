@@ -64,9 +64,9 @@ public class FConfirm extends javax.swing.JFrame {
                 odList.getEntry(i).setDeliveryFee(5.00);
                 odList.getEntry(i).setTotal(odList.getEntry(i).getSubTotal()+5.00);
                 //double sub = odList.getEntry(i).getSubTotal();
-                lblSubTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getSubTotal()));
-                lblDeliveryFee.setText("RM "+ String.valueOf(odList.getEntry(i).getDeliveryFee()));
-                lblTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getTotal()));
+                lblSubTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getSubTotal()) + "0");
+                lblDeliveryFee.setText("RM "+ String.valueOf(odList.getEntry(i).getDeliveryFee()) + "0");
+                lblTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getTotal()) + "0");
             }
         }
         
