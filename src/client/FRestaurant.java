@@ -118,6 +118,11 @@ public class FRestaurant extends javax.swing.JFrame {
         btnRegisterAff.setBackground(new java.awt.Color(255, 255, 255));
         btnRegisterAff.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
         btnRegisterAff.setText("Apply Now");
+        btnRegisterAff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterAffActionPerformed(evt);
+            }
+        });
 
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
@@ -492,6 +497,12 @@ public class FRestaurant extends javax.swing.JFrame {
         LoginPage Login = new LoginPage();
         Login.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnRegisterAffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterAffActionPerformed
+        // TODO add your handling code here:
+        new RegisterAffiliate().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnRegisterAffActionPerformed
 
     /**
      * @param args the command line arguments

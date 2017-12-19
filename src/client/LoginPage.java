@@ -13,6 +13,8 @@ import static client.MainMenu.odList;
 import static client.MainMenu.initOrderDelivery;
 import static client.MainMenu.initCustomer;
 import static client.MainMenu.cusList;
+import static client.MainMenu.afList;
+import static client.MainMenu.initAffiliate;
 
 public class LoginPage extends javax.swing.JFrame {
 
@@ -72,6 +74,11 @@ public class LoginPage extends javax.swing.JFrame {
 
         cbPosition.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbPosition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Delivery Man", "Affiliate", "HR" }));
+        cbPosition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPositionActionPerformed(evt);
+            }
+        });
 
         txtPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -149,6 +156,10 @@ public class LoginPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEnterActionPerformed
 
+    private void cbPositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPositionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPositionActionPerformed
+
     public <T> void DeliveryMan() {
         String pass = String.valueOf(txtPassword.getPassword());
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
@@ -159,12 +170,13 @@ public class LoginPage extends javax.swing.JFrame {
     }
     
     public <T> void Affiliate() {
-//        String pass = String.valueOf(txtPassword.getPassword());
-//        for (int i = 1; i <= cusList.getNumberOfEntries(); i++) {
-//            if (cusList.getEntry(i).getDuserName().equals(txtUserName.getText()) && dList.getEntry(i).getdPassword().equals(pass)) {
-//                //cheng's
-//            }
-//        }
+       String pass = String.valueOf(txtPassword.getPassword());
+       for (int i = 1; i <= afList.getNumberOfEntries(); i++) {
+           if (afList.getEntry(i).getAfName().equals(txtUserName.getText()) && dList.getEntry(i).getdPassword().equals(pass)) {
+                new AddItem().setVisible(true);
+                dispose();
+           }
+        }
     }
 
     public void HR() {
