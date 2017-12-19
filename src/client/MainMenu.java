@@ -32,23 +32,23 @@ public class MainMenu {
     public static OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     public static OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
     public static ScheduleLinkedList<Schedule> sList=new ScheduleLinkedList<>();
-    
+    public static String userName;
     public static void initAffiliate() {
-        Affiliate af = new Affiliate("Homemade Chinese Restaurant", "12345", "Jalan Tembikai", "Kuala Lumpur", "Setapak", "53000");
+        Affiliate af = new Affiliate("Homemade Chinese Restaurant", "Jalan Tembikai", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
-        af = new Affiliate("Delicious Sushi Restaurant", "12345", "Jalan Pisang", "Kuala Lumpur", "Setapak", "53000");
+        af = new Affiliate("Delicious Sushi Restaurant","Jalan Pisang", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
-        af = new Affiliate("Kenny Roaster Restaurant", "12345", "Jalan Durian", "Kuala Lumpur", "Setapak", "53000");
+        af = new Affiliate("Kenny Roaster Restaurant","Jalan Durian", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
-        af = new Affiliate("Bukit Bintang Nasi Lemak", "12345", "Jalan Banana", "Kuala Lumpur", "Setapak", "53100");
+        af = new Affiliate("Bukit Bintang Nasi Lemak","Jalan Banana", "Kuala Lumpur", "Setapak", "53100","12345");
         afList.add(af);
-        af = new Affiliate("All Noodle Restaurant", "12345", "Jalan PV15", "Kuala Lumpur", "Setapak", "53100");
+        af = new Affiliate("All Noodle Restaurant","Jalan PV15", "Kuala Lumpur", "Setapak", "53100","12345");
         afList.add(af);
-        af = new Affiliate("Rice Tong Restaurant", "12345", "Jalan POPO", "Kuala Lumpur", "Setapak", "53100");
+        af = new Affiliate("Rice Tong Restaurant","Jalan POPO", "Kuala Lumpur", "Setapak", "53100","12345");
         afList.add(af);
-        af = new Affiliate("Special Spaghetti Restaurant", "12345", "Jalan Kikab", "Kuala Lumpur", "Setapak", "53000");
+        af = new Affiliate("Special Spaghetti Restaurant","Jalan Kikab", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
-        af = new Affiliate("Homemade Western Food", "12345", "Jalan Juour", "Kuala Lumpur", "Setapak", "53000");
+        af = new Affiliate("Homemade Western Food","Jalan Juour", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
     }
 

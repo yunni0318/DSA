@@ -190,7 +190,7 @@ public class RegisterAffiliate extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     public void insertData() {
-        Affiliate af = new Affiliate(jTextField1.getText(), jPasswordField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),String.valueOf(affPostcode.getSelectedItem()));
+        Affiliate af = new Affiliate(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),String.valueOf(affPostcode.getSelectedItem()),jPasswordField1.getText());
         afList.add(af);
     }
    public int Validation() {

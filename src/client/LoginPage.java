@@ -13,6 +13,7 @@ import static client.MainMenu.odList;
 import static client.MainMenu.initOrderDelivery;
 import static client.MainMenu.initCustomer;
 import static client.MainMenu.cusList;
+import static client.MainMenu.userName;
 import static client.MainMenu.afList;
 import static client.MainMenu.initAffiliate;
 
@@ -22,6 +23,7 @@ public class LoginPage extends javax.swing.JFrame {
         initComponents();
         initDeliveryman();
         initCustomer();
+        initAffiliate();
     }
 
     /**
@@ -174,7 +176,8 @@ public class LoginPage extends javax.swing.JFrame {
     public <T> void Affiliate() {
        String pass = String.valueOf(txtPassword.getPassword());
        for (int i = 1; i <= afList.getNumberOfEntries(); i++) {
-           if (afList.getEntry(i).getAfName().equals(txtUserName.getText()) && dList.getEntry(i).getdPassword().equals(pass)) {
+           if (afList.getEntry(i).getAfName().equals(txtUserName.getText()) && afList.getEntry(i).getAfPassword().equals(pass)) {
+                userName=afList.getEntry(i).getAfName();
                 new AddItem().setVisible(true);
                 dispose();
            }
