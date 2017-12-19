@@ -24,27 +24,6 @@ public class FRestaurant extends javax.swing.JFrame {
 
     public String getResName(String name) {
         String resName = name;
-//        try{
-//            
-//            String host = "jdbc:derby://localhost:1527/collegedb";
-//            String username = "nbuser";
-//            String password = "nbuser";
-//            Connection con = DriverManager.getConnection(host, username, password);
-//            PreparedStatement pstmt = con.prepareStatement("Select * from restaurant where resID=?");
-// 
-//            pstmt.setInt(1,i);
-//            ResultSet rs = pstmt.executeQuery();
-//            if(rs.next())
-//            {
-//                resName = rs.getString(2);
-//            }
-//            
-//        }
-//        catch(SQLException ex)
-//        {
-//            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-//            //Logger.getLongger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         return resName;
     }
 
@@ -68,7 +47,7 @@ public class FRestaurant extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jpBukitBintang = new javax.swing.JPanel();
+        jpMelawati = new javax.swing.JPanel();
         lblRes1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -77,7 +56,7 @@ public class FRestaurant extends javax.swing.JFrame {
         jlResName2 = new javax.swing.JLabel();
         jlResName3 = new javax.swing.JLabel();
         jlResName4 = new javax.swing.JLabel();
-        jpSetapak = new javax.swing.JPanel();
+        jpWangsaMaju = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -203,7 +182,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.CardLayout());
 
-        jpBukitBintang.setBackground(new java.awt.Color(255, 255, 255));
+        jpMelawati.setBackground(new java.awt.Color(255, 255, 255));
 
         lblRes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/585b-c.jpg"))); // NOI18N
         lblRes1.setText("Homemade Chinese Restaurant");
@@ -251,47 +230,47 @@ public class FRestaurant extends javax.swing.JFrame {
         jlResName4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jlResName4.setText("Melati Nasi Lemak");
 
-        javax.swing.GroupLayout jpBukitBintangLayout = new javax.swing.GroupLayout(jpBukitBintang);
-        jpBukitBintang.setLayout(jpBukitBintangLayout);
-        jpBukitBintangLayout.setHorizontalGroup(
-            jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBukitBintangLayout.createSequentialGroup()
+        javax.swing.GroupLayout jpMelawatiLayout = new javax.swing.GroupLayout(jpMelawati);
+        jpMelawati.setLayout(jpMelawatiLayout);
+        jpMelawatiLayout.setHorizontalGroup(
+            jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMelawatiLayout.createSequentialGroup()
                 .addGap(181, 181, 181)
-                .addGroup(jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlResName3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlResName1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
-                .addGroup(jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlResName4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlResName2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(169, 169, 169))
         );
-        jpBukitBintangLayout.setVerticalGroup(
-            jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpBukitBintangLayout.createSequentialGroup()
-                .addGroup(jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jpMelawatiLayout.setVerticalGroup(
+            jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMelawatiLayout.createSequentialGroup()
+                .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlResName1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlResName2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jpBukitBintangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlResName3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlResName4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel1.add(jpBukitBintang, "card2");
+        jPanel1.add(jpMelawati, "card2");
 
-        jpSetapak.setBackground(new java.awt.Color(255, 255, 255));
+        jpWangsaMaju.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Chinese-Featured-c.jpg"))); // NOI18N
         jLabel5.setText("All Noodle Restaurant");
@@ -333,54 +312,54 @@ public class FRestaurant extends javax.swing.JFrame {
 
         jlResName8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
-        javax.swing.GroupLayout jpSetapakLayout = new javax.swing.GroupLayout(jpSetapak);
-        jpSetapak.setLayout(jpSetapakLayout);
-        jpSetapakLayout.setHorizontalGroup(
-            jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpSetapakLayout.createSequentialGroup()
+        javax.swing.GroupLayout jpWangsaMajuLayout = new javax.swing.GroupLayout(jpWangsaMaju);
+        jpWangsaMaju.setLayout(jpWangsaMajuLayout);
+        jpWangsaMajuLayout.setHorizontalGroup(
+            jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                 .addGap(170, 170, 170)
-                .addGroup(jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jpSetapakLayout.createSequentialGroup()
+                .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpSetapakLayout.createSequentialGroup()
-                        .addGroup(jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpWangsaMajuLayout.createSequentialGroup()
+                        .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlResName5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlResName7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpSetapakLayout.createSequentialGroup()
+                        .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
-                                .addGroup(jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jlResName6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jpSetapakLayout.createSequentialGroup()
+                            .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                                 .addGap(214, 214, 214)
                                 .addComponent(jlResName8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(165, 165, 165))
         );
-        jpSetapakLayout.setVerticalGroup(
-            jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpSetapakLayout.createSequentialGroup()
-                .addGroup(jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jpWangsaMajuLayout.setVerticalGroup(
+            jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpWangsaMajuLayout.createSequentialGroup()
+                .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlResName5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlResName6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
-                .addGroup(jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addGroup(jpSetapakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlResName7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlResName8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jPanel1.add(jpSetapak, "card4");
+        jPanel1.add(jpWangsaMaju, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -408,45 +387,37 @@ public class FRestaurant extends javax.swing.JFrame {
             jPanel1.repaint();
             jPanel1.revalidate();
 
-            jPanel1.add(jpBukitBintang);
+            jPanel1.add(jpMelawati);
             jPanel1.repaint();
             jPanel1.revalidate();
 
-            jlResName1.setText(lblRes1.getText());//getResName(jLabel1.getText()));
-            jlResName2.setText(jLabel2.getText());//getResName(jLabel2.getText()));
-            jlResName3.setText(jLabel3.getText());//getResName(jLabel3.getText()));
-            jlResName4.setText(jLabel4.getText());//getResName(jLabel4.getText()));
+            jlResName1.setText(lblRes1.getText());
+            jlResName2.setText(jLabel2.getText());
+            jlResName3.setText(jLabel3.getText());
+            jlResName4.setText(jLabel4.getText());
 
         } else if (cbArea.getSelectedItem() == "Wangsa Maju") {
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
 
-            jPanel1.add(jpSetapak);
+            jPanel1.add(jpWangsaMaju);
             jPanel1.repaint();
             jPanel1.revalidate();
-            //getRes();
 
-            jlResName5.setText(jLabel5.getText());//getResName(jLabel5.getText()));
-            jlResName6.setText(jLabel6.getText());//getResName(jLabel6.getText()));
-            jlResName7.setText(jLabel7.getText());//getResName(jLabel7.getText()));
-            jlResName8.setText(jLabel8.getText());//getResName(jLabel8.getText())); 
+            jlResName5.setText(jLabel5.getText());
+            jlResName6.setText(jLabel6.getText());
+            jlResName7.setText(jLabel7.getText());
+            jlResName8.setText(jLabel8.getText());
         }
-
-
     }//GEN-LAST:event_jbSearchActionPerformed
 
     private void lblRes1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRes1MouseClicked
         // TODO add your handling code here:   
-//        if(jlResName1.getText()==null){
-//            JOptionPane.showMessageDialog(null, "You should click the", "Error", JOptionPane.INFORMATION_MESSAGE);
-//        }
-//        else{
         menu.setRes(jlResName1.getText());
         menu.getMenu(jlResName1.getText());
         menu.setVisible(true);
         this.setVisible(false);
-//        }
     }//GEN-LAST:event_lblRes1MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -588,9 +559,9 @@ public class FRestaurant extends javax.swing.JFrame {
     private javax.swing.JLabel jlResName6;
     private javax.swing.JLabel jlResName7;
     private javax.swing.JLabel jlResName8;
-    private javax.swing.JPanel jpBukitBintang;
-    private javax.swing.JPanel jpSetapak;
+    private javax.swing.JPanel jpMelawati;
     private javax.swing.JPanel jpTop;
+    private javax.swing.JPanel jpWangsaMaju;
     private javax.swing.JLabel lblRes1;
     // End of variables declaration//GEN-END:variables
 }

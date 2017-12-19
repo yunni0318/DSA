@@ -12,6 +12,7 @@ import entity.Customer;
 import entity.OrderDelivery;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
+import static client.MainMenu.cusList;
 
 /**
  *
@@ -20,7 +21,7 @@ import javax.swing.JOptionPane;
 public class FCustomerInfor extends javax.swing.JFrame {
 
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
-    private CustomerLinkedQueue<Customer> cusList = new CustomerLinkedQueue<>();
+    
     int orderID;
     
     /**
@@ -32,14 +33,19 @@ public class FCustomerInfor extends javax.swing.JFrame {
     }
     
     public FCustomerInfor(OrderLinkedList<OrderDelivery> odList, int orderID) {
-//        jpCus.setLayout(null);
         this.odList = odList;
         this.orderID = orderID;
         
         initComponents();
         lblTotal.setText("RM " + String.valueOf(getTotal(orderID)) + "0");
-//        jpBtn.setVisible(false);
     }
+    
+    public Customer storeCustomer(){
+        Customer cus = new Customer(txtName.getText(), txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()));
+        cusList.add(cus);
+        return cus;
+    }
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -325,7 +331,7 @@ public class FCustomerInfor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPhoneKeyTyped
 
-    private double getTotal(int orderID)//OrderLinkedList<OrderDelivery> odList, 
+    private double getTotal(int orderID)
     {
         double ttl = 0.00;
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
@@ -339,7 +345,6 @@ public class FCustomerInfor extends javax.swing.JFrame {
     
     private void jbtConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtConfirmActionPerformed
         // TODO add your handling code here:
-        //getCustomerInfor( orderID);//odList,
         String name = txtName.getText();
         String phone = txtPhone.getText();
         
@@ -355,14 +360,11 @@ public class FCustomerInfor extends javax.swing.JFrame {
                 odList.getEntry(i).setOdTime(odTime);
             }
         }
-        
-        JOptionPane.showMessageDialog(null, "Thank You =) Your order and payment have been successfully completed. Please Come Again!!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
+        storeCustomer();
+        JOptionPane.showMessageDialog(null, "Thank You =) \nYour order and payment have been successfully completed. \nPlease Come Again!!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
         FRestaurant home = new FRestaurant();
         home.setVisible(true);
         this.setVisible(false);
-//        jpBtn.setVisible(true);
-//        jpCus.setVisible(false);
-        
     }//GEN-LAST:event_jbtConfirmActionPerformed
 
     private void txtCardNoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCardNoKeyPressed
