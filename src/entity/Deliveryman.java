@@ -15,15 +15,19 @@ public class Deliveryman {
     private String dReason;
     private String dPhone;
     private String dAddress;
+    private String duserName;
+    private String dPassword;
     private int dNoOfTask;
     private String dStatus;
 
-    public Deliveryman(String dName, String dActive, String dReason, String dPhone, String dAddress, int dNoOfTask, String dStatus) {
+    public Deliveryman(String dName, String dActive, String dReason, String dPhone, String dAddress, String duserName, String dPassword, int dNoOfTask, String dStatus) {
         this.dName = dName;
         this.dActive = dActive;
         this.dReason = dReason;
         this.dPhone = dPhone;
         this.dAddress = dAddress;
+        this.duserName = duserName;
+        this.dPassword = dPassword;
         this.dNoOfTask = dNoOfTask;
         this.dStatus = dStatus;
     }
@@ -66,6 +70,22 @@ public class Deliveryman {
 
     public void setdAddress(String dAddress) {
         this.dAddress = dAddress;
+    }
+
+    public String getDuserName() {
+        return duserName;
+    }
+
+    public void setDuserName(String duserName) {
+        this.duserName = duserName;
+    }
+
+    public String getdPassword() {
+        return dPassword;
+    }
+
+    public void setdPassword(String dPassword) {
+        this.dPassword = dPassword;
     }
 
     public int getdNoOfTask() {

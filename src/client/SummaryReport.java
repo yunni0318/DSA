@@ -6,9 +6,11 @@
 package client;
 
 import adt.OrderLinkedList;
+import static client.MainMenu.dList;
 import static client.MainMenu.initDeliveryman;
 import static client.MainMenu.initOrderDelivery;
-import entity.OrderDelivery;
+import static client.MainMenu.odList;
+import entity.Deliveryman;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,11 +26,11 @@ public class SummaryReport extends javax.swing.JFrame {
         initComponents();
         initOrderDelivery();
         initDeliveryman();
-        OrderLinkedList<String> odList=MainMenu.odList.getSummaryReport();
+        OrderLinkedList<String> odList = getSummaryReport();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[3];
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            String[] s=odList.getEntry(i).split(" ");
+            String[] s = odList.getEntry(i).split(" ");
             row[0] = s[0];
             row[1] = s[1];
             row[2] = s[2];
@@ -49,8 +51,12 @@ public class SummaryReport extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Deliveryman Summary Report");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,24 +71,40 @@ public class SummaryReport extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Deliveryman Summary Report");
 
+        btnMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenu.setText("Back Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(181, 181, 181))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnMenu)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(63, 63, 63)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(262, 262, 262)
+                            .addComponent(jLabel1))))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
                 .addComponent(jLabel1)
-                .addGap(36, 36, 36)
+                .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -93,12 +115,21 @@ public class SummaryReport extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        HR summary = new HR();
+        summary.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
+
     public void clearTable() {
         DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
         int rowCount = dm.getRowCount();
@@ -108,6 +139,27 @@ public class SummaryReport extends javax.swing.JFrame {
         }
     }
 
+    public OrderLinkedList getSummaryReport() {
+        int totalDistance;
+        int totalDelivery;
+        OrderLinkedList tempList = new OrderLinkedList();
+        for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
+            Deliveryman deliveryman = dList.getEntry(i);
+            totalDistance = 0;
+            totalDelivery = 0;
+            for (int j = 1; j <= odList.getNumberOfEntries(); j++) {
+                if (odList.getEntry(j).getdName().equals(deliveryman.getdName())) {
+                    totalDelivery++;
+                    totalDistance += odList.getEntry(j).getDistance();
+                }
+            }
+            Object[] ob = new Object[]{deliveryman.getdName(), totalDelivery, totalDistance};
+            tempList.add(ob);
+            System.out.println(deliveryman.getdName() + " " + totalDelivery + " " + totalDistance);
+        }
+        return tempList;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -147,6 +199,7 @@ public class SummaryReport extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

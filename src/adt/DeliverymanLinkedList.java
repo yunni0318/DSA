@@ -4,12 +4,12 @@ package adt;
  * LList.java A class that implements the ADT list by using a chain of nodes,
  * with the node implemented as an inner class.
  */
-public class OrderLinkedList<T> implements ListInterface<T> {
+public class DeliverymanLinkedList<T> implements ListInterface<T> {
 
     private Node firstNode; // reference to first node
     private int numberOfEntries;  	// number of entries in list
 
-    public OrderLinkedList() {
+    public DeliverymanLinkedList() {
         clear();
     }
 
@@ -169,15 +169,6 @@ public class OrderLinkedList<T> implements ListInterface<T> {
         return outputStr;
     }
 
-//    public OrderLinkedList getODID(int odID) {
-//        OrderLinkedList<OrderDelivery> tempOdList = new OrderLinkedList<>();
-//        for (int i = 1; i <= odList.numberOfEntries; i++) {
-//            if (odList.getEntry(i).getOdID()==odID));{//&& odList.getEntry(i).getStatus().equals("Pending")) {
-//                tempOdList.add(odList.getEntry(i));
-//            }
-//        }
-//        return tempOdList;
-//    }
     private class Node {
 
         private T data;
