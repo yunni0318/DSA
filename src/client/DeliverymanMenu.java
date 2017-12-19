@@ -120,7 +120,7 @@ public class DeliverymanMenu extends javax.swing.JFrame {
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         FRestaurant Pending = new FRestaurant();
         Pending.setVisible(true);
-        //can't put new
+        this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
 
     /**

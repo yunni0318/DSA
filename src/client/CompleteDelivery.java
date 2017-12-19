@@ -39,6 +39,7 @@ public class CompleteDelivery extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +61,15 @@ public class CompleteDelivery extends javax.swing.JFrame {
             }
         });
 
+        btnMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnMenu.setText("Back Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -67,7 +77,9 @@ public class CompleteDelivery extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(206, 206, 206)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMenu)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -77,7 +89,9 @@ public class CompleteDelivery extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnMenu)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,6 +116,13 @@ public class CompleteDelivery extends javax.swing.JFrame {
         clearTable();
         populateTable();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        // TODO add your handling code here:
+        DeliverymanMenu menu = new DeliverymanMenu();
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     public void completeDelivery(int orderId) {
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
@@ -182,6 +203,7 @@ public class CompleteDelivery extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

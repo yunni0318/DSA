@@ -66,6 +66,7 @@ public class FRestaurant extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnRegisterAff = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jpBukitBintang = new javax.swing.JPanel();
         lblRes1 = new javax.swing.JLabel();
@@ -118,6 +119,11 @@ public class FRestaurant extends javax.swing.JFrame {
         btnRegisterAff.setBackground(new java.awt.Color(255, 255, 255));
         btnRegisterAff.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
         btnRegisterAff.setText("Apply Now");
+        btnRegisterAff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterAffActionPerformed(evt);
+            }
+        });
 
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
@@ -154,6 +160,13 @@ public class FRestaurant extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Track Order");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpTopLayout = new javax.swing.GroupLayout(jpTop);
         jpTop.setLayout(jpTopLayout);
         jpTopLayout.setHorizontalGroup(
@@ -167,7 +180,9 @@ public class FRestaurant extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
-                        .addComponent(jbSearch))
+                        .addComponent(jbSearch)
+                        .addGap(70, 70, 70)
+                        .addComponent(jButton1))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -181,7 +196,8 @@ public class FRestaurant extends javax.swing.JFrame {
                 .addGroup(jpTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlArea, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbSearch))
+                    .addComponent(jbSearch)
+                    .addComponent(jButton1))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -493,6 +509,19 @@ public class FRestaurant extends javax.swing.JFrame {
         Login.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        TrackOrder trackOrder = new TrackOrder();
+        trackOrder.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnRegisterAffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterAffActionPerformed
+        // TODO add your handling code here:
+        new RegisterAffiliate().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnRegisterAffActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -537,6 +566,7 @@ public class FRestaurant extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegisterAff;
     private javax.swing.JComboBox<String> cbArea;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

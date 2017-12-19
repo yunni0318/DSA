@@ -92,6 +92,11 @@ public class FCustomerInfor extends javax.swing.JFrame {
         lblPostcode.setText("Postcode :");
 
         cbPostcode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "53000", "53100", "53300" }));
+        cbPostcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPostcodeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -406,6 +411,10 @@ public class FCustomerInfor extends javax.swing.JFrame {
     private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPhoneActionPerformed
+
+    private void cbPostcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPostcodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPostcodeActionPerformed
 
     /**
      * @param args the command line arguments
