@@ -41,16 +41,16 @@ public class MainMenu {
     }
 
     public static void initDeliveryman() {
-        Deliveryman d = new Deliveryman("Tony", "", "", "", "", "", "", 0, "");
+        Deliveryman d = new Deliveryman("Tony", "Active", "123", "123", "123", "tony", "123", 0, "Available");
         dList.add(d);
         d = new Deliveryman("Alex", "", "", "", "", "", "", 0, "");
         dList.add(d);
     }
 
     public static void initOrderDelivery() {
-        OrderDelivery od = new OrderDelivery(1, "20:00", "13/12/2017", "Ckk", "", 0, 0, 0, "Tony", "MCD", 10, "Pending");
+        OrderDelivery od = new OrderDelivery(1, "20:00", "19/12/2017", "Ckk", "", 0, 0, 0, "Tony", "MCD", 10, "Complete");
         odList.add(od);
-        od = new OrderDelivery(2, "20:00", "13/12/2017", "Yunni", "", 0, 0, 0, "Alex", "MCD", 20, "Pending");
+        od = new OrderDelivery(2, "20:00", "19/12/2017", "Yunni", "", 0, 0, 0, "Alex", "MCD", 20, "Pending");
         odList.add(od);
         od = new OrderDelivery(3, "20:00", "13/12/2017", "SBS", "", 0, 0, 0, "Alex", "MCD", 30, "Pending");
         odList.add(od);

@@ -5,19 +5,21 @@
  */
 package client;
 
-import adt.LListAddDeliveryMan;
 import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
 import static client.MainMenu.initDeliveryman;
-import entity.Deliveryman;
+import static client.MainMenu.dList;
+import static client.MainMenu.odList;
+import static client.MainMenu.initOrderDelivery;
+import static client.MainMenu.initCustomer;
+import static client.MainMenu.cusList;
 
 public class LoginPage extends javax.swing.JFrame {
-
-    private LListAddDeliveryMan<Deliveryman> deliverymanList;
 
     public LoginPage() {
         initComponents();
         initDeliveryman();
+        initCustomer();
     }
 
     /**
@@ -139,7 +141,7 @@ public class LoginPage extends javax.swing.JFrame {
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
 
         if (cbPosition.getSelectedIndex() == 0) {
-            DeliveryMan(deliverymanList);
+            DeliveryMan();
         } else if (cbPosition.getSelectedIndex() == 1) {
             Affiliate();
         } else if (cbPosition.getSelectedIndex() == 2) {
@@ -147,17 +149,22 @@ public class LoginPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEnterActionPerformed
 
-    public <T> void DeliveryMan(LListAddDeliveryMan<Deliveryman> dList) {
+    public <T> void DeliveryMan() {
         String pass = String.valueOf(txtPassword.getPassword());
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
             if (dList.getEntry(i).getDuserName().equals(txtUserName.getText()) && dList.getEntry(i).getdPassword().equals(pass)) {
-                //sbs's deliveryman
+                //sbs's
             }
         }
     }
-
-    public void Affiliate() {
-
+    
+    public <T> void Affiliate() {
+//        String pass = String.valueOf(txtPassword.getPassword());
+//        for (int i = 1; i <= cusList.getNumberOfEntries(); i++) {
+//            if (cusList.getEntry(i).getDuserName().equals(txtUserName.getText()) && dList.getEntry(i).getdPassword().equals(pass)) {
+//                //cheng's
+//            }
+//        }
     }
 
     public void HR() {
