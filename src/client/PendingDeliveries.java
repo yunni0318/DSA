@@ -8,8 +8,8 @@ package client;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
-import entity.OrderDelivery;
-import adt.OrderLinkedList;
+import static client.MainMenu.odList;
+import static client.MainMenu.initOrderDelivery;
 
 /**
  *
@@ -20,13 +20,12 @@ public class PendingDeliveries extends javax.swing.JFrame {
     /**
      * Creates new form PendingDeliveries
      */
-    private OrderLinkedList<OrderDelivery> PendingList = new OrderLinkedList<>();
 
     public PendingDeliveries() {
         initComponents();
         Time();
-        Test();
-        displayList(PendingList);
+        initOrderDelivery();
+        displayList();
     }
 
     public PendingDeliveries(String name) {
@@ -45,11 +44,6 @@ public class PendingDeliveries extends javax.swing.JFrame {
         lblDate.setText(Date);
     }
 
-    public void Test() {
-        OrderDelivery od = new OrderDelivery(1, "20:00", "17/12/2017", "Dilraba", "01234567", 0, 0, 0, "sbs", "KFC", 10, "Pending");
-        PendingList.add(od);
-    }
-
     public void clearTable() {
         DefaultTableModel dm = (DefaultTableModel) tbPending.getModel();
         int rowCount = dm.getRowCount();
@@ -59,7 +53,7 @@ public class PendingDeliveries extends javax.swing.JFrame {
         }
     }
 
-    public <T> void displayList(OrderLinkedList<OrderDelivery> odList) {
+    public <T> void displayList() {
 
         Object[] col = new Object[5];
         DefaultTableModel model = (DefaultTableModel) tbPending.getModel();
@@ -74,7 +68,7 @@ public class PendingDeliveries extends javax.swing.JFrame {
         }
     }
 
-    public <T> void FilterList(OrderLinkedList<OrderDelivery> odList) {
+    public <T> void FilterList() {
         Object[] col = new Object[5];
         DefaultTableModel model = (DefaultTableModel) tbPending.getModel();
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
@@ -259,9 +253,9 @@ public class PendingDeliveries extends javax.swing.JFrame {
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         clearTable();
         if (cbDeliveryMan.getSelectedIndex() == 0) {
-            displayList(PendingList);
+            displayList();
         } else {
-            FilterList(PendingList);
+            FilterList();
         }
     }//GEN-LAST:event_btnFilterActionPerformed
 

@@ -9,17 +9,16 @@ import com.sun.glass.events.KeyEvent;
 import javax.swing.*;
 import entity.Deliveryman;
 import adt.LListAddDeliveryMan;
-
+import static client.MainMenu.dList;
 /**
  *
  * @author YUNNI
  */
 public class AddDeliveryMan extends javax.swing.JFrame {
     
-    private LListAddDeliveryMan<Deliveryman> deliverymanList = new LListAddDeliveryMan<>();
     private int position;
     
-    public <T> void displayList(LListAddDeliveryMan<Deliveryman> dList) {
+    public <T> void displayList() {
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
             if (dList.getEntry(i).getdName().equals(txtName.getText())) {
                 
@@ -42,7 +41,6 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }
     
     public AddDeliveryMan() {
-        deliverymanList = new LListAddDeliveryMan<>();
         initComponents();
         buttonGroup1.add(rbYes);
         buttonGroup1.add(rbNo);
@@ -439,7 +437,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         if (txtName.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter name before search.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            displayList(deliverymanList);
+            displayList();
             jButton2.setEnabled(false);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -510,7 +508,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         }
         
         Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), txtUserName.getText(), txtPassword.getText(), 0, "Available");
-        deliverymanList.add(dm);
+        dList.add(dm);
     }
     
     public void updateData() {
@@ -522,7 +520,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
             Dstatus = "Active";
         }
         Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), txtUserName.getText(), txtPassword.getText(), 0, txtStatus.getText());
-        deliverymanList.replace(position, dm);
+        dList.replace(position, dm);
     }
     
     public static void main(String args[]) {

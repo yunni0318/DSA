@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import entity.OrderDelivery;
-import adt.OrderLinkedList;
+import static client.MainMenu.odList;
 import static client.MainMenu.initOrderDelivery;
 
 /**
@@ -21,13 +21,12 @@ public class DailyReport extends javax.swing.JFrame {
     /**
      * Creates new form DailyReport
      */
-    private OrderLinkedList<OrderDelivery> CompletedList = new OrderLinkedList<>();
 
     public DailyReport() {
         initComponents();
         Time();
         initOrderDelivery();
-        displayList(CompletedList);
+        displayList();
     }
 
     public void Time() {
@@ -36,11 +35,9 @@ public class DailyReport extends javax.swing.JFrame {
         SimpleDateFormat date = new SimpleDateFormat("dd MMMM yyyy");
         String Date = date.format(cal.getTime());
         lblDate.setText(Date);
-
     }
 
-
-    public <T> void displayList(OrderLinkedList<OrderDelivery> odList) {
+    public <T> void displayList() {
         Object[] col = new Object[6];
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {

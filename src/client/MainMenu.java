@@ -41,7 +41,7 @@ public class MainMenu {
     }
 
     public static void initDeliveryman() {
-        Deliveryman d = new Deliveryman("Tony", "", "", "", "", "", "", 0, "");
+        Deliveryman d = new Deliveryman("Tony", "Active", "123", "123", "123", "tony", "123", 0, "Available");
         dList.add(d);
         d = new Deliveryman("Alex", "", "", "", "", "", "", 0, "");
         dList.add(d);
