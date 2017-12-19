@@ -6,9 +6,11 @@
 package client;
 
 import adt.OrderLinkedList;
+import static client.MainMenu.dList;
 import static client.MainMenu.initDeliveryman;
 import static client.MainMenu.initOrderDelivery;
-import entity.OrderDelivery;
+import static client.MainMenu.odList;
+import entity.Deliveryman;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,16 +26,16 @@ public class SummaryReport extends javax.swing.JFrame {
         initComponents();
         initOrderDelivery();
         initDeliveryman();
-        OrderLinkedList<String> odList = MainMenu.odList.getSummaryReport();
+//        OrderLinkedList<String> odList = MainMenu.odList.getSummaryReport();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[3];
-        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            String[] s = odList.getEntry(i).split(" ");
-            row[0] = s[0];
-            row[1] = s[1];
-            row[2] = s[2];
-            model.addRow(row);
-        }
+//        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+//            String[] s = odList.getEntry(i).split(" ");
+//            row[0] = s[0];
+//            row[1] = s[1];
+//            row[2] = s[2];
+//            model.addRow(row);
+//        }
     }
 
     /**

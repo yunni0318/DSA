@@ -8,11 +8,13 @@ package client;
 import adt.DeliverymanLinkedQueue;
 import adt.OrderItemLinkedList;
 import adt.OrderLinkedList;
+import adt.ScheduleLinkedList;
 import entity.Affiliate;
 import entity.Customer;
 import entity.Deliveryman;
 import entity.OrderDelivery;
 import entity.OrderItem;
+import entity.Schedule;
 import java.util.ArrayList;
 
 /**
@@ -26,14 +28,15 @@ public class MainMenu {
     public static DeliverymanLinkedQueue<Deliveryman> dList = new DeliverymanLinkedQueue<>();
     public static OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     public static OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
+    public static ScheduleLinkedList<Schedule> sList=new ScheduleLinkedList<>();
 
     public static void initAffiliate() {
-        Affiliate af = new Affiliate("MCD", "", "", "", "51000", "");
+        Affiliate af = new Affiliate("MCD", "", "", "", "", "51000");
         afList.add(af);
     }
 
     public static void initCustomer() {
-        Customer cus = new Customer("Ckk", "", "", "", "", "53000", "");
+        Customer cus = new Customer("Ckk", "", "", "", "", "53000");
         cusList.add(cus);
     }
 

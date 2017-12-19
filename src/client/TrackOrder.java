@@ -5,9 +5,15 @@
  */
 package client;
 
+import static client.MainMenu.afList;
+import static client.MainMenu.cusList;
 import static client.MainMenu.initAffiliate;
 import static client.MainMenu.initCustomer;
 import static client.MainMenu.initOrderDelivery;
+import static client.MainMenu.odList;
+import entity.OrderDelivery;
+import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -180,9 +186,60 @@ public class TrackOrder extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int orderId = Integer.parseInt(jTextField1.getText());
-        int remainingMinute = MainMenu.odList.trackOrder(orderId);
-        jLabel2.setText("<html>Your order will arrive in <b>" + remainingMinute + "</b> minute(s).<html>");
+        trackOrder(orderId);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void trackOrder(int orderId) {
+        OrderDelivery od = null;
+        String fromPostcode = "";
+        String toPostcode = "";
+        double distance = 0;
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getOdID() == orderId) {
+                od = odList.getEntry(i);
+            }
+        }
+
+        if (od == null) {
+            JOptionPane.showMessageDialog(this, "No order record found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        for (int i = 0; i < afList.size(); i++) {
+            if (afList.get(i).getAfName().equals(od.getAfName())) {
+                fromPostcode = afList.get(i).getAfPostcode();
+            }
+        }
+        for (int i = 0; i < cusList.size(); i++) {
+            if (cusList.get(i).getCusName().equals(od.getCusName())) {
+                toPostcode = cusList.get(i).getCusPostcode();
+            }
+        }
+        if (fromPostcode.equals("51000") && toPostcode.equals("53000")) {
+            distance = 60;
+        } else {
+            //other postcode combination
+        }
+        od.setDistance(distance);
+        double distancePerMinute = 0.6;
+        int totalMinute = (int) (distance / distancePerMinute);
+
+        GregorianCalendar cal = new GregorianCalendar();
+        int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
+        int currentMinute = cal.get(GregorianCalendar.MINUTE);
+        int orderHour = Integer.parseInt(od.getOdTime().substring(0, 2));
+        int orderMinute = Integer.parseInt(od.getOdTime().substring(3, 5));
+        System.out.println(orderHour + ":" + orderMinute + "  " + currentHour + ":" + currentMinute);
+        if (currentMinute < orderMinute) {
+            currentMinute += 60;
+            currentHour--;
+        }
+
+        int elapsedMinute = currentMinute - orderMinute + (currentHour - orderHour) * 60;
+        int remainingMinute = totalMinute - elapsedMinute;
+        System.out.println(totalMinute + " " + elapsedMinute + " " + remainingMinute);
+        jLabel2.setText("<html>Your order will arrive in <b>" + remainingMinute + "</b> minute(s).<html>");
+    }
 
     /**
      * @param args the command line arguments
