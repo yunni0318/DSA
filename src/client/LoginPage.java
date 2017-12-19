@@ -153,7 +153,9 @@ public class LoginPage extends javax.swing.JFrame {
         String pass = String.valueOf(txtPassword.getPassword());
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
             if (dList.getEntry(i).getDuserName().equals(txtUserName.getText()) && dList.getEntry(i).getdPassword().equals(pass)) {
-                //sbs's
+                DeliverymanMenu menu=new DeliverymanMenu();
+                menu.setVisible(true);
+                this.dispose();
             }
         }
     }
@@ -169,7 +171,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     public void HR() {
         if (txtUserName.getText().toUpperCase().equals("HR") && String.valueOf(txtPassword.getPassword()).equals("123")) {
-            HR Delivery = new HR();
+            HRMenu Delivery = new HRMenu();
             Delivery.setVisible(true);
             this.dispose();
         } else {

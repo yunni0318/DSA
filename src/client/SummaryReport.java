@@ -125,7 +125,7 @@ public class SummaryReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        HR summary = new HR();
+        HRMenu summary = new HRMenu();
         summary.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed

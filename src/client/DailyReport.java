@@ -157,7 +157,7 @@ public class DailyReport extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1ComponentShown
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        HR daily = new HR();
+        HRMenu daily = new HRMenu();
         daily.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
