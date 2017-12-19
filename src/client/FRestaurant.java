@@ -105,7 +105,7 @@ public class FRestaurant extends javax.swing.JFrame {
         jlArea.setText(" Area :");
 
         cbArea.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
-        cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bukit Bintang", "Setapak", " " }));
+        cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Melati", "Wangsa Maju", " " }));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo_test-3.png"))); // NOI18N
 
@@ -387,7 +387,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSearchActionPerformed
         // TODO add your handling code here:
-        if (cbArea.getSelectedItem() == "Bukit Bintang") {
+        if (cbArea.getSelectedItem() == "Melati") {
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
@@ -401,7 +401,7 @@ public class FRestaurant extends javax.swing.JFrame {
             jlResName3.setText(jLabel3.getText());//getResName(jLabel3.getText()));
             jlResName4.setText(jLabel4.getText());//getResName(jLabel4.getText()));
 
-        } else if (cbArea.getSelectedItem() == "Setapak") {
+        } else if (cbArea.getSelectedItem() == "Wangsa Maju") {
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
