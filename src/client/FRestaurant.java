@@ -216,7 +216,7 @@ public class FRestaurant extends javax.swing.JFrame {
         });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/foodpanda-Halal-dish-3-c.jpg"))); // NOI18N
-        jLabel4.setText("Bukit Bintang Nasi Lemak");
+        jLabel4.setText("Melati Nasi Lemak");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -233,7 +233,7 @@ public class FRestaurant extends javax.swing.JFrame {
         jlResName3.setText("Kenny Roaster Restaurant");
 
         jlResName4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jlResName4.setText("Bukit Bintang Nasi Lemak");
+        jlResName4.setText("Melati Nasi Lemak");
 
         javax.swing.GroupLayout jpBukitBintangLayout = new javax.swing.GroupLayout(jpBukitBintang);
         jpBukitBintang.setLayout(jpBukitBintangLayout);

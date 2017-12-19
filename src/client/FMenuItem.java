@@ -5,6 +5,7 @@
  */
 package client;
 
+import adt.LListAdditem;
 import adt.OrderItemLinkedList;
 import adt.OrderLinkedList;
 import static client.MainMenu.dList;
@@ -13,6 +14,9 @@ import javax.swing.JOptionPane;
 import entity.OrderDelivery;
 import entity.OrderItem;
 import java.util.GregorianCalendar;
+import static client.MainMenu.iList;
+import static client.MainMenu.initItem;
+import entity.Item;
 
 /**
  *
@@ -26,6 +30,7 @@ public class FMenuItem extends javax.swing.JFrame {
      * Creates new form JFMenuItem
      */
     public FMenuItem() {
+        initItem();
         initComponents();
     }
 
@@ -50,79 +55,90 @@ public class FMenuItem extends javax.swing.JFrame {
 
     public void getMenu(String res) {
         String resN = jlResName.getText();
-        if (resN == "Homemade Chinese Restaurant") {
-            lblItem1.setText("Spicy Dry Noodle");
-            jlPrise1.setText("10.00");
-            jLabel2.setText("Fried Rice with Chinese Sausage");
-            jlPrise2.setText("11.00");
-            jLabel3.setText("Special Dumping Soup (4 pcs)");
-            jlPrise3.setText(" 8.00");
-            jLabel4.setText("Lo Han Guo Herba Tea");
-            jlPrise4.setText(" 4.00");
-        } else if (resN == "Delicious Sushi Restaurant") {
-            lblItem1.setText("Sushi Set (salmon, maguro, ebi,anago)");
-            jlPrise1.setText("22.00");
-            jLabel2.setText("Ramen Soup");
-            jlPrise2.setText("18.00");
-            jLabel3.setText("Chicken Teriyaki Bento");
-            jlPrise3.setText("20.00");
-            jLabel4.setText("Tropicana Twister Orange Juice");
-            jlPrise4.setText(" 6.00");
-        } else if (resN == "Kenny Roaster Restaurant") {
-            lblItem1.setText("Honey Roaster Chicken");
-            jlPrise1.setText("20.00");
-            jLabel2.setText("Spicy Roaster Chicken");
-            jlPrise2.setText("20.00");
-            jLabel3.setText("Glutinous Oil Rice");
-            jlPrise3.setText(" 4.00");
-            jLabel4.setText("Pepsi");
-            jlPrise4.setText(" 5.00");
-        } else if (resN == "Bukit Bintang Nasi Lemak ") {
-            lblItem1.setText("Nasi Lemak with Egg");
-            jlPrise1.setText("10.00");
-            jLabel2.setText("Nasi Lemak with Fried Chicken");
-            jlPrise2.setText("12.00");
-            jLabel3.setText("Nasi Lemak with Currry Chicken");
-            jlPrise3.setText("15.00");
-            jLabel4.setText("Bentong Cincau");
-            jlPrise4.setText(" 5.00");
-        } else if (resN == "All Noodle Restaurant") {
-            lblItem1.setText("Special Dry Noodle");
-            jlPrise1.setText(" 8.00");
-            jLabel2.setText("Special Noodle Soup");
-            jlPrise2.setText(" 9.00");
-            jLabel3.setText("Spicy Noodle Soup");
-            jlPrise3.setText("10.00");
-            jLabel4.setText("Honey Lemon Tea");
-            jlPrise4.setText(" 4.00");
-        } else if (resN == "Rice Tong Restaurant") {
-            lblItem1.setText("Salted Fish Pork Rice");
-            jlPrise1.setText("12.00");
-            jLabel2.setText("Shrimp Fried Rice");
-            jlPrise2.setText("11.00");
-            jLabel3.setText("Sweet and Sour Pork Rice");
-            jlPrise3.setText(" 8.00");
-            jLabel4.setText("Chinese Tea");
-            jlPrise4.setText(" 3.00");
-        } else if (resN == "Special Spaghetti Restaurant") {
-            lblItem1.setText("Special Spaghetti");
-            jlPrise1.setText("11.00");
-            jLabel2.setText("Baked Cheese Spaghetti");
-            jlPrise2.setText("15.00");
-            jLabel3.setText("Spaghetti Bolognese");
-            jlPrise3.setText("13.00");
-            jLabel4.setText("Lemon Tea");
-            jlPrise4.setText(" 5.00");
-        } else if (resN == "Homemade Western Food") {
-            lblItem1.setText("Homemade Pork Chop");
-            jlPrise1.setText("15.00");
-            jLabel2.setText("Black Peper Chicken Chop");
-            jlPrise2.setText("13.00");
-            jLabel3.setText("Fried Rice");
-            jlPrise3.setText(" 7.00");
-            jLabel4.setText("Red Tea");
-            jlPrise4.setText(" 4.00");
+        LListAdditem<Item> ilList = new LListAdditem<>();
+        for (int i = 1; i <= iList.getNumberOfEntries(); i++) {
+            if (iList.getEntry(i).getAfName()==resN){
+               
+                lblItem1.setText(iList.getEntry(i).getItName());
+                lblItem2.setText(iList.getEntry(i).getItName());
+                lblItem3.setText(iList.getEntry(i).getItName());
+                
+            }
         }
+        
+//        if (resN == "Homemade Chinese Restaurant") {
+//            lblItem1.setText("Spicy Dry Noodle");
+//            jlPrise1.setText("10.00");
+//            lblItem2.setText("Fried Rice with Chinese Sausage");
+//            jlPrise2.setText("11.00");
+//            lblItem3.setText("Special Dumping Soup (4 pcs)");
+//            jlPrise3.setText(" 8.00");
+//            lblItem4.setText("Lo Han Guo Herba Tea");
+//            jlPrise4.setText(" 4.00");
+//        } else if (resN == "Delicious Sushi Restaurant") {
+//            lblItem1.setText("Sushi Set (salmon, maguro, ebi,anago)");
+//            jlPrise1.setText("22.00");
+//            lblItem2.setText("Ramen Soup");
+//            jlPrise2.setText("18.00");
+//            lblItem3.setText("Chicken Teriyaki Bento");
+//            jlPrise3.setText("20.00");
+//            lblItem4.setText("Tropicana Twister Orange Juice");
+//            jlPrise4.setText(" 6.00");
+//        } else if (resN == "Kenny Roaster Restaurant") {
+//            lblItem1.setText("Honey Roaster Chicken");
+//            jlPrise1.setText("20.00");
+//            lblItem2.setText("Spicy Roaster Chicken");
+//            jlPrise2.setText("20.00");
+//            lblItem3.setText("Glutinous Oil Rice");
+//            jlPrise3.setText(" 4.00");
+//            lblItem4.setText("Pepsi");
+//            jlPrise4.setText(" 5.00");
+//        } else if (resN == "Bukit Bintang Nasi Lemak ") {
+//            lblItem1.setText("Nasi Lemak with Egg");
+//            jlPrise1.setText("10.00");
+//            lblItem2.setText("Nasi Lemak with Fried Chicken");
+//            jlPrise2.setText("12.00");
+//            lblItem3.setText("Nasi Lemak with Currry Chicken");
+//            jlPrise3.setText("15.00");
+//            lblItem4.setText("Bentong Cincau");
+//            jlPrise4.setText(" 5.00");
+//        } else if (resN == "All Noodle Restaurant") {
+//            lblItem1.setText("Special Dry Noodle");
+//            jlPrise1.setText(" 8.00");
+//            lblItem2.setText("Special Noodle Soup");
+//            jlPrise2.setText(" 9.00");
+//            lblItem3.setText("Spicy Noodle Soup");
+//            jlPrise3.setText("10.00");
+//            lblItem4.setText("Honey Lemon Tea");
+//            jlPrise4.setText(" 4.00");
+//        } else if (resN == "Rice Tong Restaurant") {
+//            lblItem1.setText("Salted Fish Pork Rice");
+//            jlPrise1.setText("12.00");
+//            lblItem2.setText("Shrimp Fried Rice");
+//            jlPrise2.setText("11.00");
+//            lblItem3.setText("Sweet and Sour Pork Rice");
+//            jlPrise3.setText(" 8.00");
+//            lblItem4.setText("Chinese Tea");
+//            jlPrise4.setText(" 3.00");
+//        } else if (resN == "Special Spaghetti Restaurant") {
+//            lblItem1.setText("Special Spaghetti");
+//            jlPrise1.setText("11.00");
+//            lblItem2.setText("Baked Cheese Spaghetti");
+//            jlPrise2.setText("15.00");
+//            lblItem3.setText("Spaghetti Bolognese");
+//            jlPrise3.setText("13.00");
+//            lblItem4.setText("Lemon Tea");
+//            jlPrise4.setText(" 5.00");
+//        } else if (resN == "Homemade Western Food") {
+//            lblItem1.setText("Homemade Pork Chop");
+//            jlPrise1.setText("15.00");
+//            lblItem2.setText("Black Peper Chicken Chop");
+//            jlPrise2.setText("13.00");
+//            lblItem3.setText("Fried Rice");
+//            jlPrise3.setText(" 7.00");
+//            lblItem4.setText("Red Tea");
+//            jlPrise4.setText(" 4.00");
+//        }
 
     }
 
@@ -139,9 +155,9 @@ public class FMenuItem extends javax.swing.JFrame {
         jlResName = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblItem1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblItem2 = new javax.swing.JLabel();
+        lblItem3 = new javax.swing.JLabel();
+        lblItem4 = new javax.swing.JLabel();
         jbtAdd1 = new javax.swing.JButton();
         jbtAdd2 = new javax.swing.JButton();
         jbtAdd3 = new javax.swing.JButton();
@@ -182,14 +198,14 @@ public class FMenuItem extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(lblItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 260, 30));
 
-        jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 210, 30));
+        lblItem2.setText("jLabel2");
+        jPanel2.add(lblItem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 210, 30));
 
-        jLabel3.setText("jLabel2");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 210, 30));
+        lblItem3.setText("jLabel2");
+        jPanel2.add(lblItem3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 210, 30));
 
-        jLabel4.setText("jLabel2");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 210, 30));
+        lblItem4.setText("jLabel2");
+        jPanel2.add(lblItem4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 210, 30));
 
         jbtAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add.png"))); // NOI18N
         jbtAdd1.addActionListener(new java.awt.event.ActionListener() {
@@ -349,7 +365,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbtAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd2ActionPerformed
         // TODO add your handling code here:
-        String item = jLabel2.getText();
+        String item = lblItem2.getText();
         qua2++;
         lblQua2.setText(String.valueOf(qua2));
 
@@ -360,7 +376,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbtAdd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd3ActionPerformed
         // TODO add your handling code here:
-        String item = jLabel3.getText();
+        String item = lblItem3.getText();
 
         qua3++;
         lblQua3.setText(String.valueOf(qua3));
@@ -373,7 +389,7 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbtAdd4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd4ActionPerformed
         // TODO add your handling code here:
-        String item = jLabel4.getText();
+        String item = lblItem4.getText();
         qua4++;
         lblQua4.setText(String.valueOf(qua4));
 
@@ -449,7 +465,7 @@ public class FMenuItem extends javax.swing.JFrame {
         if (qua2 <= 0) {
             JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            String item = jLabel2.getText();
+            String item = lblItem2.getText();
             qua2--;
             lblQua2.setText(String.valueOf(qua2));
 
@@ -464,7 +480,7 @@ public class FMenuItem extends javax.swing.JFrame {
         if (qua3 <= 0) {
             JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            String item = jLabel3.getText();
+            String item = lblItem3.getText();
             qua3--;
             lblQua3.setText(String.valueOf(qua3));
 
@@ -479,7 +495,7 @@ public class FMenuItem extends javax.swing.JFrame {
         if (qua4 <= 0) {
             JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            String item = jLabel4.getText();
+            String item = lblItem4.getText();
             qua4--;
             lblQua4.setText(String.valueOf(qua4));
 
@@ -528,9 +544,6 @@ public class FMenuItem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -550,6 +563,9 @@ public class FMenuItem extends javax.swing.JFrame {
     private javax.swing.JLabel jlPrise4;
     private javax.swing.JLabel jlResName;
     private javax.swing.JLabel lblItem1;
+    private javax.swing.JLabel lblItem2;
+    private javax.swing.JLabel lblItem3;
+    private javax.swing.JLabel lblItem4;
     private javax.swing.JLabel lblQua1;
     private javax.swing.JLabel lblQua2;
     private javax.swing.JLabel lblQua3;
