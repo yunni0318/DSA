@@ -347,12 +347,14 @@ public class FCustomerInfor extends javax.swing.JFrame {
         int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
         int currentMinute = cal.get(GregorianCalendar.MINUTE);
         String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
-        
+        System.out.println(odList.getNumberOfEntries());
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            System.out.println(odList.getEntry(i).getOdID()+" "+orderID);
             if (odList.getEntry(i).getOdID()==orderID) {
                 odList.getEntry(i).setCusName(name);
                 odList.getEntry(i).setCusPhone(phone);
                 odList.getEntry(i).setOdTime(odTime);
+                System.out.println(odList.getEntry(i));
             }
         }
         

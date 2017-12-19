@@ -11,6 +11,11 @@ package entity;
  */
 public class OrderDelivery {
 
+    @Override
+    public String toString() {
+        return "OrderDelivery{" + "odID=" + odID + ", odTime=" + odTime + ", odDate=" + odDate + ", cusName=" + cusName + ", cusPhone=" + cusPhone + ", subTotal=" + subTotal + ", deliveryFee=" + deliveryFee + ", total=" + total + ", dName=" + dName + ", afName=" + afName + ", distance=" + distance + ", status=" + status + '}';
+    }
+
     private int odID;
     private String odTime;
     private String odDate;

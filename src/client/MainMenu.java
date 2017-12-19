@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package client;
+
 import adt.LListAdditem;
 import adt.DeliverymanLinkedList;
 import adt.LListAddAffiliate;
@@ -27,12 +28,12 @@ public class MainMenu {
 
     public static LListAddAffiliate<Affiliate> afList = new LListAddAffiliate<>();
     public static ArrayList<Customer> cusList = new ArrayList<>();
-    public static LListAdditem<Item> iList= new LListAdditem<>();
+    public static LListAdditem<Item> iList = new LListAdditem<>();
     public static DeliverymanLinkedList<Deliveryman> dList = new DeliverymanLinkedList<>();
     public static OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     public static OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
-    public static ScheduleLinkedList<Schedule> sList=new ScheduleLinkedList<>();
-    
+    public static ScheduleLinkedList<Schedule> sList = new ScheduleLinkedList<>();
+
     public static void initAffiliate() {
         Affiliate af = new Affiliate("Homemade Chinese Restaurant", "12345", "Jalan Tembikai", "Kuala Lumpur", "Setapak", "53000");
         afList.add(af);
@@ -52,72 +53,72 @@ public class MainMenu {
         afList.add(af);
     }
 
-    public static void initItem(){
-        Item itf= new Item("Spicy Dry Noodle",10.00,"Homemade Chinese Restaurant");
+    public static void initItem() {
+        Item itf = new Item("Spicy Dry Noodle", 10.00, "Homemade Chinese Restaurant");
         iList.add(itf);
-        itf= new Item("Fried Rice with Chinese Sausage",11.00,"Homemade Chinese Restaurant");
+        itf = new Item("Fried Rice with Chinese Sausage", 11.00, "Homemade Chinese Restaurant");
         iList.add(itf);
-        itf= new Item("Special Dumping Soup (4 pcs)",8.00,"Homemade Chinese Restaurant");
+        itf = new Item("Special Dumping Soup (4 pcs)", 8.00, "Homemade Chinese Restaurant");
         iList.add(itf);
-        itf= new Item("Lo Han Guo Herba Tea",4.00,"Homemade Chinese Restaurant");
+        itf = new Item("Lo Han Guo Herba Tea", 4.00, "Homemade Chinese Restaurant");
         iList.add(itf);
-        itf= new Item("Sushi Set (salmon, maguro, ebi,anago)",22.99,"Delicious Sushi Restaurant");
+        itf = new Item("Sushi Set (salmon, maguro, ebi,anago)", 22.99, "Delicious Sushi Restaurant");
         iList.add(itf);
-        itf= new Item("Ramen Soup",18.99,"Delicious Sushi Restaurant");
+        itf = new Item("Ramen Soup", 18.99, "Delicious Sushi Restaurant");
         iList.add(itf);
-        itf= new Item("Chicken Teriyaki Bento",19.99,"Delicious Sushi Restaurant");
+        itf = new Item("Chicken Teriyaki Bento", 19.99, "Delicious Sushi Restaurant");
         iList.add(itf);
-        itf= new Item("Tropicana Twister Orange Juice",19.99,"Delicious Sushi Restaurant");
+        itf = new Item("Tropicana Twister Orange Juice", 19.99, "Delicious Sushi Restaurant");
         iList.add(itf);
-        itf= new Item("Honey Roaster Chicken",18.99,"Kenny Roaster Restaurant");
+        itf = new Item("Honey Roaster Chicken", 18.99, "Kenny Roaster Restaurant");
         iList.add(itf);
-        itf= new Item("Spicy Roaster Chicken",19.99,"Kenny Roaster Restaurant");
+        itf = new Item("Spicy Roaster Chicken", 19.99, "Kenny Roaster Restaurant");
         iList.add(itf);
-        itf= new Item("Glutinous Oil Rice",15.99,"Kenny Roaster Restaurant");
+        itf = new Item("Glutinous Oil Rice", 15.99, "Kenny Roaster Restaurant");
         iList.add(itf);
-        itf= new Item("Pepsi",4.99,"Kenny Roaster Restaurant");
+        itf = new Item("Pepsi", 4.99, "Kenny Roaster Restaurant");
         iList.add(itf);
-        itf= new Item("Nasi Lemak with Egg",5.99,"Bukit Bintang Nasi Lemak");
+        itf = new Item("Nasi Lemak with Egg", 5.99, "Bukit Bintang Nasi Lemak");
         iList.add(itf);
-        itf= new Item("Nasi Lemak with Fried Chicken",8.99,"Bukit Bintang Nasi Lemak");
+        itf = new Item("Nasi Lemak with Fried Chicken", 8.99, "Bukit Bintang Nasi Lemak");
         iList.add(itf);
-        itf= new Item("Nasi Lemak with Currry Chicken",8.99,"Bukit Bintang Nasi Lemak");
+        itf = new Item("Nasi Lemak with Currry Chicken", 8.99, "Bukit Bintang Nasi Lemak");
         iList.add(itf);
-        itf= new Item("Bentong Cincau",3.99,"Bukit Bintang Nasi Lemak");
+        itf = new Item("Bentong Cincau", 3.99, "Bukit Bintang Nasi Lemak");
         iList.add(itf);
-        itf= new Item("Special Dry Noodle",11.99,"All Noodle Restaurant");
+        itf = new Item("Special Dry Noodle", 11.99, "All Noodle Restaurant");
         iList.add(itf);
-        itf= new Item("Special Noodle Soup",14.99,"All Noodle Restaurant");
+        itf = new Item("Special Noodle Soup", 14.99, "All Noodle Restaurant");
         iList.add(itf);
-        itf= new Item("Spicy Noodle Soup",14.99,"All Noodle Restaurant");
+        itf = new Item("Spicy Noodle Soup", 14.99, "All Noodle Restaurant");
         iList.add(itf);
-        itf= new Item("Honey Lemon Tea",4.99,"All Noodle Restaurant");
+        itf = new Item("Honey Lemon Tea", 4.99, "All Noodle Restaurant");
         iList.add(itf);
-        itf= new Item("Salted Fish Pork Rice",18.99,"Rice Tong Restaurant");
+        itf = new Item("Salted Fish Pork Rice", 18.99, "Rice Tong Restaurant");
         iList.add(itf);
-        itf= new Item("Shrimp Fried Rice",17.99,"Rice Tong Restaurant");
+        itf = new Item("Shrimp Fried Rice", 17.99, "Rice Tong Restaurant");
         iList.add(itf);
-        itf= new Item("Sweet and Sour Pork Rice",19.99,"Rice Tong Restaurant");
+        itf = new Item("Sweet and Sour Pork Rice", 19.99, "Rice Tong Restaurant");
         iList.add(itf);
-        itf= new Item("Chinese Tea",3.99,"Rice Tong Restaurant");
+        itf = new Item("Chinese Tea", 3.99, "Rice Tong Restaurant");
         iList.add(itf);
-        itf= new Item("Special Spaghetti",23.99,"Special Spaghetti Restaurant");
+        itf = new Item("Special Spaghetti", 23.99, "Special Spaghetti Restaurant");
         iList.add(itf);
-        itf= new Item("Baked Cheese Spaghetti",25.99,"Special Spaghetti Restaurant");
+        itf = new Item("Baked Cheese Spaghetti", 25.99, "Special Spaghetti Restaurant");
         iList.add(itf);
-        itf= new Item("Spaghetti Bolognese",24.99,"Special Spaghetti Restaurant");
+        itf = new Item("Spaghetti Bolognese", 24.99, "Special Spaghetti Restaurant");
         iList.add(itf);
-        itf= new Item("Lemon Tea",4.99,"Special Spaghetti Restaurant");
+        itf = new Item("Lemon Tea", 4.99, "Special Spaghetti Restaurant");
         iList.add(itf);
-        itf= new Item("Homemade Pork Chop",20.99,"Homemade Western Food");
+        itf = new Item("Homemade Pork Chop", 20.99, "Homemade Western Food");
         iList.add(itf);
-        itf= new Item("Black Peper Chicken Chop",18.99,"Homemade Western Food");
+        itf = new Item("Black Peper Chicken Chop", 18.99, "Homemade Western Food");
         iList.add(itf);
-        itf= new Item("Fried Rice",7.99,"Homemade Western Food");
+        itf = new Item("Fried Rice", 7.99, "Homemade Western Food");
         iList.add(itf);
-        itf= new Item("Red Tea",5.99,"Homemade Western Food");
+        itf = new Item("Red Tea", 5.99, "Homemade Western Food");
         iList.add(itf);
-    
+
     }
 
     public static void initCustomer() {
@@ -144,7 +145,7 @@ public class MainMenu {
         od = new OrderDelivery(1005, "20:00", "13/12/2017", "Evon", "", 0, 0, 0, "Alex", "MCD", 50, "Pending");
         odList.add(od);
     }
-    
+
     public static void initOrderItem() {
         OrderItem oi = new OrderItem(1001, "Spicy Dry Noodle", 2, 20.00);
         oiList.add(oi);
