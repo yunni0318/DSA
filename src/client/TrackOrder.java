@@ -210,16 +210,13 @@ public class TrackOrder extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        FRestaurant menu=new FRestaurant();
+        FRestaurant menu = new FRestaurant();
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void trackOrder(int orderId) {
         OrderDelivery od = null;
-        String fromPostcode = "";
-        String toPostcode = "";
-        double distance = 0;
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getOdID() == orderId) {
                 od = odList.getEntry(i);
@@ -230,23 +227,7 @@ public class TrackOrder extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No order record found.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        for (int i = 0; i < afList.getNumberOfEntries(); i++) {
-            if (afList.getEntry(i).getAfName().equals(od.getAfName())) {
-                fromPostcode = afList.getEntry(i).getAfPostcode();
-            }
-        }
-        for (int i = 0; i < cusList.size(); i++) {
-            if (cusList.get(i).getCusName().equals(od.getCusName())) {
-                toPostcode = cusList.get(i).getCusPostcode();
-            }
-        }
-        if (fromPostcode.equals("51000") && toPostcode.equals("53000")) {
-            distance = 60;
-        } else {
-            //other postcode combination
-        }
-        od.setDistance(distance);
+        double distance = od.getDistance();
         double distancePerMinute = 0.6;
         int totalMinute = (int) (distance / distancePerMinute);
 

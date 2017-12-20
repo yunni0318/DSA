@@ -418,7 +418,7 @@ public class FMenuItem extends javax.swing.JFrame {
 //            }
 //        }
 
-        OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
+        OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "Pending");
         odList.add(newEntry);
         
         FConfirm orderCon = new FConfirm(odList, oiList, id);

@@ -7,6 +7,7 @@ package client;
 import adt.LListAdditem;
 import static client.MainMenu.iList;
 import static client.MainMenu.initItem;
+import static client.MainMenu.userName;
 import entity.Item;
 import entity.OrderDelivery;
 import javax.swing.JOptionPane;
@@ -18,11 +19,11 @@ public class DisplayedMenu extends javax.swing.JFrame {
     public DisplayedMenu() {
      initComponents();       
      initItem();
-     
+         
     model = (DefaultTableModel) jTable1.getModel();
     Object[] row = new Object[3];
      for (int i = 1; i <= iList.getNumberOfEntries(); i++) {
-            if (iList.getEntry(i).getAfName().equals("Special Spaghetti Restaurant")) {             
+            if (iList.getEntry(i).getAfName().equals(userName)) {             
             row[0] = iList.getEntry(i).getItName();
             row[1] = iList.getEntry(i).getItPrice();
             row[2] = iList.getEntry(i).getAfName();

@@ -7,8 +7,14 @@ package client;
 
 import adt.CustomerLinkedQueue;
 import adt.OrderLinkedList;
+import static client.MainMenu.afList;
+import static client.MainMenu.dList;
+import static client.MainMenu.dQueue;
+import static client.MainMenu.initAffiliate;
+import static client.MainMenu.initDeliveryman;
 import com.sun.glass.events.KeyEvent;
 import entity.Customer;
+import entity.Deliveryman;
 import entity.OrderDelivery;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
@@ -22,21 +28,22 @@ public class FCustomerInfor extends javax.swing.JFrame {
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     private CustomerLinkedQueue<Customer> cusList = new CustomerLinkedQueue<>();
     int orderID;
-    
+
     /**
      * Creates new form customerRegistrationF
      */
     public FCustomerInfor() {
         initComponents();
-        
     }
-    
+
     public FCustomerInfor(OrderLinkedList<OrderDelivery> odList, int orderID) {
 //        jpCus.setLayout(null);
         this.odList = odList;
         this.orderID = orderID;
-        
+
         initComponents();
+        initAffiliate();
+        initDeliveryman();
         lblTotal.setText("RM " + String.valueOf(getTotal(orderID)) + "0");
 //        jpBtn.setVisible(false);
     }
@@ -329,47 +336,100 @@ public class FCustomerInfor extends javax.swing.JFrame {
     {
         double ttl = 0.00;
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            if (odList.getEntry(i).getOdID() == orderID) 
-            {
-                ttl =odList.getEntry(i).getTotal();
+            if (odList.getEntry(i).getOdID() == orderID) {
+                ttl = odList.getEntry(i).getTotal();
             }
         }
         return ttl;
     }
-    
+
     private void jbtConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtConfirmActionPerformed
         // TODO add your handling code here:
         //getCustomerInfor( orderID);//odList,
         String name = txtName.getText();
         String phone = txtPhone.getText();
-        
+
         GregorianCalendar cal = new GregorianCalendar();
         int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
         int currentMinute = cal.get(GregorianCalendar.MINUTE);
         String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
-        System.out.println(odList.getNumberOfEntries());
+
+        //Calculate distance
+        OrderDelivery od = null;
+        String resPostcode = "";
+        String cusPostcode = (String) cbPostcode.getSelectedItem();
+        double distance = 0;
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            System.out.println(odList.getEntry(i).getOdID()+" "+orderID);
-            if (odList.getEntry(i).getOdID()==orderID) {
+            if (odList.getEntry(i).getOdID() == orderID) {
+                od = odList.getEntry(i);
+            }
+        }
+        for (int i = 1; i <= afList.getNumberOfEntries(); i++) {
+            if (afList.getEntry(i).getAfName().equals(od.getAfName())) {
+                resPostcode = afList.getEntry(i).getAfPostcode();
+            }
+        }
+
+        if (resPostcode.equals("53000")) {
+            if (cusPostcode.equals("53000")) {
+                distance = 6;
+            } else if (cusPostcode.equals("53100")) {
+                distance = 7;
+            } else if (cusPostcode.equals("53300")) {
+                distance = 8;
+            }
+        } else if (resPostcode.equals("53100")) {
+            if (cusPostcode.equals("53000")) {
+                distance = 7;
+            } else if (cusPostcode.equals("53100")) {
+                distance = 6;
+            } else if (cusPostcode.equals("53300")) {
+                distance = 8;
+            }
+        }
+
+        //Assign deliveryman
+        int min = 99;
+        boolean isAssigned = false;
+        String deliverymanName = "";
+        for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
+            if (dList.getEntry(i).getdNoOfTask() < min) {
+                min = dList.getEntry(i).getdNoOfTask();
+            }
+        }
+
+        while (!isAssigned) {
+            Deliveryman deliveryman = dQueue.dequeue();
+            dQueue.enqueue(deliveryman);
+            if (deliveryman.getdNoOfTask() == min) {
+                deliverymanName = deliveryman.getdName();
+                isAssigned = true;
+            }
+        }
+
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getOdID() == orderID) {
                 odList.getEntry(i).setCusName(name);
                 odList.getEntry(i).setCusPhone(phone);
                 odList.getEntry(i).setOdTime(odTime);
+                odList.getEntry(i).setDistance(distance);
+                odList.getEntry(i).setdName(deliverymanName);
                 System.out.println(odList.getEntry(i));
             }
         }
-        
+
         JOptionPane.showMessageDialog(null, "Thank You =) Your order and payment have been successfully completed. Please Come Again!!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
         FRestaurant home = new FRestaurant();
         home.setVisible(true);
         this.setVisible(false);
 //        jpBtn.setVisible(true);
 //        jpCus.setVisible(false);
-        
+
     }//GEN-LAST:event_jbtConfirmActionPerformed
 
     private void txtCardNoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCardNoKeyPressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtCardNoKeyPressed
 
     private void txtCardNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCardNoKeyTyped
@@ -386,7 +446,7 @@ public class FCustomerInfor extends javax.swing.JFrame {
 
     private void txtSecurityCodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityCodeKeyPressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtSecurityCodeKeyPressed
 
     private void txtSecurityCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecurityCodeKeyTyped
