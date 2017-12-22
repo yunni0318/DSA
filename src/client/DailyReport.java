@@ -8,9 +8,7 @@ package client;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
-import entity.OrderDelivery;
 import static client.MainMenu.odList;
-import static client.MainMenu.initOrderDelivery;
 
 /**
  *
@@ -25,7 +23,6 @@ public class DailyReport extends javax.swing.JFrame {
     public DailyReport() {
         initComponents();
         Time();
-        initOrderDelivery();
         displayList();
     }
 

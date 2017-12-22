@@ -22,7 +22,7 @@ public class FConfirm extends javax.swing.JFrame {
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
     int id;
-    //ArrayList<OrderDelivery> orderList = new ArrayList();
+    
     /**
      * Creates new form ConOrder
      */
@@ -32,22 +32,17 @@ public class FConfirm extends javax.swing.JFrame {
     
     public FConfirm(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList, int id) {
         initComponents();
-        //jPanel2.setLayout(null);
-        
         clearTable();
-        lblOrderID.setText(String.valueOf(id));//String.valueOf(generateOrderID()));
+        lblOrderID.setText(String.valueOf(id));
         this.odList = odList;
         this.oiList = oiList;
         this.id = id;
-        show_OrderItem(id);
-        //show_OrderItem(0);//Integer.parseInt(lblOrderID.getText()));
+        showOrderItem(id);
     }
 
-    public void show_OrderItem(int orderID)
+    public void showOrderItem(int orderID)
     {
-        //int selectedRow = tbOrderConfirm.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
-        //int rowCount = model.getRowCount();
         Object[] row = new Object[3];
         
         for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
@@ -63,7 +58,7 @@ public class FConfirm extends javax.swing.JFrame {
             if (odList.getEntry(i).getOdID()==orderID){   
                 odList.getEntry(i).setDeliveryFee(5.00);
                 odList.getEntry(i).setTotal(odList.getEntry(i).getSubTotal()+5.00);
-                //double sub = odList.getEntry(i).getSubTotal();
+                
                 lblSubTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getSubTotal()) + "0");
                 lblDeliveryFee.setText("RM "+ String.valueOf(odList.getEntry(i).getDeliveryFee()) + "0");
                 lblTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getTotal()) + "0");
@@ -302,7 +297,6 @@ public class FConfirm extends javax.swing.JFrame {
         FCustomerInfor cusFrame = new FCustomerInfor(odList, id);
         cusFrame.setVisible(true);
         this.setVisible(false);
-        //payFrame = new FPayment(get_Order());
     }//GEN-LAST:event_jbConfirmActionPerformed
 
     private void tbOrderConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbOrderConfirmMouseClicked

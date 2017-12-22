@@ -6,8 +6,8 @@
 package client;
 
 import adt.OrderLinkedList;
-import static client.MainMenu.initOrderDelivery;
 import static client.MainMenu.odList;
+import static client.MainMenu.userName;
 import entity.OrderDelivery;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,7 +22,6 @@ public class CompleteDelivery extends javax.swing.JFrame {
      */
     public CompleteDelivery() {
         initComponents();
-        initOrderDelivery();
         populateTable();
     }
 
@@ -130,6 +129,7 @@ public class CompleteDelivery extends javax.swing.JFrame {
                 odList.getEntry(i).setStatus("Completed");
             }
         }
+        
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             System.out.println(odList.getEntry(i).getOdID() + " " + odList.getEntry(i).getdName() + " " + odList.getEntry(i).getStatus());
         }
@@ -146,7 +146,7 @@ public class CompleteDelivery extends javax.swing.JFrame {
     }
 
     public void populateTable() {
-        OrderLinkedList<OrderDelivery> tempList = getPendingDelivery("Alex");
+        OrderLinkedList<OrderDelivery> tempList = getPendingDelivery(userName);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[4];
         for (int i = 1; i <= tempList.getNumberOfEntries(); i++) {

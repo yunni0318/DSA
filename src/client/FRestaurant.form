@@ -230,7 +230,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jpBukitBintang">
+        <Container class="javax.swing.JPanel" name="jpMelawati">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -330,7 +330,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/foodpanda-Halal-dish-3-c.jpg"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Bukit Bintang Nasi Lemak"/>
+                <Property name="text" type="java.lang.String" value="Melati Nasi Lemak"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel4MouseClicked"/>
@@ -365,12 +365,12 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Bukit Bintang Nasi Lemak"/>
+                <Property name="text" type="java.lang.String" value="Melati Nasi Lemak"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jpSetapak">
+        <Container class="javax.swing.JPanel" name="jpWangsaMaju">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>

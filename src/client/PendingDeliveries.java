@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import static client.MainMenu.odList;
-import static client.MainMenu.initOrderDelivery;
 
 /**
  *

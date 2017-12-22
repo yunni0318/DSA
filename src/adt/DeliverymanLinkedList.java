@@ -1,5 +1,7 @@
 package adt;
 
+import entity.Deliveryman;
+
 /**
  * LList.java A class that implements the ADT list by using a chain of nodes,
  * with the node implemented as an inner class.
@@ -17,6 +19,45 @@ public class DeliverymanLinkedList<T> implements ListInterface<T> {
     public final void clear() {
         firstNode = null;
         numberOfEntries = 0;
+    }
+
+    public void sortByNoOfTask() {
+        DeliverymanLinkedList<T> dList = new DeliverymanLinkedList<>();
+        Node currentNode = firstNode;
+
+        while (currentNode != null) {
+            dList.addSorted(currentNode.data);
+            currentNode = currentNode.next;
+        }
+        this.firstNode = dList.firstNode;
+        this.numberOfEntries = dList.numberOfEntries;
+    }
+
+    public void addSorted(T newEntry) {
+        Node newNode = new Node(newEntry);
+
+        if (isEmpty()) {
+            firstNode = newNode;
+        } else {
+            Node currentNode = firstNode;
+            int position = 1;
+            while (currentNode != null && ((Deliveryman) currentNode.data).getdNoOfTask() < ((Deliveryman) newEntry).getdNoOfTask()) {
+                currentNode = currentNode.next;
+                position++;
+            }
+            if (position == 1) {
+                newNode.next = firstNode;
+                firstNode = newNode;
+            } else {
+                Node nodeBefore = firstNode;
+                for (int i = 1; i < position - 1; ++i) {
+                    nodeBefore = nodeBefore.next;
+                }
+                newNode.next = nodeBefore.next;
+                nodeBefore.next = newNode;
+            }
+        }
+        numberOfEntries++;
     }
 
     @Override

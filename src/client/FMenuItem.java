@@ -5,14 +5,17 @@
  */
 package client;
 
-import adt.OrderItemLinkedList;
+import adt.LListAdditem;
+//import adt.OrderItemLinkedList;
 import adt.OrderLinkedList;
-import static client.MainMenu.dList;
-import entity.Deliveryman;
+import static client.MainMenu.odList;
+import static client.MainMenu.oiList;
 import javax.swing.JOptionPane;
 import entity.OrderDelivery;
 import entity.OrderItem;
 import java.util.GregorianCalendar;
+import static client.MainMenu.iList;
+import entity.Item;
 
 /**
  *
@@ -29,9 +32,8 @@ public class FMenuItem extends javax.swing.JFrame {
         initComponents();
     }
 
-    OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
-    OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
-    
+//    OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
+//    OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     OrderItem order1;
     OrderItem order2;
     OrderItem order3;
@@ -42,88 +44,41 @@ public class FMenuItem extends javax.swing.JFrame {
     int qua4 = 0;
     int id = generateOrderID();
     String idStr = String.valueOf(generateOrderID());
-    
-    public void setRes(String res)
-    {
+
+    public void setRes(String res) {
         this.jlResName.setText(res);
     }
 
     public void getMenu(String res) {
         String resN = jlResName.getText();
-        if (resN == "Homemade Chinese Restaurant") {
-            lblItem1.setText("Spicy Dry Noodle");
-            jlPrise1.setText("10.00");
-            jLabel2.setText("Fried Rice with Chinese Sausage");
-            jlPrise2.setText("11.00");
-            jLabel3.setText("Special Dumping Soup (4 pcs)");
-            jlPrise3.setText(" 8.00");
-            jLabel4.setText("Lo Han Guo Herba Tea");
-            jlPrise4.setText(" 4.00");
-        } else if (resN == "Delicious Sushi Restaurant") {
-            lblItem1.setText("Sushi Set (salmon, maguro, ebi,anago)");
-            jlPrise1.setText("22.00");
-            jLabel2.setText("Ramen Soup");
-            jlPrise2.setText("18.00");
-            jLabel3.setText("Chicken Teriyaki Bento");
-            jlPrise3.setText("20.00");
-            jLabel4.setText("Tropicana Twister Orange Juice");
-            jlPrise4.setText(" 6.00");
-        } else if (resN == "Kenny Roaster Restaurant") {
-            lblItem1.setText("Honey Roaster Chicken");
-            jlPrise1.setText("20.00");
-            jLabel2.setText("Spicy Roaster Chicken");
-            jlPrise2.setText("20.00");
-            jLabel3.setText("Glutinous Oil Rice");
-            jlPrise3.setText(" 4.00");
-            jLabel4.setText("Pepsi");
-            jlPrise4.setText(" 5.00");
-        } else if (resN == "Bukit Bintang Nasi Lemak ") {
-            lblItem1.setText("Nasi Lemak with Egg");
-            jlPrise1.setText("10.00");
-            jLabel2.setText("Nasi Lemak with Fried Chicken");
-            jlPrise2.setText("12.00");
-            jLabel3.setText("Nasi Lemak with Currry Chicken");
-            jlPrise3.setText("15.00");
-            jLabel4.setText("Bentong Cincau");
-            jlPrise4.setText(" 5.00");
-        } else if (resN == "All Noodle Restaurant") {
-            lblItem1.setText("Special Dry Noodle");
-            jlPrise1.setText(" 8.00");
-            jLabel2.setText("Special Noodle Soup");
-            jlPrise2.setText(" 9.00");
-            jLabel3.setText("Spicy Noodle Soup");
-            jlPrise3.setText("10.00");
-            jLabel4.setText("Honey Lemon Tea");
-            jlPrise4.setText(" 4.00");
-        } else if (resN == "Rice Tong Restaurant") {
-            lblItem1.setText("Salted Fish Pork Rice");
-            jlPrise1.setText("12.00");
-            jLabel2.setText("Shrimp Fried Rice");
-            jlPrise2.setText("11.00");
-            jLabel3.setText("Sweet and Sour Pork Rice");
-            jlPrise3.setText(" 8.00");
-            jLabel4.setText("Chinese Tea");
-            jlPrise4.setText(" 3.00");
-        } else if (resN == "Special Spaghetti Restaurant") {
-            lblItem1.setText("Special Spaghetti");
-            jlPrise1.setText("11.00");
-            jLabel2.setText("Baked Cheese Spaghetti");
-            jlPrise2.setText("15.00");
-            jLabel3.setText("Spaghetti Bolognese");
-            jlPrise3.setText("13.00");
-            jLabel4.setText("Lemon Tea");
-            jlPrise4.setText(" 5.00");
-        } else if (resN == "Homemade Western Food") {
-            lblItem1.setText("Homemade Pork Chop");
-            jlPrise1.setText("15.00");
-            jLabel2.setText("Black Peper Chicken Chop");
-            jlPrise2.setText("13.00");
-            jLabel3.setText("Fried Rice");
-            jlPrise3.setText(" 7.00");
-            jLabel4.setText("Red Tea");
-            jlPrise4.setText(" 4.00");
+        LListAdditem<Item> iTemList = new LListAdditem<>();
+
+        for (int i = 1; i <= iList.getNumberOfEntries(); i++) {
+            if (resN.equals(iList.getEntry(i).getAfName())) {
+                String item = iList.getEntry(i).getItName();
+                double price = iList.getEntry(i).getItPrice();
+                String resName = iList.getEntry(i).getAfName();
+
+                Item newEntry = new Item(item, price, resName);
+                iTemList.add(newEntry);
+            }
         }
 
+        int c = 1;
+        do {
+            lblItem1.setText(iTemList.getEntry(c).getItName());
+            lblPrice1.setText(String.valueOf(iTemList.getEntry(c).getItPrice()));
+            c++;
+            lblItem2.setText(iTemList.getEntry(c).getItName());
+            lblPrice2.setText(String.valueOf(iTemList.getEntry(c).getItPrice()));
+            c++;
+            lblItem3.setText(iTemList.getEntry(c).getItName());
+            lblPrice3.setText(String.valueOf(iTemList.getEntry(c).getItPrice()));
+            c++;
+            lblItem4.setText(iTemList.getEntry(c).getItName());
+            lblPrice4.setText(String.valueOf(iTemList.getEntry(c).getItPrice()));
+            c++;
+        } while (c <= iTemList.getNumberOfEntries());
     }
 
     /**
@@ -139,17 +94,17 @@ public class FMenuItem extends javax.swing.JFrame {
         jlResName = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblItem1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblItem2 = new javax.swing.JLabel();
+        lblItem3 = new javax.swing.JLabel();
+        lblItem4 = new javax.swing.JLabel();
         jbtAdd1 = new javax.swing.JButton();
         jbtAdd2 = new javax.swing.JButton();
         jbtAdd3 = new javax.swing.JButton();
         jbtAdd4 = new javax.swing.JButton();
-        jlPrise1 = new javax.swing.JLabel();
-        jlPrise2 = new javax.swing.JLabel();
-        jlPrise3 = new javax.swing.JLabel();
-        jlPrise4 = new javax.swing.JLabel();
+        lblPrice1 = new javax.swing.JLabel();
+        lblPrice2 = new javax.swing.JLabel();
+        lblPrice3 = new javax.swing.JLabel();
+        lblPrice4 = new javax.swing.JLabel();
         jbGoBack = new javax.swing.JButton();
         jbOrder = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -182,14 +137,14 @@ public class FMenuItem extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(lblItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 260, 30));
 
-        jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 210, 30));
+        lblItem2.setText("jLabel2");
+        jPanel2.add(lblItem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 210, 30));
 
-        jLabel3.setText("jLabel2");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 210, 30));
+        lblItem3.setText("jLabel2");
+        jPanel2.add(lblItem3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 210, 30));
 
-        jLabel4.setText("jLabel2");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 210, 30));
+        lblItem4.setText("jLabel2");
+        jPanel2.add(lblItem4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 210, 30));
 
         jbtAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add.png"))); // NOI18N
         jbtAdd1.addActionListener(new java.awt.event.ActionListener() {
@@ -223,17 +178,17 @@ public class FMenuItem extends javax.swing.JFrame {
         });
         jPanel2.add(jbtAdd4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 20, 20));
 
-        jlPrise1.setText("jLabel2");
-        jPanel2.add(jlPrise1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 70, 30));
+        lblPrice1.setText("jLabel2");
+        jPanel2.add(lblPrice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 70, 30));
 
-        jlPrise2.setText("jLabel2");
-        jPanel2.add(jlPrise2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 70, 30));
+        lblPrice2.setText("jLabel2");
+        jPanel2.add(lblPrice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 70, 30));
 
-        jlPrise3.setText("jLabel2");
-        jPanel2.add(jlPrise3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 70, 30));
+        lblPrice3.setText("jLabel2");
+        jPanel2.add(lblPrice3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 70, 30));
 
-        jlPrise4.setText("jLabel2");
-        jPanel2.add(jlPrise4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 70, 30));
+        lblPrice4.setText("jLabel2");
+        jPanel2.add(lblPrice4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 70, 30));
 
         jbGoBack.setText("Go Back");
         jbGoBack.addActionListener(new java.awt.event.ActionListener() {
@@ -323,6 +278,7 @@ public class FMenuItem extends javax.swing.JFrame {
     public int generateOrderID() {
         int orderID = 1001;
         int count = odList.getNumberOfEntries();
+        System.out.println(count);
         orderID = orderID + count;
         return orderID;
     }
@@ -342,30 +298,30 @@ public class FMenuItem extends javax.swing.JFrame {
         qua1++;
         lblQua1.setText(String.valueOf(qua1));
 
-        double price = Double.parseDouble(jlPrise1.getText());
-        price = price * qua1; 
+        double price = Double.parseDouble(lblPrice1.getText());
+        price = price * qua1;
         order1 = new OrderItem(id, item, qua1, price);
     }//GEN-LAST:event_jbtAdd1ActionPerformed
 
     private void jbtAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd2ActionPerformed
         // TODO add your handling code here:
-        String item = jLabel2.getText();
+        String item = lblItem2.getText();
         qua2++;
         lblQua2.setText(String.valueOf(qua2));
 
-        double price = Double.parseDouble(jlPrise2.getText());
+        double price = Double.parseDouble(lblPrice2.getText());
         price = price * qua2;
         order2 = new OrderItem(id, item, qua2, price);
     }//GEN-LAST:event_jbtAdd2ActionPerformed
 
     private void jbtAdd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd3ActionPerformed
         // TODO add your handling code here:
-        String item = jLabel3.getText();
+        String item = lblItem3.getText();
 
         qua3++;
         lblQua3.setText(String.valueOf(qua3));
 
-        double price = Double.parseDouble(jlPrise3.getText());
+        double price = Double.parseDouble(lblPrice3.getText());
         price = price * qua3;
         order3 = new OrderItem(id, item, qua3, price);
 
@@ -373,21 +329,21 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbtAdd4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdd4ActionPerformed
         // TODO add your handling code here:
-        String item = jLabel4.getText();
+        String item = lblItem4.getText();
         qua4++;
         lblQua4.setText(String.valueOf(qua4));
 
-        double price = Double.parseDouble(jlPrise4.getText());
-        price = price * qua4;        
+        double price = Double.parseDouble(lblPrice4.getText());
+        price = price * qua4;
         order4 = new OrderItem(id, item, qua4, price);
 
     }//GEN-LAST:event_jbtAdd4ActionPerformed
 
     private void jbOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOrderActionPerformed
         // TODO add your handling code here:
-        double subTotal=0;
-        
-        if(order1!=null){
+        double subTotal = 0;
+
+        if (order1 != null) {
             oiList.add(order1);
             subTotal += order1.getOiPrice();
         }
@@ -395,7 +351,7 @@ public class FMenuItem extends javax.swing.JFrame {
             oiList.add(order2);
             subTotal += order2.getOiPrice();
         }
-        if(order3!=null){
+        if (order3 != null) {
             oiList.add(order3);
             subTotal += order3.getOiPrice();
         }
@@ -408,23 +364,12 @@ public class FMenuItem extends javax.swing.JFrame {
         int date = cal.get(GregorianCalendar.DATE);
         String odDate = String.valueOf(date);
 
-//        OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "");
-//        odList.add(newEntry);
-//        int min = dList.getEntry(1).getdNoOfTask();
-//        for (int i = 1; i < dList.getNumberOfEntries(); i++) {
-//            Deliveryman deliveryman = dList.getEntry(i);
-//            if (deliveryman.getdNoOfTask() < min) {
-//                min = deliveryman.getdNoOfTask();
-//            }
-//        }
-
-        OrderDelivery newEntry = new OrderDelivery(id, "",odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "Pending");
+        OrderDelivery newEntry = new OrderDelivery(id, "", odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "Pending");
         odList.add(newEntry);
-        
+
         FConfirm orderCon = new FConfirm(odList, oiList, id);
         orderCon.setRes(jlResName.getText());
         orderCon.setVisible(true);
-        
         this.setVisible(false);
 
     }//GEN-LAST:event_jbOrderActionPerformed
@@ -438,9 +383,9 @@ public class FMenuItem extends javax.swing.JFrame {
             qua1--;
             lblQua1.setText(String.valueOf(qua1));
 
-            double price = Double.parseDouble(jlPrise1.getText());
+            double price = Double.parseDouble(lblPrice1.getText());
             price = price * qua1;
-            order1 = new OrderItem(id, item, qua1, price);     
+            order1 = new OrderItem(id, item, qua1, price);
         }
     }//GEN-LAST:event_jbtDe1ActionPerformed
 
@@ -449,11 +394,11 @@ public class FMenuItem extends javax.swing.JFrame {
         if (qua2 <= 0) {
             JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            String item = jLabel2.getText();
+            String item = lblItem2.getText();
             qua2--;
             lblQua2.setText(String.valueOf(qua2));
 
-            double price = Double.parseDouble(jlPrise2.getText());
+            double price = Double.parseDouble(lblPrice2.getText());
             price = price * qua2;
             order2 = new OrderItem(id, item, qua2, price);
         }
@@ -464,11 +409,11 @@ public class FMenuItem extends javax.swing.JFrame {
         if (qua3 <= 0) {
             JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            String item = jLabel3.getText();
+            String item = lblItem3.getText();
             qua3--;
             lblQua3.setText(String.valueOf(qua3));
 
-            double price = Double.parseDouble(jlPrise3.getText());
+            double price = Double.parseDouble(lblPrice3.getText());
             price = price * qua3;
             order3 = new OrderItem(id, item, qua3, price);
         }
@@ -479,11 +424,11 @@ public class FMenuItem extends javax.swing.JFrame {
         if (qua4 <= 0) {
             JOptionPane.showMessageDialog(this, "No item can be deducted.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            String item = jLabel4.getText();
+            String item = lblItem4.getText();
             qua4--;
             lblQua4.setText(String.valueOf(qua4));
 
-            double price = Double.parseDouble(jlPrise4.getText());
+            double price = Double.parseDouble(lblPrice4.getText());
             price = price * qua4;
             order4 = new OrderItem(id, item, qua4, price);
         }
@@ -528,9 +473,6 @@ public class FMenuItem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -544,12 +486,15 @@ public class FMenuItem extends javax.swing.JFrame {
     private javax.swing.JButton jbtDe2;
     private javax.swing.JButton jbtDe3;
     private javax.swing.JButton jbtDe4;
-    private javax.swing.JLabel jlPrise1;
-    private javax.swing.JLabel jlPrise2;
-    private javax.swing.JLabel jlPrise3;
-    private javax.swing.JLabel jlPrise4;
     private javax.swing.JLabel jlResName;
     private javax.swing.JLabel lblItem1;
+    private javax.swing.JLabel lblItem2;
+    private javax.swing.JLabel lblItem3;
+    private javax.swing.JLabel lblItem4;
+    private javax.swing.JLabel lblPrice1;
+    private javax.swing.JLabel lblPrice2;
+    private javax.swing.JLabel lblPrice3;
+    private javax.swing.JLabel lblPrice4;
     private javax.swing.JLabel lblQua1;
     private javax.swing.JLabel lblQua2;
     private javax.swing.JLabel lblQua3;

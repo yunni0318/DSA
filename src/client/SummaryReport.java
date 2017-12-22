@@ -7,8 +7,6 @@ package client;
 
 import adt.OrderLinkedList;
 import static client.MainMenu.dList;
-import static client.MainMenu.initDeliveryman;
-import static client.MainMenu.initOrderDelivery;
 import static client.MainMenu.odList;
 import entity.Deliveryman;
 import javax.swing.table.DefaultTableModel;
@@ -24,8 +22,6 @@ public class SummaryReport extends javax.swing.JFrame {
      */
     public SummaryReport() {
         initComponents();
-        initOrderDelivery();
-        initDeliveryman();
         OrderLinkedList<String> odList = getSummaryReport();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[3];
@@ -72,6 +68,7 @@ public class SummaryReport extends javax.swing.JFrame {
         jLabel1.setText("Deliveryman Summary Report");
 
         btnMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnMenu.setText("Back Menu");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +100,7 @@ public class SummaryReport extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMenu)
                 .addGap(58, 58, 58))
         );
 

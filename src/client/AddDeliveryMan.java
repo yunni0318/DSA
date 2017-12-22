@@ -10,18 +10,19 @@ import javax.swing.*;
 import entity.Deliveryman;
 import adt.LListAddDeliveryMan;
 import static client.MainMenu.dList;
+
 /**
  *
  * @author YUNNI
  */
 public class AddDeliveryMan extends javax.swing.JFrame {
-    
+
     private int position;
-    
+
     public <T> void displayList() {
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
             if (dList.getEntry(i).getdName().equals(txtName.getText())) {
-                
+
                 txtContact.setText(dList.getEntry(i).getdPhone());
                 txtAddress.setText(dList.getEntry(i).getdAddress());
                 txtUserName.setText(dList.getEntry(i).getDuserName());
@@ -30,7 +31,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                 String act = dList.getEntry(i).getdActive();
                 txtStatus.setText(dList.getEntry(i).getdStatus());
                 jButton6.setEnabled(txtStatus.getText().equals("Delivery"));
-                if (act == "Active") {
+                if (act.equals("Active")) {
                     rbYes.setSelected(true);
                 } else {
                     rbNo.setSelected(true);
@@ -39,14 +40,14 @@ public class AddDeliveryMan extends javax.swing.JFrame {
             }
         }
     }
-    
+
     public AddDeliveryMan() {
         initComponents();
         buttonGroup1.add(rbYes);
         buttonGroup1.add(rbNo);
         cbReason.setEnabled(false);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -390,7 +391,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        PendingDeliveries pd=new PendingDeliveries(txtName.getText());
+        PendingDeliveries pd = new PendingDeliveries(txtName.getText());
         pd.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -421,10 +422,10 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContactKeyPressed
 
     private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
-        
+
         if (txtContact.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Don't play play", "Warning", JOptionPane.INFORMATION_MESSAGE);
-            
+
         } else {
             updateData();
             clearData();
@@ -432,7 +433,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+
         if (txtName.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter name before search.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -442,9 +443,9 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+
         int i = Validation();
-        
+
         if (i == -1) {
         } else if (i == 0) {
             insertData();
@@ -472,7 +473,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         Pending.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
-    
+
     public void clearData() {
         jButton2.setEnabled(true);
         txtName.setText("");
@@ -484,7 +485,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         txtUserName.setText("");
         txtPassword.setText("");
     }
-    
+
     public int Validation() {
         int re = 0;
         if (txtName.getText().isEmpty()) {
@@ -494,34 +495,34 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         } else if (txtAddress.getText().isEmpty()) {
             re = -1;
         }
-        
+
         return re;
     }
-    
+
     public void insertData() {
-        String Dstatus;
+        String dStatus;
         if (rbNo.isSelected()) {
-            Dstatus = "In Active";
+            dStatus = "In Active";
         } else {
-            Dstatus = "Active";
+            dStatus = "Active";
         }
-        
-        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), txtUserName.getText(), txtPassword.getText(), 0, "Available");
+
+        Deliveryman dm = new Deliveryman(txtName.getText(), dStatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), txtUserName.getText(), txtPassword.getText(), 0, "Available");
         dList.add(dm);
     }
-    
+
     public void updateData() {
-        String Dstatus;
-        
+        String dStatus;
         if (rbNo.isSelected()) {
-            Dstatus = "In Active";
+            dStatus = "In Active";
         } else {
-            Dstatus = "Active";
+            dStatus = "Active";
         }
-        Deliveryman dm = new Deliveryman(txtName.getText(), Dstatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), txtUserName.getText(), txtPassword.getText(), 0, txtStatus.getText());
+
+        Deliveryman dm = new Deliveryman(txtName.getText(), dStatus, String.valueOf(cbReason.getSelectedItem()), txtContact.getText(), txtAddress.getText(), txtUserName.getText(), txtPassword.getText(), 0, txtStatus.getText());
         dList.replace(position, dm);
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -553,7 +554,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
             public void run() {
                 new AddDeliveryMan().setVisible(true);
             }
-            
+
         });
     }
 

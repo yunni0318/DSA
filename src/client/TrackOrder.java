@@ -7,9 +7,6 @@ package client;
 
 import static client.MainMenu.afList;
 import static client.MainMenu.cusList;
-import static client.MainMenu.initAffiliate;
-import static client.MainMenu.initCustomer;
-import static client.MainMenu.initOrderDelivery;
 import static client.MainMenu.odList;
 import entity.OrderDelivery;
 import java.util.GregorianCalendar;
@@ -26,9 +23,6 @@ public class TrackOrder extends javax.swing.JFrame {
      */
     public TrackOrder() {
         initComponents();
-        initAffiliate();
-        initCustomer();
-        initOrderDelivery();
     }
 
     /**

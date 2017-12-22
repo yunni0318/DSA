@@ -6,18 +6,17 @@
 package client;
 
 import adt.CustomerLinkedQueue;
+import adt.DeliverymanLinkedList;
 import adt.OrderLinkedList;
 import static client.MainMenu.afList;
 import static client.MainMenu.dList;
-import static client.MainMenu.dQueue;
-import static client.MainMenu.initAffiliate;
-import static client.MainMenu.initDeliveryman;
 import com.sun.glass.events.KeyEvent;
 import entity.Customer;
 import entity.Deliveryman;
 import entity.OrderDelivery;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
+import static client.MainMenu.cusList;
 
 /**
  *
@@ -26,7 +25,7 @@ import javax.swing.JOptionPane;
 public class FCustomerInfor extends javax.swing.JFrame {
 
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
-    private CustomerLinkedQueue<Customer> cusList = new CustomerLinkedQueue<>();
+
     int orderID;
 
     /**
@@ -37,15 +36,17 @@ public class FCustomerInfor extends javax.swing.JFrame {
     }
 
     public FCustomerInfor(OrderLinkedList<OrderDelivery> odList, int orderID) {
-//        jpCus.setLayout(null);
         this.odList = odList;
         this.orderID = orderID;
 
         initComponents();
-        initAffiliate();
-        initDeliveryman();
         lblTotal.setText("RM " + String.valueOf(getTotal(orderID)) + "0");
-//        jpBtn.setVisible(false);
+    }
+
+    public Customer storeCustomer() {
+        Customer cus = new Customer(txtName.getText(), txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()));
+        cusList.add(cus);
+        return cus;
     }
 
     /**
@@ -332,8 +333,7 @@ public class FCustomerInfor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPhoneKeyTyped
 
-    private double getTotal(int orderID)//OrderLinkedList<OrderDelivery> odList, 
-    {
+    private double getTotal(int orderID) {
         double ttl = 0.00;
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getOdID() == orderID) {
@@ -345,14 +345,13 @@ public class FCustomerInfor extends javax.swing.JFrame {
 
     private void jbtConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtConfirmActionPerformed
         // TODO add your handling code here:
-        //getCustomerInfor( orderID);//odList,
         String name = txtName.getText();
         String phone = txtPhone.getText();
 
         GregorianCalendar cal = new GregorianCalendar();
         int currentHour = cal.get(GregorianCalendar.HOUR_OF_DAY);
         int currentMinute = cal.get(GregorianCalendar.MINUTE);
-        String odTime = String.valueOf(currentHour) + String.valueOf(currentMinute);
+        String odTime = (currentHour < 10 ? "0" : "") + currentHour + ":" + (currentMinute < 10 ? "0" : "") + currentMinute;
 
         //Calculate distance
         OrderDelivery od = null;
@@ -389,23 +388,11 @@ public class FCustomerInfor extends javax.swing.JFrame {
         }
 
         //Assign deliveryman
-        int min = 99;
-        boolean isAssigned = false;
-        String deliverymanName = "";
-        for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
-            if (dList.getEntry(i).getdNoOfTask() < min) {
-                min = dList.getEntry(i).getdNoOfTask();
-            }
-        }
-
-        while (!isAssigned) {
-            Deliveryman deliveryman = dQueue.dequeue();
-            dQueue.enqueue(deliveryman);
-            if (deliveryman.getdNoOfTask() == min) {
-                deliverymanName = deliveryman.getdName();
-                isAssigned = true;
-            }
-        }
+        dList.sortByNoOfTask();
+        Deliveryman d = dList.getEntry(1);
+        String deliverymanName = d.getdName();
+        d.setdNoOfTask(d.getdNoOfTask() + 1);
+        d.setdStatus("Delivery");
 
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getOdID() == orderID) {
@@ -418,13 +405,11 @@ public class FCustomerInfor extends javax.swing.JFrame {
             }
         }
 
-        JOptionPane.showMessageDialog(null, "Thank You =) Your order and payment have been successfully completed. Please Come Again!!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
+        storeCustomer();
+        JOptionPane.showMessageDialog(null, "Thank You =) \nYour order and payment have been successfully completed. \nPlease Come Again!!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
         FRestaurant home = new FRestaurant();
         home.setVisible(true);
         this.setVisible(false);
-//        jpBtn.setVisible(true);
-//        jpCus.setVisible(false);
-
     }//GEN-LAST:event_jbtConfirmActionPerformed
 
     private void txtCardNoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCardNoKeyPressed

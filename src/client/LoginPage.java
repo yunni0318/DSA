@@ -6,24 +6,14 @@
 package client;
 
 import javax.swing.JOptionPane;
-import java.awt.BorderLayout;
-import static client.MainMenu.initDeliveryman;
 import static client.MainMenu.dList;
-import static client.MainMenu.odList;
-import static client.MainMenu.initOrderDelivery;
-import static client.MainMenu.initCustomer;
-import static client.MainMenu.cusList;
 import static client.MainMenu.userName;
 import static client.MainMenu.afList;
-import static client.MainMenu.initAffiliate;
 
 public class LoginPage extends javax.swing.JFrame {
 
     public LoginPage() {
         initComponents();
-        initDeliveryman();
-        initCustomer();
-        initAffiliate();
     }
 
     /**
@@ -166,21 +156,22 @@ public class LoginPage extends javax.swing.JFrame {
         String pass = String.valueOf(txtPassword.getPassword());
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
             if (dList.getEntry(i).getDuserName().equals(txtUserName.getText()) && dList.getEntry(i).getdPassword().equals(pass)) {
-                DeliverymanMenu menu=new DeliverymanMenu();
+                userName = dList.getEntry(i).getdName();
+                DeliverymanMenu menu = new DeliverymanMenu();
                 menu.setVisible(true);
                 this.dispose();
             }
         }
     }
-    
+
     public <T> void Affiliate() {
-       String pass = String.valueOf(txtPassword.getPassword());
-       for (int i = 1; i <= afList.getNumberOfEntries(); i++) {
-           if (afList.getEntry(i).getAfName().equals(txtUserName.getText()) && afList.getEntry(i).getAfPassword().equals(pass)) {
-                userName=afList.getEntry(i).getAfName();
+        String pass = String.valueOf(txtPassword.getPassword());
+        for (int i = 1; i <= afList.getNumberOfEntries(); i++) {
+            if (afList.getEntry(i).getAfName().equals(txtUserName.getText()) && afList.getEntry(i).getAfPassword().equals(pass)) {
+                userName = afList.getEntry(i).getAfName();
                 new AddItem().setVisible(true);
                 dispose();
-           }
+            }
         }
     }
 

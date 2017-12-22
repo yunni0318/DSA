@@ -1,14 +1,8 @@
 package client;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import static client.MainMenu.sList;
+import static client.MainMenu.userName;
 import entity.Schedule;
 import javax.swing.JOptionPane;
 
@@ -22,10 +16,6 @@ import javax.swing.JOptionPane;
  * @author PC2
  */
 public class ClockIn extends javax.swing.JFrame {
-
-    Connection con;
-    PreparedStatement pstmt;
-    ResultSet rs;
 
     /**
      * Creates new form NewJFrame
@@ -144,13 +134,13 @@ public class ClockIn extends javax.swing.JFrame {
         String currentTime = cal.get(GregorianCalendar.HOUR_OF_DAY) + ":" + cal.get(GregorianCalendar.MINUTE);
         boolean valid = true;
         for (int i = 1; i <= sList.getNumberOfEntries(); i++) {
-            if (sList.getEntry(i).getdName().equals("Tony") && sList.getEntry(i).getsDate().equals(currentDate) && sList.getEntry(i).getClockOff().equals("")) {
+            if (sList.getEntry(i).getdName().equals(userName) && sList.getEntry(i).getsDate().equals(currentDate) && sList.getEntry(i).getClockOff().equals("")) {
                 valid = false;
             }
         }
 
         if (valid) {
-            Schedule s = new Schedule("Tony", currentTime, "", currentDate);
+            Schedule s = new Schedule(userName, currentTime, "", currentDate);
             sList.add(s);
             JOptionPane.showMessageDialog(null, "You have successfully clock in.");
         } else {
@@ -167,7 +157,7 @@ public class ClockIn extends javax.swing.JFrame {
         String currentTime = cal.get(GregorianCalendar.HOUR_OF_DAY) + ":" + cal.get(GregorianCalendar.MINUTE);
         boolean valid = false;
         for (int i = 1; i <= sList.getNumberOfEntries(); i++) {
-            if (sList.getEntry(i).getdName().equals("Tony") && sList.getEntry(i).getsDate().equals(currentDate) && sList.getEntry(i).getClockOff().equals("")) {
+            if (sList.getEntry(i).getdName().equals(userName) && sList.getEntry(i).getsDate().equals(currentDate) && sList.getEntry(i).getClockOff().equals("")) {
                 sList.getEntry(i).setClockOff(currentTime);
                 valid = true;
             }
