@@ -28,6 +28,7 @@ public class FMenuItem extends javax.swing.JFrame {
      * Creates new form JFMenuItem
      */
     public FMenuItem() {
+        initItem();
         initComponents();
     }
 

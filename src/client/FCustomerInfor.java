@@ -42,12 +42,13 @@ public class FCustomerInfor extends javax.swing.JFrame {
         initComponents();
         lblTotal.setText("RM " + String.valueOf(getTotal(orderID)) + "0");
     }
-
-    public Customer storeCustomer() {
+    
+    public Customer storeCustomer(){
         Customer cus = new Customer(txtName.getText(), txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()));
         cusList.add(cus);
         return cus;
     }
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
