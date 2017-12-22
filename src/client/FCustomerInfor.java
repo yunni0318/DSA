@@ -48,13 +48,6 @@ public class FCustomerInfor extends javax.swing.JFrame {
         cusList.add(cus);
         return cus;
     }
-    
-    public Customer storeCustomer(){
-        Customer cus = new Customer(txtName.getText(), txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()));
-        cusList.add(cus);
-        return cus;
-    }
-            
 
     /**
      * This method is called from within the constructor to initialize the form.
