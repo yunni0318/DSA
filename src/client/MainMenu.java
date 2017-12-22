@@ -37,88 +37,88 @@ public class MainMenu {
     public static boolean isFirstRun = true;
 
     public static void initAffiliate() {
-        Affiliate af = new Affiliate("Homemade Chinese Restaurant", "Jalan Tembikai", "Kuala Lumpur", "Setapak", "53000", "12345");
+        Affiliate af = new Affiliate("Homemade Chinese Restaurant", "Jalan Tembikai", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
-        af = new Affiliate("Delicious Sushi Restaurant", "Jalan Pisang", "Kuala Lumpur", "Setapak", "53000", "12345");
+        af = new Affiliate("Delicious Sushi Restaurant","Jalan Pisang", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
-        af = new Affiliate("Kenny Roaster Restaurant", "Jalan Durian", "Kuala Lumpur", "Setapak", "53000", "12345");
+        af = new Affiliate("Kenny Roaster Restaurant","Jalan Durian", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
-        af = new Affiliate("Bukit Bintang Nasi Lemak", "Jalan Banana", "Kuala Lumpur", "Setapak", "53100", "12345");
+        af = new Affiliate("Bukit Bintang Nasi Lemak","Jalan Banana", "Kuala Lumpur", "Setapak", "53100","12345");
         afList.add(af);
-        af = new Affiliate("All Noodle Restaurant", "Jalan PV15", "Kuala Lumpur", "Setapak", "53100", "12345");
+        af = new Affiliate("All Noodle Restaurant","Jalan PV15", "Kuala Lumpur", "Setapak", "53100","12345");
         afList.add(af);
-        af = new Affiliate("Rice Tong Restaurant", "Jalan POPO", "Kuala Lumpur", "Setapak", "53100", "12345");
+        af = new Affiliate("Rice Tong Restaurant","Jalan POPO", "Kuala Lumpur", "Setapak", "53100","12345");
         afList.add(af);
-        af = new Affiliate("Special Spaghetti Restaurant", "Jalan Kikab", "Kuala Lumpur", "Setapak", "53000", "12345");
+        af = new Affiliate("Special Spaghetti Restaurant","Jalan Kikab", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
-        af = new Affiliate("Homemade Western Food", "Jalan Juour", "Kuala Lumpur", "Setapak", "53000", "12345");
+        af = new Affiliate("Homemade Western Food","Jalan Juour", "Kuala Lumpur", "Setapak", "53000","12345");
         afList.add(af);
     }
 
-    public static void initItem() {
-        Item itf = new Item("Spicy Dry Noodle", 7.00, "Homemade Chinese Restaurant");
+    public static void initItem(){
+        Item itf= new Item("Spicy Dry Noodle",7.00,"Homemade Chinese Restaurant");
         iList.add(itf);
-        itf = new Item("Fried Rice with Chinese Sausage", 8.00, "Homemade Chinese Restaurant");
+        itf= new Item("Fried Rice with Chinese Sausage",8.00,"Homemade Chinese Restaurant");
         iList.add(itf);
-        itf = new Item("Special Dumping Soup (4 pcs)", 6.00, "Homemade Chinese Restaurant");
+        itf= new Item("Special Dumping Soup (4 pcs)",6.00,"Homemade Chinese Restaurant");
         iList.add(itf);
-        itf = new Item("Lo Han Guo Herba Tea", 3.00, "Homemade Chinese Restaurant");
+        itf= new Item("Lo Han Guo Herba Tea",3.00,"Homemade Chinese Restaurant");
         iList.add(itf);
-        itf = new Item("Sushi Set (salmon, maguro, ebi,anago)", 20.00, "Delicious Sushi Restaurant");
+        itf= new Item("Sushi Set (salmon, maguro, ebi,anago)",20.00,"Delicious Sushi Restaurant");
         iList.add(itf);
-        itf = new Item("Ramen Soup", 10.00, "Delicious Sushi Restaurant");
+        itf= new Item("Ramen Soup", 10.00,"Delicious Sushi Restaurant");
         iList.add(itf);
-        itf = new Item("Chicken Teriyaki Bento", 15.00, "Delicious Sushi Restaurant");
+        itf= new Item("Chicken Teriyaki Bento",15.00,"Delicious Sushi Restaurant");
         iList.add(itf);
-        itf = new Item("Tropicana Twister Orange Juice", 4.00, "Delicious Sushi Restaurant");
+        itf= new Item("Tropicana Twister Orange Juice",4.00,"Delicious Sushi Restaurant");
         iList.add(itf);
-        itf = new Item("Honey Roaster Chicken", 16.00, "Kenny Roaster Restaurant");
+        itf= new Item("Honey Roaster Chicken",16.00,"Kenny Roaster Restaurant");
         iList.add(itf);
-        itf = new Item("Spicy Roaster Chicken", 18.00, "Kenny Roaster Restaurant");
+        itf= new Item("Spicy Roaster Chicken",18.00,"Kenny Roaster Restaurant");
         iList.add(itf);
-        itf = new Item("Glutinous Oil Rice", 8.00, "Kenny Roaster Restaurant");
+        itf= new Item("Glutinous Oil Rice",8.00,"Kenny Roaster Restaurant");
         iList.add(itf);
-        itf = new Item("Pepsi", 3.00, "Kenny Roaster Restaurant");
+        itf= new Item("Pepsi",3.00 ,"Kenny Roaster Restaurant");
         iList.add(itf);
-        itf = new Item("Nasi Lemak with Egg", 5.00, "Bukit Bintang Nasi Lemak");
+        itf= new Item("Nasi Lemak with Egg",5.00,"Bukit Bintang Nasi Lemak");
         iList.add(itf);
-        itf = new Item("Nasi Lemak with Fried Chicken", 8.00, "Bukit Bintang Nasi Lemak");
+        itf= new Item("Nasi Lemak with Fried Chicken",8.00,"Bukit Bintang Nasi Lemak");
         iList.add(itf);
-        itf = new Item("Nasi Lemak with Currry Chicken", 9.00, "Bukit Bintang Nasi Lemak");
+        itf= new Item("Nasi Lemak with Currry Chicken",9.00,"Bukit Bintang Nasi Lemak");
         iList.add(itf);
-        itf = new Item("Bentong Cincau", 3.00, "Bukit Bintang Nasi Lemak");
+        itf= new Item("Bentong Cincau",3.00,"Bukit Bintang Nasi Lemak");
         iList.add(itf);
-        itf = new Item("Special Dry Noodle", 8.00, "All Noodle Restaurant");
+        itf= new Item("Special Dry Noodle",8.00,"All Noodle Restaurant");
         iList.add(itf);
-        itf = new Item("Special Noodle Soup", 9.00, "All Noodle Restaurant");
+        itf= new Item("Special Noodle Soup",9.00,"All Noodle Restaurant");
         iList.add(itf);
-        itf = new Item("Spicy Noodle Soup", 9.00, "All Noodle Restaurant");
+        itf= new Item("Spicy Noodle Soup",9.00,"All Noodle Restaurant");
         iList.add(itf);
-        itf = new Item("Honey Lemon Tea", 3.00, "All Noodle Restaurant");
+        itf= new Item("Honey Lemon Tea",3.00,"All Noodle Restaurant");
         iList.add(itf);
-        itf = new Item("Salted Fish Pork Rice", 7.00, "Rice Tong Restaurant");
+        itf= new Item("Salted Fish Pork Rice",7.00,"Rice Tong Restaurant");
         iList.add(itf);
-        itf = new Item("Shrimp Fried Rice", 8.00, "Rice Tong Restaurant");
+        itf= new Item("Shrimp Fried Rice",8.00,"Rice Tong Restaurant");
         iList.add(itf);
-        itf = new Item("Sweet and Sour Pork Rice", 8.00, "Rice Tong Restaurant");
+        itf= new Item("Sweet and Sour Pork Rice",8.00,"Rice Tong Restaurant");
         iList.add(itf);
-        itf = new Item("Chinese Tea", 2.00, "Rice Tong Restaurant");
+        itf= new Item("Chinese Tea",2.00,"Rice Tong Restaurant");
         iList.add(itf);
-        itf = new Item("Special Spaghetti", 12.00, "Special Spaghetti Restaurant");
+        itf= new Item("Special Spaghetti",12.00,"Special Spaghetti Restaurant");
         iList.add(itf);
-        itf = new Item("Baked Cheese Spaghetti", 18.00, "Special Spaghetti Restaurant");
+        itf= new Item("Baked Cheese Spaghetti",18.00,"Special Spaghetti Restaurant");
         iList.add(itf);
-        itf = new Item("Spaghetti Bolognese", 15.00, "Special Spaghetti Restaurant");
+        itf= new Item("Spaghetti Bolognese",15.00,"Special Spaghetti Restaurant");
         iList.add(itf);
-        itf = new Item("Lemon Tea", 3.00, "Special Spaghetti Restaurant");
+        itf= new Item("Lemon Tea",3.00,"Special Spaghetti Restaurant");
         iList.add(itf);
-        itf = new Item("Homemade Pork Chop", 15.00, "Homemade Western Food");
+        itf= new Item("Homemade Pork Chop",15.00,"Homemade Western Food");
         iList.add(itf);
-        itf = new Item("Black Peper Chicken Chop", 15.00, "Homemade Western Food");
+        itf= new Item("Black Peper Chicken Chop",15.00,"Homemade Western Food");
         iList.add(itf);
-        itf = new Item("Fried Rice", 7.00, "Homemade Western Food");
+        itf= new Item("Fried Rice",7.00,"Homemade Western Food");
         iList.add(itf);
-        itf = new Item("Red Tea", 3.00, "Homemade Western Food");
+        itf= new Item("Red Tea",3.00,"Homemade Western Food");
         iList.add(itf);
 
     }
@@ -153,18 +153,18 @@ public class MainMenu {
         oiList.add(oi);
         oi = new OrderItem(1001, "Fried Rice with Chinese Sausage", 1, 8.00);
         oiList.add(oi);
-
+        
         oi = new OrderItem(1002, "Nasi Lemak with Egg", 1, 5.00);
         oiList.add(oi);
-
+        
         oi = new OrderItem(1003, "Special Spaghetti", 1, 12.00);
         oiList.add(oi);
-
+        
         oi = new OrderItem(1004, "Homemade Pork Chop", 1, 15.00);
         oiList.add(oi);
         oi = new OrderItem(1004, "Fried Rice", 1, 7.00);
         oiList.add(oi);
-
+        
         oi = new OrderItem(1005, "Spicy Noodle Soup", 1, 12.00);
         oiList.add(oi);
         oi = new OrderItem(1005, "Honey Lemon Tea", 1, 3.00);
