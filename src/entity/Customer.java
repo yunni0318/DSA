@@ -17,14 +17,33 @@ public class Customer {
     private String cusCity;
     private String cusState;
     private String cusPostcode;
-    
-    public Customer(String cusName, String cusPhone, String cusAdd, String cusCity, String cusState, String cusPostcode) {
+    private String cusPassword;
+
+    public Customer(String cusName, String cusPhone, String cusAddress, String cusCity, String cusState, String cusPostcode, String cusPassword) {
         this.cusName = cusName;
         this.cusPhone = cusPhone;
-        this.cusAddress = cusAdd;
+        this.cusAddress = cusAddress;
         this.cusCity = cusCity;
         this.cusState = cusState;
         this.cusPostcode = cusPostcode;
+        this.cusPassword = cusPassword;
+    }
+
+    public Customer(String cusName, String cusPhone, String cusAddress, String cusCity, String cusState, String cusPostcode) {
+        this.cusName = cusName;
+        this.cusPhone = cusPhone;
+        this.cusAddress = cusAddress;
+        this.cusCity = cusCity;
+        this.cusState = cusState;
+        this.cusPostcode = cusPostcode;
+    }
+
+    public String getCusPassword() {
+        return cusPassword;
+    }
+
+    public void setCusPassword(String cusPassword) {
+        this.cusPassword = cusPassword;
     }
 
     public String getCusPhone() {
@@ -49,14 +68,6 @@ public class Customer {
 
     public void setCusName(String cusName) {
         this.cusName = cusName;
-    }
-
-    public String getCusAdd() {
-        return cusAddress;
-    }
-
-    public void setCusAdd(String cusAdd) {
-        this.cusAddress = cusAdd;
     }
 
     public String getCusCity() {

@@ -9,11 +9,23 @@ import javax.swing.JOptionPane;
 import static client.MainMenu.dList;
 import static client.MainMenu.userName;
 import static client.MainMenu.afList;
+import static client.MainMenu.cusList;
+import static client.MainMenu.*;
+
 
 public class LoginPage extends javax.swing.JFrame {
 
     public LoginPage() {
         initComponents();
+        if (isFirstRun) {
+            initAffiliate();
+            initItem();
+            initDeliveryman();
+            initOrderDelivery();
+            initOrderItem();
+            initCustomer();
+            isFirstRun = false;
+        }
     }
 
     /**
@@ -65,7 +77,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel4.setText("Position :");
 
         cbPosition.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbPosition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Delivery Man", "Affiliate", "HR" }));
+        cbPosition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Delivery Man", "Affiliate", "HR" }));
         cbPosition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbPositionActionPerformed(evt);
@@ -140,10 +152,12 @@ public class LoginPage extends javax.swing.JFrame {
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
 
         if (cbPosition.getSelectedIndex() == 0) {
+            Customer();
+        }else if (cbPosition.getSelectedIndex() == 1) {
             DeliveryMan();
-        } else if (cbPosition.getSelectedIndex() == 1) {
-            Affiliate();
         } else if (cbPosition.getSelectedIndex() == 2) {
+            Affiliate();
+        } else if (cbPosition.getSelectedIndex() == 3) {
             HR();
         }
     }//GEN-LAST:event_btnEnterActionPerformed
@@ -152,6 +166,28 @@ public class LoginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbPositionActionPerformed
 
+    public void Customer() {
+        String pass = String.valueOf(txtPassword.getText());
+        boolean cus = false;
+        for (int i = 1; i <= cusList.getNumberOfEntries(); i++) {
+            if (cusList.getEntry(i).getCusName().equals(txtUserName.getText()) && cusList.getEntry(i).getCusPassword().equals(pass)) {
+                userName = cusList.getEntry(i).getCusName();
+                cus = true;}
+//                FRestaurant fra = new FRestaurant(userName);
+//                fra.setVisible(true);
+//                this.setVisible(false);            
+        }
+        if(cus == true)
+        {
+            FRestaurant fra = new FRestaurant(userName);
+                fra.setVisible(true);
+                this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Invalid user name or password.", "Warning", JOptionPane.OK_OPTION);
+        }
+          
+    }
+    
     public <T> void DeliveryMan() {
         String pass = String.valueOf(txtPassword.getPassword());
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {

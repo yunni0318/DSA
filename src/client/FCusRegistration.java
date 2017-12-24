@@ -5,19 +5,21 @@
  */
 package client;
 
+import static client.MainMenu.cusList;
 import com.sun.glass.events.KeyEvent;
+import entity.Customer;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Tea Evon
  */
-public class CustomerRegistrationF extends javax.swing.JFrame {
+public class FCusRegistration extends javax.swing.JFrame {
 
     /**
      * Creates new form customerRegistrationF
      */
-    public CustomerRegistrationF() {
+    public FCusRegistration() {
         initComponents();
     }
 
@@ -32,7 +34,7 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
 
         JPanel = new javax.swing.JPanel();
         lblID = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
@@ -40,49 +42,36 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
         txtState = new javax.swing.JTextField();
         lblState = new javax.swing.JLabel();
         lblPostcode = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbPostcode = new javax.swing.JComboBox<>();
         lblState1 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        jpfPassword = new javax.swing.JPasswordField();
         txtPhone = new javax.swing.JTextField();
         lblPhone = new javax.swing.JLabel();
+        btnSignUp = new javax.swing.JButton();
+        jlTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblID.setText("Name :");
 
-        txtId.setEnabled(false);
-
-        txtAddress.setEnabled(false);
-
         lblAddress.setText("Address :");
 
         lblCity.setText("City :");
-
-        txtCity.setEnabled(false);
-
-        txtState.setEnabled(false);
 
         lblState.setText("State :");
 
         lblPostcode.setText("Postcode :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "53000", "53100", "53300" }));
+        cbPostcode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "53000", "53100", "53300" }));
 
         lblState1.setText("Password :");
 
-        jPasswordField1.setText("123456");
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jpfPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyTyped(evt);
+                jpfPasswordKeyTyped(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Customer Registration");
-
-        txtPhone.setEnabled(false);
         txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPhoneKeyPressed(evt);
@@ -94,6 +83,20 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
 
         lblPhone.setText("Phone Number :");
 
+        btnSignUp.setText("Sign Up");
+        btnSignUp.setActionCommand("Sign Up");
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUpActionPerformed(evt);
+            }
+        });
+
+        jlTitle.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        jlTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlTitle.setText("Customer Registration");
+        jlTitle.setToolTipText("");
+        jlTitle.setPreferredSize(new java.awt.Dimension(470, 43));
+
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
         JPanelLayout.setHorizontalGroup(
@@ -102,56 +105,55 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblState1)
+                            .addComponent(lblPostcode)
+                            .addComponent(lblAddress)
+                            .addComponent(lblState)
+                            .addComponent(lblCity))
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jpfPassword))
+                            .addGroup(JPanelLayout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtState, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(JPanelLayout.createSequentialGroup()
+                                        .addComponent(cbPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 299, Short.MAX_VALUE))))
+                            .addGroup(JPanelLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(txtAddress))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPhone)
+                            .addComponent(lblID))
+                        .addGap(18, 18, 18)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(JPanelLayout.createSequentialGroup()
-                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblState1)
-                                    .addComponent(lblPostcode)
-                                    .addComponent(lblAddress)
-                                    .addComponent(lblState)
-                                    .addComponent(lblCity))
-                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addComponent(txtAddress))
-                                    .addGroup(JPanelLayout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addComponent(jPasswordField1))
-                                    .addGroup(JPanelLayout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtState, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(JPanelLayout.createSequentialGroup()
-                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 157, Short.MAX_VALUE))))))
-                            .addGroup(JPanelLayout.createSequentialGroup()
-                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPhone)
-                                    .addComponent(lblID))
-                                .addGap(18, 18, 18)
-                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtId)
-                                    .addComponent(txtPhone))))
-                        .addGap(104, 104, 104))))
+                            .addComponent(txtName)
+                            .addComponent(txtPhone)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSignUp))
+                    .addComponent(jlTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
+                .addContainerGap())
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(20, 20, 20)
+                .addComponent(jlTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblID))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPhone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAddress)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -165,13 +167,15 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
                     .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPostcode))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblState1)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jpfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(btnSignUp)
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -190,13 +194,13 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
 
     private void txtPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyPressed
         // TODO add your handling code here:
-        if (txtPhone.getText().length() >= 11) {
-            txtPhone.setText(txtPhone.getText().substring(0, 10));
-        }
     }//GEN-LAST:event_txtPhoneKeyPressed
 
     private void txtPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyTyped
         // TODO add your handling code here:
+        if (txtPhone.getText().length() >= 11) {
+            txtPhone.setText(txtPhone.getText().substring(0, 10));
+        }
         char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)) {
             JOptionPane.showMessageDialog(null, "Invalid input. Only accept number, such as 0123456789", "Warning", JOptionPane.INFORMATION_MESSAGE);
@@ -204,15 +208,39 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPhoneKeyTyped
 
-    private void jPasswordField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyTyped
+    private void jpfPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpfPasswordKeyTyped
         // TODO add your handling code here:
-        if (String.valueOf(jPasswordField1.getPassword()).length() < 6) {
-            txtPhone.setText(txtPhone.getText().substring(0, 10));
-            JOptionPane.showMessageDialog(null, "Invalid input. Password should more than 6 character.", "Warning", JOptionPane.INFORMATION_MESSAGE);
-            evt.consume();
-        }
-    }//GEN-LAST:event_jPasswordField1KeyTyped
+    }//GEN-LAST:event_jpfPasswordKeyTyped
 
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        // TODO add your handling code here:
+        String str = jpfPassword.getText();
+        int countL = 0, countD = 0;
+        for (int i = 0; i<(str.length()); i++) {
+        if(Character.isDigit(str.charAt(i)))
+            countD++;
+        if(Character.isLetter(str.charAt(i)))
+            countL++;
+        }
+        if (countL==0 || countD == 0 ) {
+            JOptionPane.showMessageDialog(null, "Invalid input. Password should consists of character and digit", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if (jpfPassword.getText().length() < 6) {
+            JOptionPane.showMessageDialog(null, "Invalid input. Password should more than 6 character.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else
+        storeCustomer();
+    }//GEN-LAST:event_btnSignUpActionPerformed
+
+    public Customer storeCustomer(){
+
+        Customer cus = new Customer(txtName.getText(), txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()), jpfPassword.getText());
+        cusList.add(cus);
+        JOptionPane.showMessageDialog(null, "Congratulations =) Now you are a customer member of Fastest Deliveryman !!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
+        
+        return cus;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -230,30 +258,33 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerRegistrationF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FCusRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerRegistrationF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FCusRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerRegistrationF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FCusRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerRegistrationF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FCusRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerRegistrationF().setVisible(true);
+                new FCusRegistration().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton btnSignUp;
+    private javax.swing.JComboBox<String> cbPostcode;
+    private javax.swing.JLabel jlTitle;
+    private javax.swing.JPasswordField jpfPassword;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblID;
@@ -263,7 +294,7 @@ public class CustomerRegistrationF extends javax.swing.JFrame {
     private javax.swing.JLabel lblState1;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables

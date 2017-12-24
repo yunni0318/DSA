@@ -11,6 +11,7 @@ import entity.OrderDelivery;
 import adt.ListInterface;
 import adt.OrderLinkedList;
 import adt.OrderItemLinkedList;
+import static client.MainMenu.userName;
 import entity.OrderItem;
 import java.util.GregorianCalendar;
 
@@ -285,7 +286,7 @@ public class FConfirm extends javax.swing.JFrame {
     private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
         // TODO add your handling code here:
         String res = jlResName.getText();
-        FRestaurant resFrame = new FRestaurant();
+        FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jbMenuActionPerformed
@@ -294,7 +295,7 @@ public class FConfirm extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this,"Your order is  submited. "//Now you will process to Payment."
                 , "Success", JOptionPane.INFORMATION_MESSAGE);
-        FCustomerInfor cusFrame = new FCustomerInfor(odList, id);
+        FPayment cusFrame = new FPayment(odList, id);
         cusFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jbConfirmActionPerformed

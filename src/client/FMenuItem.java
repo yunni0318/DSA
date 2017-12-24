@@ -7,6 +7,7 @@ package client;
 
 import adt.LListAdditem;
 import adt.OrderLinkedList;
+import static client.MainMenu.cusList;
 import static client.MainMenu.odList;
 import static client.MainMenu.oiList;
 import javax.swing.JOptionPane;
@@ -14,6 +15,8 @@ import entity.OrderDelivery;
 import entity.OrderItem;
 import java.util.GregorianCalendar;
 import static client.MainMenu.iList;
+import static client.MainMenu.initOrderDelivery;
+import static client.MainMenu.userName;
 import entity.Item;
 
 /**
@@ -23,16 +26,25 @@ import entity.Item;
 public class FMenuItem extends javax.swing.JFrame {
 
     FConfirm orderConfirmF = new FConfirm();
+//    String userName;
 
     /**
      * Creates new form JFMenuItem
      */
     public FMenuItem() {
         initComponents();
+//        initOrderDelivery();
+    }
+    
+    public FMenuItem(String userName) {
+        //this.userName = userName;
+        initComponents();
+//        initOrderDelivery();
     }
 
 //    OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
 //    OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
+    
     OrderItem order1;
     OrderItem order2;
     OrderItem order3;
@@ -42,7 +54,6 @@ public class FMenuItem extends javax.swing.JFrame {
     int qua3 = 0;
     int qua4 = 0;
     int id = generateOrderID();
-    String idStr = String.valueOf(generateOrderID());
 
     public void setRes(String res) {
         this.jlResName.setText(res);
@@ -66,16 +77,16 @@ public class FMenuItem extends javax.swing.JFrame {
         int c = 1;
         do {
             lblItem1.setText(iTemList.getEntry(c).getItName());
-            lblPrice1.setText(String.valueOf(iTemList.getEntry(c).getItPrice()));
+            lblPrice1.setText(String.valueOf(iTemList.getEntry(c).getItPrice()) + "0");
             c++;
             lblItem2.setText(iTemList.getEntry(c).getItName());
-            lblPrice2.setText(String.valueOf(iTemList.getEntry(c).getItPrice()));
+            lblPrice2.setText(String.valueOf(iTemList.getEntry(c).getItPrice()) + "0");
             c++;
             lblItem3.setText(iTemList.getEntry(c).getItName());
-            lblPrice3.setText(String.valueOf(iTemList.getEntry(c).getItPrice()));
+            lblPrice3.setText(String.valueOf(iTemList.getEntry(c).getItPrice()) + "0");
             c++;
             lblItem4.setText(iTemList.getEntry(c).getItName());
-            lblPrice4.setText(String.valueOf(iTemList.getEntry(c).getItPrice()));
+            lblPrice4.setText(String.valueOf(iTemList.getEntry(c).getItPrice()) + "0");
             c++;
         } while (c <= iTemList.getNumberOfEntries());
     }
@@ -276,15 +287,16 @@ public class FMenuItem extends javax.swing.JFrame {
 
     public int generateOrderID() {
         int orderID = 1001;
-        int count = odList.getNumberOfEntries();
-        System.out.println(count);
+        int count = 0;
+        count = client.MainMenu.odList.getNumberOfEntries();
+        //System.out.println(count);
         orderID = orderID + count;
         return orderID;
     }
 
     private void jbGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGoBackActionPerformed
         // TODO add your handling code here:
-        FRestaurant resFrame = new FRestaurant();
+        FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jbGoBackActionPerformed
@@ -340,6 +352,24 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOrderActionPerformed
         // TODO add your handling code here:
+        String phone="";
+        boolean or = false;
+        for (int i = 1; i <= cusList.getNumberOfEntries(); i++) {
+            if (cusList.getEntry(i).getCusName()==userName){ 
+                phone = cusList.getEntry(i).getCusPhone();
+                or = true;
+//                getOrder(phone);
+            }
+        }
+        if(or == true)
+            getOrder(phone);
+        else{
+                JOptionPane.showMessageDialog(this, "Sorry, you cannot make order because you did not have an account. \nPlease Sign up or Login first.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    
+    public void getOrder(String phone){
         double subTotal = 0;
 
         if (order1 != null) {
@@ -363,7 +393,7 @@ public class FMenuItem extends javax.swing.JFrame {
         int date = cal.get(GregorianCalendar.DATE);
         String odDate = String.valueOf(date);
 
-        OrderDelivery newEntry = new OrderDelivery(id, "", odDate, "", "", subTotal, 0, 0, "", jlResName.getText(), 0, "Pending");
+        OrderDelivery newEntry = new OrderDelivery(id, "", odDate, userName, phone, subTotal, 0, 0, "", jlResName.getText(), 0, "Pending");
         odList.add(newEntry);
 
         FConfirm orderCon = new FConfirm(odList, oiList, id);

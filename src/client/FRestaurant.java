@@ -12,22 +12,46 @@ import static client.MainMenu.*;
  * @author Tea Evon
  */
 public class FRestaurant extends javax.swing.JFrame {
-
-    FMenuItem menu = new FMenuItem();
+//    FMenuItem menu = new FMenuItem();
+//    public static String  cusName;
 
     /**
      * Creates new form NewJFrame
      */
     public FRestaurant() {
+        //lblUserName.setVisible(false);
         initComponents();
-        if (isFirstRun) {
-            initAffiliate();
-            initItem();
-            initDeliveryman();
-            initOrderDelivery();
-            initOrderItem();
-            isFirstRun = false;
+//        if (isFirstRun) {
+//            initAffiliate();
+//            initItem();
+//            initDeliveryman();
+//            initOrderDelivery();
+//            initOrderItem();
+//            initCustomer();
+//            isFirstRun = false;
+//        }
+    }
+    
+    public FRestaurant(String userName) {
+        initComponents();
+        if(userName==null){
+            lblUserName.setVisible(false);
         }
+        else{
+            lblUserName.setText(userName);
+            lblUserName.setVisible(true);
+        }
+        
+        
+//        if (isFirstRun) {
+//            initAffiliate();
+//            initItem();
+//            initDeliveryman();
+            //initOrderDelivery();
+            //initOrderItem();
+//            initCustomer();
+//            isFirstRun = false;
+//        }
     }
 
     public String getResName(String name) {
@@ -53,7 +77,10 @@ public class FRestaurant extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnRegisterAff = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        btnRegisterCus = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lblUserName = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jpMelawati = new javax.swing.JPanel();
         lblRes1 = new javax.swing.JLabel();
@@ -93,7 +120,7 @@ public class FRestaurant extends javax.swing.JFrame {
         jlArea.setText(" Area :");
 
         cbArea.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
-        cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Melati", "Wangsa Maju", " " }));
+        cbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Melawati", "Wangsa Maju" }));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo_test-3.png"))); // NOI18N
 
@@ -122,12 +149,29 @@ public class FRestaurant extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel10.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        jLabel10.setText("Join as a loyal customer !");
+
+        btnRegisterCus.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegisterCus.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
+        btnRegisterCus.setText("Sign Up ");
+        btnRegisterCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterCusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(337, 337, 337)
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegisterCus)
+                .addGap(127, 127, 127)
                 .addComponent(jLabel9)
                 .addGap(34, 34, 34)
                 .addComponent(btnRegisterAff)
@@ -140,7 +184,10 @@ public class FRestaurant extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(btnRegisterCus)
+                        .addComponent(jLabel10))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRegisterAff)
                         .addComponent(btnLogin)))
@@ -154,6 +201,8 @@ public class FRestaurant extends javax.swing.JFrame {
             }
         });
 
+        lblUserName.setText("      ");
+
         javax.swing.GroupLayout jpTopLayout = new javax.swing.GroupLayout(jpTop);
         jpTop.setLayout(jpTopLayout);
         jpTopLayout.setHorizontalGroup(
@@ -162,7 +211,9 @@ public class FRestaurant extends javax.swing.JFrame {
             .addGroup(jpTopLayout.createSequentialGroup()
                 .addGroup(jpTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpTopLayout.createSequentialGroup()
-                        .addGap(335, 335, 335)
+                        .addGap(183, 183, 183)
+                        .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jlArea, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,8 +235,9 @@ public class FRestaurant extends javax.swing.JFrame {
                     .addComponent(jlArea, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbSearch)
-                    .addComponent(jButton1))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(lblUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         jPanel1.setLayout(new java.awt.CardLayout());
@@ -249,7 +301,7 @@ public class FRestaurant extends javax.swing.JFrame {
                     .addComponent(jlResName3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlResName1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
                 .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlResName4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,7 +381,7 @@ public class FRestaurant extends javax.swing.JFrame {
                 .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                         .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,12 +390,12 @@ public class FRestaurant extends javax.swing.JFrame {
                             .addComponent(jlResName7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpWangsaMajuLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
                                 .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jlResName6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jpWangsaMajuLayout.createSequentialGroup()
-                                .addGap(214, 214, 214)
+                                .addGap(298, 298, 298)
                                 .addComponent(jlResName8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(165, 165, 165))
@@ -390,7 +442,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSearchActionPerformed
         // TODO add your handling code here:
-        if (cbArea.getSelectedItem() == "Melati") {
+        if (cbArea.getSelectedItem() == "Melawati") {
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
@@ -421,7 +473,8 @@ public class FRestaurant extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSearchActionPerformed
 
     private void lblRes1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRes1MouseClicked
-        // TODO add your handling code here:   
+        // TODO add your handling code here: 
+        FMenuItem menu = new FMenuItem(userName);
         menu.setRes(jlResName1.getText());
         menu.getMenu(jlResName1.getText());
         menu.setVisible(true);
@@ -430,6 +483,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
+        FMenuItem menu = new FMenuItem(userName);
         menu.setRes(jlResName5.getText());
         menu.getMenu(jlResName5.getText());
         menu.setVisible(true);
@@ -437,6 +491,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
+        FMenuItem menu = new FMenuItem(userName);
         menu.setRes(jlResName2.getText());
         menu.getMenu(jlResName2.getText());
         menu.setVisible(true);
@@ -445,6 +500,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
+        FMenuItem menu = new FMenuItem(userName);
         menu.setRes(jlResName3.getText());
         menu.getMenu(jlResName3.getText());
         menu.setVisible(true);
@@ -453,6 +509,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
+        FMenuItem menu = new FMenuItem(userName);
         menu.setRes(jlResName4.getText());
         menu.getMenu(jlResName4.getText());
         menu.setVisible(true);
@@ -461,6 +518,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
+        FMenuItem menu = new FMenuItem(userName);
         menu.setRes(jlResName6.getText());
         menu.getMenu(jlResName6.getText());
         menu.setVisible(true);
@@ -469,6 +527,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
+        FMenuItem menu = new FMenuItem(userName);
         menu.setRes(jlResName7.getText());
         menu.getMenu(jlResName7.getText());
         menu.setVisible(true);
@@ -477,6 +536,7 @@ public class FRestaurant extends javax.swing.JFrame {
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
+        FMenuItem menu = new FMenuItem(userName);
         menu.setRes(jlResName8.getText());
         menu.getMenu(jlResName8.getText());
         menu.setVisible(true);
@@ -486,6 +546,7 @@ public class FRestaurant extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         LoginPage Login = new LoginPage();
         Login.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -500,6 +561,13 @@ public class FRestaurant extends javax.swing.JFrame {
         new RegisterAffiliate().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegisterAffActionPerformed
+
+    private void btnRegisterCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterCusActionPerformed
+        // TODO add your handling code here:
+        FCusRegistration cusReg = new FCusRegistration();
+        cusReg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegisterCusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -544,9 +612,11 @@ public class FRestaurant extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegisterAff;
+    private javax.swing.JButton btnRegisterCus;
     private javax.swing.JComboBox<String> cbArea;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -571,5 +641,6 @@ public class FRestaurant extends javax.swing.JFrame {
     private javax.swing.JPanel jpTop;
     private javax.swing.JPanel jpWangsaMaju;
     private javax.swing.JLabel lblRes1;
+    private javax.swing.JLabel lblUserName;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
  */
 package client;
 
+import adt.CustomerLinkedList;
 import adt.LListAdditem;
 import adt.DeliverymanLinkedList;
 import adt.LListAddAffiliate;
@@ -18,7 +19,7 @@ import entity.Deliveryman;
 import entity.OrderDelivery;
 import entity.OrderItem;
 import entity.Schedule;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 /**
  *
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 public class MainMenu {
 
     public static LListAddAffiliate<Affiliate> afList = new LListAddAffiliate<>();
-    public static ArrayList<Customer> cusList = new ArrayList<>();
+    public static CustomerLinkedList<Customer> cusList = new CustomerLinkedList<>();
     public static LListAdditem<Item> iList = new LListAdditem<>();
     public static DeliverymanLinkedList<Deliveryman> dList = new DeliverymanLinkedList<>();
     public static OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
@@ -37,21 +38,21 @@ public class MainMenu {
     public static boolean isFirstRun = true;
 
     public static void initAffiliate() {
-        Affiliate af = new Affiliate("Homemade Chinese Restaurant", "Jalan Tembikai", "Kuala Lumpur", "Setapak", "53000","12345");
+        Affiliate af = new Affiliate("Homemade Chinese Restaurant", "Jalan Tembikai", "Kuala Lumpur", "Melawati", "53100","12345");
         afList.add(af);
-        af = new Affiliate("Delicious Sushi Restaurant","Jalan Pisang", "Kuala Lumpur", "Setapak", "53000","12345");
+        af = new Affiliate("Delicious Sushi Restaurant","Jalan Pisang", "Kuala Lumpur", "Melawati", "53100","12345");
         afList.add(af);
-        af = new Affiliate("Kenny Roaster Restaurant","Jalan Durian", "Kuala Lumpur", "Setapak", "53000","12345");
+        af = new Affiliate("Kenny Roaster Restaurant","Jalan Durian", "Kuala Lumpur", "Melawati", "53100","12345");
         afList.add(af);
-        af = new Affiliate("Bukit Bintang Nasi Lemak","Jalan Banana", "Kuala Lumpur", "Setapak", "53100","12345");
+        af = new Affiliate("Bukit Bintang Nasi Lemak","Jalan Banana", "Kuala Lumpur", "Melawati", "53100","12345");
         afList.add(af);
-        af = new Affiliate("All Noodle Restaurant","Jalan PV15", "Kuala Lumpur", "Setapak", "53100","12345");
+        af = new Affiliate("All Noodle Restaurant","Jalan PV15", "Kuala Lumpur", "Setapak", "53300","12345");
         afList.add(af);
-        af = new Affiliate("Rice Tong Restaurant","Jalan POPO", "Kuala Lumpur", "Setapak", "53100","12345");
+        af = new Affiliate("Rice Tong Restaurant","Jalan POPO", "Kuala Lumpur", "Setapak", "53300","12345");
         afList.add(af);
-        af = new Affiliate("Special Spaghetti Restaurant","Jalan Kikab", "Kuala Lumpur", "Setapak", "53000","12345");
+        af = new Affiliate("Special Spaghetti Restaurant","Jalan Kikab", "Kuala Lumpur", "Setapak", "53300","12345");
         afList.add(af);
-        af = new Affiliate("Homemade Western Food","Jalan Juour", "Kuala Lumpur", "Setapak", "53000","12345");
+        af = new Affiliate("Homemade Western Food","Jalan Juour", "Kuala Lumpur", "Setapak", "53300","12345");
         afList.add(af);
     }
 
@@ -124,8 +125,13 @@ public class MainMenu {
     }
 
     public static void initCustomer() {
-        Customer cus = new Customer("Ckk", "", "", "", "", "53000");
+        Customer cus = new Customer("Ckk", "0123456789", "No 7, Jln Tengah", "Kuala Lumpur", "Melawati", "53100", "ckk123");
         cusList.add(cus);
+        cus = new Customer("Yunni", "0130099887", "5-5, PV16 Jln Danau Saujana 2", "Kuala Lumpur", "Setapak", "53000", "yunni123");
+        cusList.add(cus);
+        cus = new Customer("SBS", "0171122334", "No 16, Jln Pelangi", "Kuala Lumpur", "Setapak", "53300", "sbs123");
+        cusList.add(cus);
+        
     }
 
     public static void initDeliveryman() {
@@ -138,13 +144,13 @@ public class MainMenu {
     public static void initOrderDelivery() {
         OrderDelivery od = new OrderDelivery(1001, "10:00", "13/12/2017", "Ckk", "0123456789", 22.00, 5.00, 27.00, "Tony", "Homemade Chinese Restaurant", 10, "Completed");
         odList.add(od);
-        od = new OrderDelivery(1002, "11:00", "14/12/2017", "Yunni", "", 5.00, 5.00, 10.00, "Alex", "Bukit Bintang Nasi Lemak", 20, "Completed");
+        od = new OrderDelivery(1002, "11:00", "14/12/2017", "Yunni", "0130099887", 5.00, 5.00, 10.00, "Alex", "Bukit Bintang Nasi Lemak", 20, "Completed");
         odList.add(od);
-        od = new OrderDelivery(1003, "12:00", "15/12/2017", "SBS", "", 12.00, 5.00, 17.00, "Alex", "Special Spaghetti Restaurant", 10, "Completed");
+        od = new OrderDelivery(1003, "12:00", "15/12/2017", "SBS", "0171122334", 12.00, 5.00, 17.00, "Alex", "Special Spaghetti Restaurant", 10, "Completed");
         odList.add(od);
-        od = new OrderDelivery(1004, "13:00", "16/12/2017", "Cheng", "", 22.00, 5.00, 27.00, "Tony", "Homemade Western Food", 30, "Pending");
+        od = new OrderDelivery(1004, "13:00", "16/12/2017", "Ckk", "0123456789", 22.00, 5.00, 27.00, "Tony", "Homemade Western Food", 30, "Pending");
         odList.add(od);
-        od = new OrderDelivery(1005, "14:00", "22/12/2017", "Evon", "", 15.00, 5.00, 20.00, "Alex", "All Noodle Restaurant", 25, "Pending");
+        od = new OrderDelivery(1005, "14:00", "22/12/2017", "Yunni", "0130099887", 15.00, 5.00, 20.00, "Alex", "All Noodle Restaurant", 25, "Pending");
         odList.add(od);
     }
 
