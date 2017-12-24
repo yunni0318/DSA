@@ -7,7 +7,7 @@ package entity;
 
 /**
  *
- * @author YUNNI
+ * @author Tea Evon
  */
 public class OrderDelivery {
 
