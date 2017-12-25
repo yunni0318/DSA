@@ -283,7 +283,7 @@ public class FConfirm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void removeOrderItem(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList)
+    public void removeOrder(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList)
     {
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getOdID()==id){ 
@@ -300,7 +300,7 @@ public class FConfirm extends javax.swing.JFrame {
     private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
         // TODO add your handling code here:
 
-        removeOrderItem(odList, oiList);
+        removeOrder(odList, oiList);
         String res = jlResName.getText();
         FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
