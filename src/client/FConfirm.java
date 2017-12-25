@@ -38,10 +38,10 @@ public class FConfirm extends javax.swing.JFrame {
         this.odList = odList;
         this.oiList = oiList;
         this.id = id;
-        showOrderItem(id);
+        showOrderItem(odList, oiList, id);
     }
 
-    public void showOrderItem(int orderID)
+    public void showOrderItem(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList, int orderID)
     {
         DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
         Object[] row = new Object[3];

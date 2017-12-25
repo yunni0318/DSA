@@ -41,7 +41,7 @@ public class FPayment extends javax.swing.JFrame {
 
         initComponents();
         setCusInfor();
-        lblTotal.setText("RM " + String.valueOf(getTotal(orderID)) + "0");
+        lblTotal.setText("RM " + String.valueOf(getTotal(odList, orderID)) + "0");
     }
 
             
@@ -374,12 +374,12 @@ public class FPayment extends javax.swing.JFrame {
                 txtAddress.setText(cusList.getEntry(i).getCusAddress());
                 txtCity.setText(cusList.getEntry(i).getCusCity());
                 txtState.setText(cusList.getEntry(i).getCusState());
-                cbPostcode.setSelectedItem(cusList.getEntry(i).getCusPostcode()); //.setText(odList.getEntry(i).getCusPhone());
+                cbPostcode.setSelectedItem(cusList.getEntry(i).getCusPostcode()); 
             }
         }
     }
     
-    private double getTotal(int orderID) {
+    private double getTotal(OrderLinkedList<OrderDelivery> odList,int orderID) {
         double ttl = 0.00;
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getOdID() == orderID) {
