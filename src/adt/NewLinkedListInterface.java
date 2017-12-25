@@ -54,9 +54,9 @@ public interface NewLinkedListInterface<T> {
      */
     public boolean isEmpty();
 
-    /**
-     * * Task: Sees whether the list is full. * * @return true if the list is
-     * full, or false if not
-     */
-    public boolean isFull();
+//    /**
+//     * * Task: Sees whether the list is full. * * @return true if the list is
+//     * full, or false if not
+//     */
+//    public boolean isFull();
 }

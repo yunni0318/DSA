@@ -161,11 +161,11 @@ public class OrderItemLinkedList<T> implements NewLinkedListInterface<T> {
 
         return result;
     }
-
-    @Override
-    public boolean isFull() {
-        return false;
-    }
+//
+//    @Override
+//    public boolean isFull() {
+//        return false;
+//    }
 
 //    @Override
 //    public String toString() {

@@ -6,7 +6,7 @@ import entity.OrderDelivery;
  * LList.java A class that implements the ADT list by using a chain of nodes,
  * with the node implemented as an inner class.
  */
-public class OrderLinkedList<T> implements ListInterface<T> {
+public class OrderLinkedList<T> implements NewLinkedListInterface<T> {
 
     private Node firstNode; // reference to first node
     private int numberOfEntries;  	// number of entries in list
@@ -67,33 +67,33 @@ public class OrderLinkedList<T> implements ListInterface<T> {
         return true;
     }
 
-    @Override
-    public boolean add(int newPosition, T newEntry) { // OutOfMemoryError possible
-        boolean isSuccessful = true;
-
-        if ((newPosition >= 1) && (newPosition <= numberOfEntries + 1)) {
-            Node newNode = new Node(newEntry);
-
-            if (isEmpty() || (newPosition == 1)) {     // case 1: add to beginning of list
-                newNode.next = firstNode;
-                firstNode = newNode;
-            } else {								                      // case 2: list is not empty and newPosition > 1
-                Node nodeBefore = firstNode;
-                for (int i = 1; i < newPosition - 1; ++i) {
-                    nodeBefore = nodeBefore.next;		// advance nodeBefore to its next node
-                }
-
-                newNode.next = nodeBefore.next;	// make new node point to current node at newPosition
-                nodeBefore.next = newNode;		// make the node before point to the new node
-            }
-
-            numberOfEntries++;
-        } else {
-            isSuccessful = false;
-        }
-
-        return isSuccessful;
-    }
+//    @Override
+//    public boolean add(int newPosition, T newEntry) { // OutOfMemoryError possible
+//        boolean isSuccessful = true;
+//
+//        if ((newPosition >= 1) && (newPosition <= numberOfEntries + 1)) {
+//            Node newNode = new Node(newEntry);
+//
+//            if (isEmpty() || (newPosition == 1)) {     // case 1: add to beginning of list
+//                newNode.next = firstNode;
+//                firstNode = newNode;
+//            } else {								                      // case 2: list is not empty and newPosition > 1
+//                Node nodeBefore = firstNode;
+//                for (int i = 1; i < newPosition - 1; ++i) {
+//                    nodeBefore = nodeBefore.next;		// advance nodeBefore to its next node
+//                }
+//
+//                newNode.next = nodeBefore.next;	// make new node point to current node at newPosition
+//                nodeBefore.next = newNode;		// make the node before point to the new node
+//            }
+//
+//            numberOfEntries++;
+//        } else {
+//            isSuccessful = false;
+//        }
+//
+//        return isSuccessful;
+//    }
 
     @Override
     public T remove(int givenPosition) {
@@ -119,23 +119,23 @@ public class OrderLinkedList<T> implements ListInterface<T> {
         // null if operation fails
     }
 
-    @Override
-    public boolean replace(int givenPosition, T newEntry) {
-        boolean isSuccessful = true;
-
-        if ((givenPosition >= 1) && (givenPosition <= numberOfEntries)) {
-            Node currentNode = firstNode;
-            for (int i = 0; i < givenPosition - 1; ++i) {
-                // System.out.println("Trace| currentNode.data = " + currentNode.data + "\t, i = " + i);
-                currentNode = currentNode.next;		// advance currentNode to next node
-            }
-            currentNode.data = newEntry;	// currentNode is pointing to the node at givenPosition
-        } else {
-            isSuccessful = false;
-        }
-
-        return isSuccessful;
-    }
+//    @Override
+//    public boolean replace(int givenPosition, T newEntry) {
+//        boolean isSuccessful = true;
+//
+//        if ((givenPosition >= 1) && (givenPosition <= numberOfEntries)) {
+//            Node currentNode = firstNode;
+//            for (int i = 0; i < givenPosition - 1; ++i) {
+//                // System.out.println("Trace| currentNode.data = " + currentNode.data + "\t, i = " + i);
+//                currentNode = currentNode.next;		// advance currentNode to next node
+//            }
+//            currentNode.data = newEntry;	// currentNode is pointing to the node at givenPosition
+//        } else {
+//            isSuccessful = false;
+//        }
+//
+//        return isSuccessful;
+//    }
 
     @Override
     public T getEntry(int givenPosition) {
@@ -152,21 +152,21 @@ public class OrderLinkedList<T> implements ListInterface<T> {
         return result;
     }
 
-    @Override
-    public boolean contains(T anEntry) {
-        boolean found = false;
-        Node currentNode = firstNode;
-
-        while (!found && (currentNode != null)) {
-            if (anEntry.equals(currentNode.data)) {
-                found = true;
-            } else {
-                currentNode = currentNode.next;
-            }
-        }
-
-        return found;
-    }
+//    @Override
+//    public boolean contains(T anEntry) {
+//        boolean found = false;
+//        Node currentNode = firstNode;
+//
+//        while (!found && (currentNode != null)) {
+//            if (anEntry.equals(currentNode.data)) {
+//                found = true;
+//            } else {
+//                currentNode = currentNode.next;
+//            }
+//        }
+//
+//        return found;
+//    }
 
     @Override
     public int getNumberOfEntries() {
@@ -181,22 +181,22 @@ public class OrderLinkedList<T> implements ListInterface<T> {
 
         return result;
     }
+//
+//    @Override
+//    public boolean isFull() {
+//        return false;
+//    }
 
-    @Override
-    public boolean isFull() {
-        return false;
-    }
-
-    @Override
-    public String toString() {
-        String outputStr = "";
-        Node currentNode = firstNode;
-        while (currentNode != null) {
-            outputStr += currentNode.data + "\n";
-            currentNode = currentNode.next;
-        }
-        return outputStr;
-    }
+//    @Override
+//    public String toString() {
+//        String outputStr = "";
+//        Node currentNode = firstNode;
+//        while (currentNode != null) {
+//            outputStr += currentNode.data + "\n";
+//            currentNode = currentNode.next;
+//        }
+//        return outputStr;
+//    }
 
 //    public OrderLinkedList getODID(int odID) {
 //        OrderLinkedList<OrderDelivery> tempOdList = new OrderLinkedList<>();
