@@ -44,7 +44,7 @@ public class MainMenu {
         afList.add(af);
         af = new Affiliate("Kenny Roaster Restaurant","Jalan Durian", "Kuala Lumpur", "Melawati", "53100","12345");
         afList.add(af);
-        af = new Affiliate("Bukit Bintang Nasi Lemak","Jalan Banana", "Kuala Lumpur", "Melawati", "53100","12345");
+        af = new Affiliate("Melawati Nasi Lemak","Jalan Banana", "Kuala Lumpur", "Melawati", "53100","12345");
         afList.add(af);
         af = new Affiliate("All Noodle Restaurant","Jalan PV15", "Kuala Lumpur", "Setapak", "53300","12345");
         afList.add(af);

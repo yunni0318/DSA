@@ -49,6 +49,7 @@ public class FCusRegistration extends javax.swing.JFrame {
         lblPhone = new javax.swing.JLabel();
         btnSignUp = new javax.swing.JButton();
         jlTitle = new javax.swing.JLabel();
+        btnHome1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,7 +85,6 @@ public class FCusRegistration extends javax.swing.JFrame {
         lblPhone.setText("Phone Number :");
 
         btnSignUp.setText("Sign Up");
-        btnSignUp.setActionCommand("Sign Up");
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignUpActionPerformed(evt);
@@ -96,6 +96,15 @@ public class FCusRegistration extends javax.swing.JFrame {
         jlTitle.setText("Customer Registration");
         jlTitle.setToolTipText("");
         jlTitle.setPreferredSize(new java.awt.Dimension(470, 43));
+
+        btnHome1.setBackground(new java.awt.Color(255, 255, 255));
+        btnHome1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        btnHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/home.png"))); // NOI18N
+        btnHome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHome1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
@@ -135,7 +144,8 @@ public class FCusRegistration extends javax.swing.JFrame {
                             .addComponent(txtName)
                             .addComponent(txtPhone)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSignUp))
                     .addComponent(jlTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
                 .addContainerGap())
@@ -166,16 +176,21 @@ public class FCusRegistration extends javax.swing.JFrame {
                     .addComponent(lblState)
                     .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPostcode))
-                .addGap(18, 18, 18)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblState1)
-                    .addComponent(jpfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(btnSignUp)
-                .addGap(26, 26, 26))
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPostcode))
+                        .addGap(18, 18, 18)
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblState1)
+                            .addComponent(jpfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(btnHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSignUp)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,6 +248,12 @@ public class FCusRegistration extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSignUpActionPerformed
 
+    private void btnHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome1ActionPerformed
+        FRestaurant home = new FRestaurant();
+        home.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnHome1ActionPerformed
+
     public Customer storeCustomer(){
 
         Customer cus = new Customer(txtName.getText(), txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()), jpfPassword.getText());
@@ -286,6 +307,8 @@ public class FCusRegistration extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnHome1;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JComboBox<String> cbPostcode;
     private javax.swing.JLabel jlTitle;
