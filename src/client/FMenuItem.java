@@ -6,6 +6,7 @@
 package client;
 
 import adt.LListAdditem;
+import adt.OrderItemLinkedList;
 import adt.OrderLinkedList;
 import static client.MainMenu.cusList;
 import static client.MainMenu.odList;
@@ -53,7 +54,7 @@ public class FMenuItem extends javax.swing.JFrame {
     int qua2 = 0;
     int qua3 = 0;
     int qua4 = 0;
-    int id = generateOrderID();
+    int id = generateOrderID(odList);
 
     public void setRes(String res) {
         this.jlResName.setText(res);
@@ -285,10 +286,10 @@ public class FMenuItem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public int generateOrderID() {
+    public int generateOrderID(OrderLinkedList<OrderDelivery> odList) {
         int orderID = 1001;
         int count = 0;
-        count = client.MainMenu.odList.getNumberOfEntries();
+        count = odList.getNumberOfEntries();//client.MainMenu.odList.getNumberOfEntries();
         //System.out.println(count);
         orderID = orderID + count;
         return orderID;
@@ -296,13 +297,6 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGoBackActionPerformed
         // TODO add your handling code here:
-        if(qua1!=0 || qua2!=0 || qua3!=0 || qua4!=0 )
-        {
-            for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
-            if (oiList.getEntry(i).getOdID()==id){ 
-            oiList.remove(i);
-            }}
-        }
         FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
         this.setVisible(false);
@@ -365,7 +359,6 @@ public class FMenuItem extends javax.swing.JFrame {
             if (cusList.getEntry(i).getCusName()==userName){ 
                 phone = cusList.getEntry(i).getCusPhone();
                 or = true;
-//                getOrder(phone);
             }
         }
         if(or == true)

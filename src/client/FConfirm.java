@@ -38,10 +38,10 @@ public class FConfirm extends javax.swing.JFrame {
         this.odList = odList;
         this.oiList = oiList;
         this.id = id;
-        showOrderItem(id);
+        showOrderItem(odList, oiList, id);
     }
 
-    public void showOrderItem(int orderID)
+    public void showOrderItem(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList, int orderID)
     {
         DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
         Object[] row = new Object[3];
@@ -283,8 +283,8 @@ public class FConfirm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
-        // TODO add your handling code here:
+    public void removeOrderItem(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList)
+    {
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getOdID()==id){ 
             odList.remove(i);
@@ -295,7 +295,12 @@ public class FConfirm extends javax.swing.JFrame {
             oiList.remove(i);
             }
         }
-        
+    }
+    
+    private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
+        // TODO add your handling code here:
+
+        removeOrderItem(odList, oiList);
         String res = jlResName.getText();
         FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
