@@ -138,7 +138,7 @@ public class PendingDeliveries extends javax.swing.JFrame {
 
         lblDeliveryMan.setText("Delivery Man:");
 
-        cbDeliveryMan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "evon", "sbs", "Wong CK" }));
+        cbDeliveryMan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Tony", "Alex", "sbs" }));
 
         btnFilter.setMnemonic('F');
         btnFilter.setText("Filter");
