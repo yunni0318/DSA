@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import static client.MainMenu.odList;
-
+import static client.MainMenu.initOrderDelivery;
 /**
  *
  * @author YUNNI
@@ -21,6 +21,7 @@ public class PendingDeliveries extends javax.swing.JFrame {
      */
 
     public PendingDeliveries() {
+        initOrderDelivery();
         initComponents();
         Time();
         displayList();

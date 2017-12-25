@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import static client.MainMenu.odList;
+import static client.MainMenu.initOrderDelivery;
 
 /**
  *
@@ -21,6 +22,7 @@ public class DailyReport extends javax.swing.JFrame {
      */
 
     public DailyReport() {
+        initOrderDelivery();
         initComponents();
         Time();
         displayList();
@@ -38,7 +40,7 @@ public class DailyReport extends javax.swing.JFrame {
         Object[] col = new Object[6];
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            if (odList.getEntry(i).getStatus().equals("Complete")) {
+            if (odList.getEntry(i).getStatus().equals("Completed")) {
                 col[0] = String.valueOf(i);
                 col[1] = odList.getEntry(i).getdName();
                 col[2] = odList.getEntry(i).getCusName();

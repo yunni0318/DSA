@@ -142,15 +142,15 @@ public class MainMenu {
     }
 
     public static void initOrderDelivery() {
-        OrderDelivery od = new OrderDelivery(1001, "10:00", "13/12/2017", "Ckk", "0123456789", 22.00, 5.00, 27.00, "Tony", "Homemade Chinese Restaurant", 10, "Completed");
+        OrderDelivery od = new OrderDelivery(1001, "10:00", "26/12/2017", "Ckk", "0123456789", 22.00, 5.00, 27.00, "Tony", "Homemade Chinese Restaurant", 10, "Completed");
         odList.add(od);
-        od = new OrderDelivery(1002, "11:00", "14/12/2017", "Yunni", "0130099887", 5.00, 5.00, 10.00, "Alex", "Bukit Bintang Nasi Lemak", 20, "Completed");
+        od = new OrderDelivery(1002, "11:00", "26/12/2017", "Yunni", "0130099887", 5.00, 5.00, 10.00, "Alex", "Bukit Bintang Nasi Lemak", 20, "Completed");
         odList.add(od);
-        od = new OrderDelivery(1003, "12:00", "15/12/2017", "SBS", "0171122334", 12.00, 5.00, 17.00, "Alex", "Special Spaghetti Restaurant", 10, "Completed");
+        od = new OrderDelivery(1003, "12:00", "26/12/2017", "SBS", "0171122334", 12.00, 5.00, 17.00, "Alex", "Special Spaghetti Restaurant", 10, "Completed");
         odList.add(od);
-        od = new OrderDelivery(1004, "13:00", "16/12/2017", "Ckk", "0123456789", 22.00, 5.00, 27.00, "Tony", "Homemade Western Food", 30, "Pending");
+        od = new OrderDelivery(1004, "13:00", "26/12/2017", "Ckk", "0123456789", 22.00, 5.00, 27.00, "Tony", "Homemade Western Food", 30, "Pending");
         odList.add(od);
-        od = new OrderDelivery(1005, "14:00", "22/12/2017", "Yunni", "0130099887", 15.00, 5.00, 20.00, "Alex", "All Noodle Restaurant", 25, "Pending");
+        od = new OrderDelivery(1005, "14:00", "26/12/2017", "Yunni", "0130099887", 15.00, 5.00, 20.00, "Alex", "All Noodle Restaurant", 25, "Pending");
         odList.add(od);
     }
 
