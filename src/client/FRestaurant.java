@@ -12,14 +12,11 @@ import static client.MainMenu.*;
  * @author Tea Evon
  */
 public class FRestaurant extends javax.swing.JFrame {
-//    FMenuItem menu = new FMenuItem();
-//    public static String  cusName;
 
     /**
      * Creates new form NewJFrame
      */
     public FRestaurant() {
-        //lblUserName.setVisible(false);
         initComponents();
 //        if (isFirstRun) {
 //            initAffiliate();

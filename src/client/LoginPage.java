@@ -172,10 +172,8 @@ public class LoginPage extends javax.swing.JFrame {
         for (int i = 1; i <= cusList.getNumberOfEntries(); i++) {
             if (cusList.getEntry(i).getCusName().equals(txtUserName.getText()) && cusList.getEntry(i).getCusPassword().equals(pass)) {
                 userName = cusList.getEntry(i).getCusName();
-                cus = true;}
-//                FRestaurant fra = new FRestaurant(userName);
-//                fra.setVisible(true);
-//                this.setVisible(false);            
+                cus = true;
+            }         
         }
         if(cus == true)
         {

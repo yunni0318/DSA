@@ -391,7 +391,7 @@ public class FPayment extends javax.swing.JFrame {
 
     private void jbtConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtConfirmActionPerformed
         // TODO add your handling code here:
-//        String name = txtName.getText();
+
         String phone = txtPhone.getText();
         String address = txtAddress.getText();
         String card = txtCardNo.getText();
@@ -462,7 +462,7 @@ public class FPayment extends javax.swing.JFrame {
                 System.out.println(odList.getEntry(i));
             }
         }
-//        storeCustomer();
+
         JOptionPane.showMessageDialog(null, "Thank You =) \nYour order and payment have been successfully completed. \nPlease Come Again!!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
         FRestaurant home = new FRestaurant();
         home.setVisible(true);
