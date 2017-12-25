@@ -1,5 +1,7 @@
 package adt;
 
+import entity.OrderDelivery;
+
 /**
  * LList.java A class that implements the ADT list by using a chain of nodes,
  * with the node implemented as an inner class.
@@ -18,6 +20,33 @@ public class OrderLinkedList<T> implements ListInterface<T> {
         firstNode = null;
         numberOfEntries = 0;
     }
+    
+//    public void addSorted(T newEntry) {
+//        Node newNode = new Node(newEntry);
+//
+//        if (isEmpty()) {
+//            firstNode = newNode;
+//        } else {
+//            Node currentNode = firstNode;
+//            int position = 1;
+//            while (currentNode != null && ((OrderDelivery) currentNode.data).getSubTotal() > 100) {
+//                currentNode = currentNode.next;
+//                position++;
+//            }
+//            if (position == 1) {
+//                newNode.next = firstNode;
+//                firstNode = newNode;
+//            } else {
+//                Node nodeBefore = firstNode;
+//                for (int i = 1; i < position - 1; ++i) {
+//                    nodeBefore = nodeBefore.next;
+//                }
+//                newNode.next = nodeBefore.next;
+//                nodeBefore.next = newNode;
+//            }
+//        }
+//        numberOfEntries++;
+//    }
 
     @Override
     public boolean add(T newEntry) {

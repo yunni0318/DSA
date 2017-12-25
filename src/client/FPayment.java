@@ -43,12 +43,7 @@ public class FPayment extends javax.swing.JFrame {
         setCusInfor();
         lblTotal.setText("RM " + String.valueOf(getTotal(orderID)) + "0");
     }
-    
-//    public Customer storeCustomer(){
-//        Customer cus = new Customer(txtName.getText(), txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()));
-//        cusList.add(cus);
-//        return cus;
-//    }
+
             
 
     /**
@@ -460,10 +455,7 @@ public class FPayment extends javax.swing.JFrame {
 
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
             if (odList.getEntry(i).getOdID() == orderID) {
-                
-//                odList.getEntry(i).setCusName(name);
                 odList.getEntry(i).setCusPhone(phone);
-                //cusList.getEntry(i).setAddress(address);
                 odList.getEntry(i).setOdTime(odTime);
                 odList.getEntry(i).setDistance(distance);
                 odList.getEntry(i).setdName(deliverymanName);
