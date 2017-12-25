@@ -296,6 +296,13 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGoBackActionPerformed
         // TODO add your handling code here:
+        if(qua1!=0 || qua2!=0 || qua3!=0 || qua4!=0 )
+        {
+            for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
+            if (oiList.getEntry(i).getOdID()==id){ 
+            oiList.remove(i);
+            }}
+        }
         FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
         this.setVisible(false);

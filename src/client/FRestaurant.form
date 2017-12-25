@@ -148,7 +148,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRegCus" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnRegisterCus" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
@@ -169,7 +169,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnRegisterCus" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRegCus" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btnRegisterAff" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -224,7 +224,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="lblRegCus">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="ff" red="ff" type="rgb"/>
@@ -288,17 +288,17 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Component id="jlResName3" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="lblResl3" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="lblResName3" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                           <Component id="lblRes1" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Component id="jlResName1" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="lblResName1" min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="283" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlResName4" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Component id="jlResName2" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="lbjlResName4" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="lblRes2" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="lblResName2" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="lblRes4" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                   </Group>
@@ -309,20 +309,20 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblRes1" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="lblRes2" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlResName1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jlResName2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblResName1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblResName2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="lblResl3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRes4" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlResName3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jlResName4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblResName3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lbjlResName4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -341,7 +341,7 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRes1MouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="lblRes2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/Mikura-Sushi-c.jpg"/>
@@ -350,10 +350,10 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel2MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRes2MouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="lblResl3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/chicken-cc.jpg"/>
@@ -362,10 +362,10 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblResl3MouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="lblRes4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/foodpanda-Halal-dish-3-c.jpg"/>
@@ -373,10 +373,10 @@
                 <Property name="text" type="java.lang.String" value="Melati Nasi Lemak"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel4MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRes4MouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlResName1">
+            <Component class="javax.swing.JLabel" name="lblResName1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
@@ -384,7 +384,7 @@
                 <Property name="text" type="java.lang.String" value="Homemade Chinese Restaurant"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlResName2">
+            <Component class="javax.swing.JLabel" name="lblResName2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
@@ -392,7 +392,7 @@
                 <Property name="text" type="java.lang.String" value="Delicious Sushi Restaurant"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlResName3">
+            <Component class="javax.swing.JLabel" name="lblResName3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
@@ -400,7 +400,7 @@
                 <Property name="text" type="java.lang.String" value="Kenny Roaster Restaurant"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlResName4">
+            <Component class="javax.swing.JLabel" name="lbjlResName4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
@@ -436,20 +436,20 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel5" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="jlResName5" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Component id="jlResName7" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="lblResName5" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="lblResName7" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace pref="298" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jlResName6" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="lblResName6" min="-2" pref="170" max="-2" attributes="0"/>
                                           <Component id="jLabel6" min="-2" pref="220" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
-                                      <Component id="jlResName8" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="lblResName8" min="-2" pref="170" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -467,8 +467,8 @@
                           <Component id="jLabel6" alignment="3" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlResName5" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jlResName6" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblResName5" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblResName6" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -477,8 +477,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlResName7" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jlResName8" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblResName7" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblResName8" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -529,28 +529,28 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel8MouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlResName5">
+            <Component class="javax.swing.JLabel" name="lblResName5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlResName6">
+            <Component class="javax.swing.JLabel" name="lblResName6">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlResName7">
+            <Component class="javax.swing.JLabel" name="lblResName7">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlResName8">
+            <Component class="javax.swing.JLabel" name="lblResName8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>

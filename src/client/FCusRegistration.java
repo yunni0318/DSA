@@ -228,8 +228,9 @@ public class FCusRegistration extends javax.swing.JFrame {
         else if (jpfPassword.getText().length() < 6) {
             JOptionPane.showMessageDialog(null, "Invalid input. Password should more than 6 character.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
-        else
+        else{
         storeCustomer();
+        }
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     public Customer storeCustomer(){
@@ -237,6 +238,10 @@ public class FCusRegistration extends javax.swing.JFrame {
         Customer cus = new Customer(txtName.getText(), txtPhone.getText(), txtAddress.getText(), txtCity.getText(), txtState.getText(), String.valueOf(cbPostcode.getSelectedItem()), jpfPassword.getText());
         cusList.add(cus);
         JOptionPane.showMessageDialog(null, "Congratulations =) Now you are a customer member of Fastest Deliveryman !!!", "Congratulations", JOptionPane.INFORMATION_MESSAGE);
+        
+        FRestaurant home = new FRestaurant();
+        home.setVisible(true);
+        this.setVisible(false);
         
         return cus;
     }

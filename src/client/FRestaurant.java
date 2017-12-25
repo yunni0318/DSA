@@ -77,29 +77,29 @@ public class FRestaurant extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnRegisterAff = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
+        lblRegCus = new javax.swing.JLabel();
         btnRegisterCus = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jpMelawati = new javax.swing.JPanel();
         lblRes1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jlResName1 = new javax.swing.JLabel();
-        jlResName2 = new javax.swing.JLabel();
-        jlResName3 = new javax.swing.JLabel();
-        jlResName4 = new javax.swing.JLabel();
+        lblRes2 = new javax.swing.JLabel();
+        lblResl3 = new javax.swing.JLabel();
+        lblRes4 = new javax.swing.JLabel();
+        lblResName1 = new javax.swing.JLabel();
+        lblResName2 = new javax.swing.JLabel();
+        lblResName3 = new javax.swing.JLabel();
+        lbjlResName4 = new javax.swing.JLabel();
         jpWangsaMaju = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jlResName5 = new javax.swing.JLabel();
-        jlResName6 = new javax.swing.JLabel();
-        jlResName7 = new javax.swing.JLabel();
-        jlResName8 = new javax.swing.JLabel();
+        lblResName5 = new javax.swing.JLabel();
+        lblResName6 = new javax.swing.JLabel();
+        lblResName7 = new javax.swing.JLabel();
+        lblResName8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fastest Delivery");
@@ -149,9 +149,9 @@ public class FRestaurant extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setBackground(new java.awt.Color(255, 255, 204));
-        jLabel10.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        jLabel10.setText("Join as a loyal customer !");
+        lblRegCus.setBackground(new java.awt.Color(255, 255, 204));
+        lblRegCus.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        lblRegCus.setText("Join as a loyal customer !");
 
         btnRegisterCus.setBackground(new java.awt.Color(255, 255, 255));
         btnRegisterCus.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
@@ -168,7 +168,7 @@ public class FRestaurant extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10)
+                .addComponent(lblRegCus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegisterCus)
                 .addGap(127, 127, 127)
@@ -187,7 +187,7 @@ public class FRestaurant extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(btnRegisterCus)
-                        .addComponent(jLabel10))
+                        .addComponent(lblRegCus))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRegisterAff)
                         .addComponent(btnLogin)))
@@ -252,43 +252,43 @@ public class FRestaurant extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Mikura-Sushi-c.jpg"))); // NOI18N
-        jLabel2.setText("Delicious Sushi Restaurant");
-        jLabel2.setToolTipText("");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRes2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Mikura-Sushi-c.jpg"))); // NOI18N
+        lblRes2.setText("Delicious Sushi Restaurant");
+        lblRes2.setToolTipText("");
+        lblRes2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                lblRes2MouseClicked(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/chicken-cc.jpg"))); // NOI18N
-        jLabel3.setText("Kenny Roaster Restaurant");
-        jLabel3.setToolTipText("");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblResl3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/chicken-cc.jpg"))); // NOI18N
+        lblResl3.setText("Kenny Roaster Restaurant");
+        lblResl3.setToolTipText("");
+        lblResl3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                lblResl3MouseClicked(evt);
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/foodpanda-Halal-dish-3-c.jpg"))); // NOI18N
-        jLabel4.setText("Melati Nasi Lemak");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRes4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/foodpanda-Halal-dish-3-c.jpg"))); // NOI18N
+        lblRes4.setText("Melati Nasi Lemak");
+        lblRes4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                lblRes4MouseClicked(evt);
             }
         });
 
-        jlResName1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jlResName1.setText("Homemade Chinese Restaurant");
+        lblResName1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblResName1.setText("Homemade Chinese Restaurant");
 
-        jlResName2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jlResName2.setText("Delicious Sushi Restaurant");
+        lblResName2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblResName2.setText("Delicious Sushi Restaurant");
 
-        jlResName3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jlResName3.setText("Kenny Roaster Restaurant");
+        lblResName3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblResName3.setText("Kenny Roaster Restaurant");
 
-        jlResName4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jlResName4.setText("Melati Nasi Lemak");
+        lbjlResName4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbjlResName4.setText("Melati Nasi Lemak");
 
         javax.swing.GroupLayout jpMelawatiLayout = new javax.swing.GroupLayout(jpMelawati);
         jpMelawati.setLayout(jpMelawatiLayout);
@@ -297,16 +297,16 @@ public class FRestaurant extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMelawatiLayout.createSequentialGroup()
                 .addGap(181, 181, 181)
                 .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlResName3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResl3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResName3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlResName1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblResName1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
                 .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlResName4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlResName2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbjlResName4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRes2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResName2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRes4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(169, 169, 169))
         );
         jpMelawatiLayout.setVerticalGroup(
@@ -314,17 +314,17 @@ public class FRestaurant extends javax.swing.JFrame {
             .addGroup(jpMelawatiLayout.createSequentialGroup()
                 .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblRes2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlResName1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlResName2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblResName1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResName2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblResl3)
+                    .addComponent(lblRes4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jpMelawatiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlResName3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlResName4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblResName3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbjlResName4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -364,13 +364,13 @@ public class FRestaurant extends javax.swing.JFrame {
             }
         });
 
-        jlResName5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblResName5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
-        jlResName6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblResName6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
-        jlResName7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblResName7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
-        jlResName8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblResName8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jpWangsaMajuLayout = new javax.swing.GroupLayout(jpWangsaMaju);
         jpWangsaMaju.setLayout(jpWangsaMajuLayout);
@@ -386,17 +386,17 @@ public class FRestaurant extends javax.swing.JFrame {
                     .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                         .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlResName5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlResName7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblResName5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblResName7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
                                 .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlResName6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblResName6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jpWangsaMajuLayout.createSequentialGroup()
                                 .addGap(298, 298, 298)
-                                .addComponent(jlResName8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblResName8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(165, 165, 165))
         );
@@ -407,16 +407,16 @@ public class FRestaurant extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlResName5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlResName6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblResName5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResName6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jpWangsaMajuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlResName7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlResName8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblResName7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResName8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel1.add(jpWangsaMaju, "card4");
@@ -451,10 +451,10 @@ public class FRestaurant extends javax.swing.JFrame {
             jPanel1.repaint();
             jPanel1.revalidate();
 
-            jlResName1.setText(lblRes1.getText());
-            jlResName2.setText(jLabel2.getText());
-            jlResName3.setText(jLabel3.getText());
-            jlResName4.setText(jLabel4.getText());
+            lblResName1.setText(lblRes1.getText());
+            lblResName2.setText(lblRes2.getText());
+            lblResName3.setText(lblResl3.getText());
+            lbjlResName4.setText(lblRes4.getText());
 
         } else if (cbArea.getSelectedItem() == "Wangsa Maju") {
             jPanel1.removeAll();
@@ -465,18 +465,18 @@ public class FRestaurant extends javax.swing.JFrame {
             jPanel1.repaint();
             jPanel1.revalidate();
 
-            jlResName5.setText(jLabel5.getText());
-            jlResName6.setText(jLabel6.getText());
-            jlResName7.setText(jLabel7.getText());
-            jlResName8.setText(jLabel8.getText());
+            lblResName5.setText(jLabel5.getText());
+            lblResName6.setText(jLabel6.getText());
+            lblResName7.setText(jLabel7.getText());
+            lblResName8.setText(jLabel8.getText());
         }
     }//GEN-LAST:event_jbSearchActionPerformed
 
     private void lblRes1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRes1MouseClicked
         // TODO add your handling code here: 
         FMenuItem menu = new FMenuItem(userName);
-        menu.setRes(jlResName1.getText());
-        menu.getMenu(jlResName1.getText());
+        menu.setRes(lblResName1.getText());
+        menu.getMenu(lblResName1.getText());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lblRes1MouseClicked
@@ -484,43 +484,43 @@ public class FRestaurant extends javax.swing.JFrame {
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
         FMenuItem menu = new FMenuItem(userName);
-        menu.setRes(jlResName5.getText());
-        menu.getMenu(jlResName5.getText());
+        menu.setRes(lblResName5.getText());
+        menu.getMenu(lblResName5.getText());
         menu.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void lblRes2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRes2MouseClicked
         // TODO add your handling code here:
         FMenuItem menu = new FMenuItem(userName);
-        menu.setRes(jlResName2.getText());
-        menu.getMenu(jlResName2.getText());
+        menu.setRes(lblResName2.getText());
+        menu.getMenu(lblResName2.getText());
         menu.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_lblRes2MouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lblResl3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblResl3MouseClicked
         // TODO add your handling code here:
         FMenuItem menu = new FMenuItem(userName);
-        menu.setRes(jlResName3.getText());
-        menu.getMenu(jlResName3.getText());
+        menu.setRes(lblResName3.getText());
+        menu.getMenu(lblResName3.getText());
         menu.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_lblResl3MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void lblRes4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRes4MouseClicked
         // TODO add your handling code here:
         FMenuItem menu = new FMenuItem(userName);
-        menu.setRes(jlResName4.getText());
-        menu.getMenu(jlResName4.getText());
+        menu.setRes(lbjlResName4.getText());
+        menu.getMenu(lbjlResName4.getText());
         menu.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_lblRes4MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
         FMenuItem menu = new FMenuItem(userName);
-        menu.setRes(jlResName6.getText());
-        menu.getMenu(jlResName6.getText());
+        menu.setRes(lblResName6.getText());
+        menu.getMenu(lblResName6.getText());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
@@ -528,8 +528,8 @@ public class FRestaurant extends javax.swing.JFrame {
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
         FMenuItem menu = new FMenuItem(userName);
-        menu.setRes(jlResName7.getText());
-        menu.getMenu(jlResName7.getText());
+        menu.setRes(lblResName7.getText());
+        menu.getMenu(lblResName7.getText());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
@@ -537,8 +537,8 @@ public class FRestaurant extends javax.swing.JFrame {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
         FMenuItem menu = new FMenuItem(userName);
-        menu.setRes(jlResName8.getText());
-        menu.getMenu(jlResName8.getText());
+        menu.setRes(lblResName8.getText());
+        menu.getMenu(lblResName8.getText());
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
@@ -616,10 +616,6 @@ public class FRestaurant extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbArea;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -629,18 +625,22 @@ public class FRestaurant extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jbSearch;
     private javax.swing.JLabel jlArea;
-    private javax.swing.JLabel jlResName1;
-    private javax.swing.JLabel jlResName2;
-    private javax.swing.JLabel jlResName3;
-    private javax.swing.JLabel jlResName4;
-    private javax.swing.JLabel jlResName5;
-    private javax.swing.JLabel jlResName6;
-    private javax.swing.JLabel jlResName7;
-    private javax.swing.JLabel jlResName8;
     private javax.swing.JPanel jpMelawati;
     private javax.swing.JPanel jpTop;
     private javax.swing.JPanel jpWangsaMaju;
+    private javax.swing.JLabel lbjlResName4;
+    private javax.swing.JLabel lblRegCus;
     private javax.swing.JLabel lblRes1;
+    private javax.swing.JLabel lblRes2;
+    private javax.swing.JLabel lblRes4;
+    private javax.swing.JLabel lblResName1;
+    private javax.swing.JLabel lblResName2;
+    private javax.swing.JLabel lblResName3;
+    private javax.swing.JLabel lblResName5;
+    private javax.swing.JLabel lblResName6;
+    private javax.swing.JLabel lblResName7;
+    private javax.swing.JLabel lblResName8;
+    private javax.swing.JLabel lblResl3;
     private javax.swing.JLabel lblUserName;
     // End of variables declaration//GEN-END:variables
 }

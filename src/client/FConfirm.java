@@ -285,6 +285,17 @@ public class FConfirm extends javax.swing.JFrame {
 
     private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
         // TODO add your handling code here:
+        for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
+            if (odList.getEntry(i).getOdID()==id){ 
+            odList.remove(i);
+            }
+        }
+        for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
+            if (oiList.getEntry(i).getOdID()==id){ 
+            oiList.remove(i);
+            }
+        }
+        
         String res = jlResName.getText();
         FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
