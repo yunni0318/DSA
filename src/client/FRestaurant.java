@@ -12,14 +12,11 @@ import static client.MainMenu.*;
  * @author Tea Evon
  */
 public class FRestaurant extends javax.swing.JFrame {
-//    FMenuItem menu = new FMenuItem();
-//    public static String  cusName;
 
     /**
      * Creates new form NewJFrame
      */
     public FRestaurant() {
-        //lblUserName.setVisible(false);
         initComponents();
 //        if (isFirstRun) {
 //            initAffiliate();
@@ -288,7 +285,7 @@ public class FRestaurant extends javax.swing.JFrame {
         lblResName3.setText("Kenny Roaster Restaurant");
 
         lbjlResName4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lbjlResName4.setText("Melati Nasi Lemak");
+        lbjlResName4.setText("Melawati Nasi Lemak");
 
         javax.swing.GroupLayout jpMelawatiLayout = new javax.swing.GroupLayout(jpMelawati);
         jpMelawati.setLayout(jpMelawatiLayout);
@@ -487,6 +484,7 @@ public class FRestaurant extends javax.swing.JFrame {
         menu.setRes(lblResName5.getText());
         menu.getMenu(lblResName5.getText());
         menu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void lblRes2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRes2MouseClicked

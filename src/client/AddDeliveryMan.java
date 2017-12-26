@@ -29,7 +29,6 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                 cbReason.setSelectedItem(dList.getEntry(i).getdReason());
                 String act = dList.getEntry(i).getdActive();
                 txtStatus.setText(dList.getEntry(i).getdStatus());
-                jButton6.setEnabled(txtStatus.getText().equals("Delivery"));
                 if (act.equals("Active")) {
                     rbYes.setSelected(true);
                 } else {
@@ -69,7 +68,6 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lblContactNo1 = new javax.swing.JLabel();
         txtStatus = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         lblContactNo = new javax.swing.JLabel();
         txtContact = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
@@ -170,14 +168,6 @@ public class AddDeliveryMan extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("View Delivery");
-        jButton6.setEnabled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -187,14 +177,9 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                 .addComponent(lblContactNo1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton6)
-                        .addContainerGap(111, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtStatus)
-                            .addComponent(jLabel4))
-                        .addGap(25, 25, 25))))
+                    .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(jLabel4))
+                .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,9 +190,7 @@ public class AddDeliveryMan extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContactNo1)
                     .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton6)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         lblContactNo.setText("Contact No. :");
@@ -388,12 +371,6 @@ public class AddDeliveryMan extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        PendingDeliveries pd = new PendingDeliveries(txtName.getText());
-        pd.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void txtStatusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStatusKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStatusKeyTyped
@@ -566,7 +543,6 @@ public class AddDeliveryMan extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

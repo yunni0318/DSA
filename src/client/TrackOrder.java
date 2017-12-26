@@ -242,7 +242,7 @@ public class TrackOrder extends javax.swing.JFrame {
         jLabel2.setText("<html>Your order will arrive in <b>" + remainingMinute + "</b> minute(s).<html>");
         jLabel3.setText(od.getOdTime());
         jLabel4.setText(od.getAfName());
-        jLabel10.setText("RM " + od.getTotal());
+        jLabel10.setText(String.format("RM %.2f", od.getTotal()));
     }
 
     /**
