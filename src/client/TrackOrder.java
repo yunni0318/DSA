@@ -67,7 +67,7 @@ public class TrackOrder extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("<html>Your order will arrive in <b>30</b> minute(s).<html>");
+        jLabel2.setText("<html>Your order will arrive in <b>?</b> minute(s).<html>");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -240,6 +240,9 @@ public class TrackOrder extends javax.swing.JFrame {
         int remainingMinute = totalMinute - elapsedMinute;
         System.out.println(totalMinute + " " + elapsedMinute + " " + remainingMinute);
         jLabel2.setText("<html>Your order will arrive in <b>" + remainingMinute + "</b> minute(s).<html>");
+        jLabel3.setText(od.getOdTime());
+        jLabel4.setText(od.getAfName());
+        jLabel10.setText("RM " + od.getTotal());
     }
 
     /**

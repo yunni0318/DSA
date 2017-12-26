@@ -29,6 +29,7 @@ public class PendingDeliveries extends javax.swing.JFrame {
     public PendingDeliveries(String name) {
         initComponents();
         cbDeliveryMan.setSelectedItem(name);
+        Time();
         FilterList();
     }
 

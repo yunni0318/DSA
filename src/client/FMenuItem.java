@@ -35,7 +35,7 @@ public class FMenuItem extends javax.swing.JFrame {
         initComponents();
 //        initOrderDelivery();
     }
-    
+
     public FMenuItem(String userName) {
         //this.userName = userName;
         initComponents();
@@ -44,7 +44,6 @@ public class FMenuItem extends javax.swing.JFrame {
 
 //    OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
 //    OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
-    
     OrderItem order1;
     OrderItem order2;
     OrderItem order3;
@@ -296,12 +295,12 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGoBackActionPerformed
         // TODO add your handling code here:
-        if(qua1!=0 || qua2!=0 || qua3!=0 || qua4!=0 )
-        {
+        if (qua1 != 0 || qua2 != 0 || qua3 != 0 || qua4 != 0) {
             for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
-            if (oiList.getEntry(i).getOdID()==id){ 
-            oiList.remove(i);
-            }}
+                if (oiList.getEntry(i).getOdID() == id) {
+                    oiList.remove(i);
+                }
+            }
         }
         FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
@@ -359,24 +358,23 @@ public class FMenuItem extends javax.swing.JFrame {
 
     private void jbOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOrderActionPerformed
         // TODO add your handling code here:
-        String phone="";
+        String phone = "";
         boolean or = false;
         for (int i = 1; i <= cusList.getNumberOfEntries(); i++) {
-            if (cusList.getEntry(i).getCusName()==userName){ 
+            if (cusList.getEntry(i).getCusName() == userName) {
                 phone = cusList.getEntry(i).getCusPhone();
                 or = true;
 //                getOrder(phone);
             }
         }
-        if(or == true)
+        if (or == true) {
             getOrder(phone);
-        else{
-                JOptionPane.showMessageDialog(this, "Sorry, you cannot make order because you did not have an account. \nPlease Sign up or Login first.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Sorry, you cannot make order because you did not have an account. \nPlease Sign up or Login first.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    
-    
-    public void getOrder(String phone){
+
+    public void getOrder(String phone) {
         double subTotal = 0;
 
         if (order1 != null) {
@@ -397,8 +395,10 @@ public class FMenuItem extends javax.swing.JFrame {
         }
 
         GregorianCalendar cal = new GregorianCalendar();
-        int date = cal.get(GregorianCalendar.DATE);
-        String odDate = String.valueOf(date);
+        int currentDate = cal.get(GregorianCalendar.DATE);
+        int currentMonth = cal.get(GregorianCalendar.MONTH) + 1;
+        int currentYear = cal.get(GregorianCalendar.YEAR);
+        String odDate = currentDate + "/" + currentMonth + "/" + currentYear;
 
         OrderDelivery newEntry = new OrderDelivery(id, "", odDate, userName, phone, subTotal, 0, 0, "", jlResName.getText(), 0, "Pending");
         odList.add(newEntry);

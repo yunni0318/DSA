@@ -8,7 +8,6 @@ package client;
 import com.sun.glass.events.KeyEvent;
 import javax.swing.*;
 import entity.Deliveryman;
-import adt.LListAddDeliveryMan;
 import static client.MainMenu.dList;
 
 /**

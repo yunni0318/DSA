@@ -22,14 +22,14 @@ public class SummaryReport extends javax.swing.JFrame {
      */
     public SummaryReport() {
         initComponents();
-        OrderLinkedList<String> odList = getSummaryReport();
+        OrderLinkedList<Object[]> odList = getSummaryReport();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[3];
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            String[] s = odList.getEntry(i).split(" ");
-            row[0] = s[0];
-            row[1] = s[1];
-            row[2] = s[2];
+            Object[] ob=odList.getEntry(i);
+            row[0] = ob[0];
+            row[1] = ob[1];
+            row[2] = ob[2];
             model.addRow(row);
         }
     }

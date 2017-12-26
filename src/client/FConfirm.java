@@ -20,17 +20,18 @@ import java.util.GregorianCalendar;
  * @author Tea Evon
  */
 public class FConfirm extends javax.swing.JFrame {
+
     OrderLinkedList<OrderDelivery> odList = new OrderLinkedList<>();
     OrderItemLinkedList<OrderItem> oiList = new OrderItemLinkedList<>();
     int id;
-    
+
     /**
      * Creates new form ConOrder
      */
     public FConfirm() {
         initComponents();
     }
-    
+
     public FConfirm(OrderLinkedList<OrderDelivery> odList, OrderItemLinkedList<OrderItem> oiList, int id) {
         initComponents();
         clearTable();
@@ -41,49 +42,46 @@ public class FConfirm extends javax.swing.JFrame {
         showOrderItem(id);
     }
 
-    public void showOrderItem(int orderID)
-    {
-        DefaultTableModel model = (DefaultTableModel)tbOrderConfirm.getModel();
+    public void showOrderItem(int orderID) {
+        DefaultTableModel model = (DefaultTableModel) tbOrderConfirm.getModel();
         Object[] row = new Object[3];
-        
+
         for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
-            if (oiList.getEntry(i).getOdID()==orderID){   
+            if (oiList.getEntry(i).getOdID() == orderID) {
                 row[0] = oiList.getEntry(i).getItName();
                 row[1] = oiList.getEntry(i).getOiQuantity();
-                row[2] = oiList.getEntry(i).getOiPrice();     
+                row[2] = oiList.getEntry(i).getOiPrice();
                 model.addRow(row);
             }
         }
-        
+
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            if (odList.getEntry(i).getOdID()==orderID){   
+            if (odList.getEntry(i).getOdID() == orderID) {
                 odList.getEntry(i).setDeliveryFee(5.00);
-                odList.getEntry(i).setTotal(odList.getEntry(i).getSubTotal()+5.00);
-                
-                lblSubTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getSubTotal()) + "0");
-                lblDeliveryFee.setText("RM "+ String.valueOf(odList.getEntry(i).getDeliveryFee()) + "0");
-                lblTotal.setText("RM "+ String.valueOf(odList.getEntry(i).getTotal()) + "0");
+                odList.getEntry(i).setTotal(odList.getEntry(i).getSubTotal() + 5.00);
+
+                lblSubTotal.setText("RM " + String.valueOf(odList.getEntry(i).getSubTotal()) + "0");
+                lblDeliveryFee.setText("RM " + String.valueOf(odList.getEntry(i).getDeliveryFee()) + "0");
+                lblTotal.setText("RM " + String.valueOf(odList.getEntry(i).getTotal()) + "0");
             }
         }
-        
+
     }
-    
-    public void clearTable()
-    {
-        DefaultTableModel dm = (DefaultTableModel)tbOrderConfirm.getModel();
+
+    public void clearTable() {
+        DefaultTableModel dm = (DefaultTableModel) tbOrderConfirm.getModel();
         int rowCount = dm.getRowCount();
         //Remove rows one by one from the end of the table
         for (int i = rowCount - 1; i >= 0; i--) {
-        dm.removeRow(i);
+            dm.removeRow(i);
         }
     }
-    
-    public void setRes(String res)
-    {
+
+    public void setRes(String res) {
         this.jlResName.setText("Restaurant Name : " + res);
     }
-    public String getRes()
-    {
+
+    public String getRes() {
         return this.jlResName.getText();
     }
 
@@ -286,16 +284,17 @@ public class FConfirm extends javax.swing.JFrame {
     private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
         // TODO add your handling code here:
         for (int i = 1; i <= odList.getNumberOfEntries(); i++) {
-            if (odList.getEntry(i).getOdID()==id){ 
-            odList.remove(i);
+            if (odList.getEntry(i).getOdID() == id) {
+                odList.remove(i);
             }
         }
         for (int i = 1; i <= oiList.getNumberOfEntries(); i++) {
-            if (oiList.getEntry(i).getOdID()==id){ 
-            oiList.remove(i);
+            if (oiList.getEntry(i).getOdID() == id) {
+                oiList.remove(i);
+                i--;
             }
         }
-        
+
         String res = jlResName.getText();
         FRestaurant resFrame = new FRestaurant(userName);
         resFrame.setVisible(true);
@@ -304,8 +303,9 @@ public class FConfirm extends javax.swing.JFrame {
 
     private void jbConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this,"Your order is  submited. "//Now you will process to Payment."
-                , "Success", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Your order is submited. "//Now you will process to Payment."
+                ,
+                 "Success", JOptionPane.INFORMATION_MESSAGE);
         FPayment cusFrame = new FPayment(odList, id);
         cusFrame.setVisible(true);
         this.setVisible(false);

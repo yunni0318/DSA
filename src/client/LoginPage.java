@@ -12,7 +12,6 @@ import static client.MainMenu.afList;
 import static client.MainMenu.cusList;
 import static client.MainMenu.*;
 
-
 public class LoginPage extends javax.swing.JFrame {
 
     public LoginPage() {
@@ -153,7 +152,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         if (cbPosition.getSelectedIndex() == 0) {
             Customer();
-        }else if (cbPosition.getSelectedIndex() == 1) {
+        } else if (cbPosition.getSelectedIndex() == 1) {
             DeliveryMan();
         } else if (cbPosition.getSelectedIndex() == 2) {
             Affiliate();
@@ -172,22 +171,22 @@ public class LoginPage extends javax.swing.JFrame {
         for (int i = 1; i <= cusList.getNumberOfEntries(); i++) {
             if (cusList.getEntry(i).getCusName().equals(txtUserName.getText()) && cusList.getEntry(i).getCusPassword().equals(pass)) {
                 userName = cusList.getEntry(i).getCusName();
-                cus = true;}
+                cus = true;
+            }
 //                FRestaurant fra = new FRestaurant(userName);
 //                fra.setVisible(true);
 //                this.setVisible(false);            
         }
-        if(cus == true)
-        {
+        if (cus == true) {
             FRestaurant fra = new FRestaurant(userName);
-                fra.setVisible(true);
-                this.setVisible(false);
-        }else{
+            fra.setVisible(true);
+            this.setVisible(false);
+        } else {
             JOptionPane.showMessageDialog(null, "Invalid user name or password.", "Warning", JOptionPane.OK_OPTION);
         }
-          
+
     }
-    
+
     public <T> void DeliveryMan() {
         String pass = String.valueOf(txtPassword.getPassword());
         for (int i = 1; i <= dList.getNumberOfEntries(); i++) {
